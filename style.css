@@ -1,4 +1,4 @@
-@media (orientation: landscape) {
+@media only screen and (max-width:720px) {
 	body {
 		display: flex;
 		background-image: url(https://img.freepik.com/free-photo/solid-concrete-wall-textured-backdrop_53876-129493.jpg?w=996&t=st=1689840173~exp=1689840773~hmac=46f9afe1f804c7f675983f1cfb8633535db95791fc058ae52caa109a35d5e5f4);
@@ -8,6 +8,9 @@
 	}
 	
 	main {
+		display: block;
+  		margin-left: auto;
+  		margin-right: auto;
 		width: 80%;
 		height: 80%;
 		background-position: center;
@@ -16,7 +19,18 @@
 	}
 
 	#title {
+		display: block;
 		text-align: center;
+		margin-bottom: 20% auto;
+	}
+
+	#teoricoSorteado {
+		margin: 15% auto;
+	}
+
+	#descripcion{
+		text-align: center;		
+
 	}
 
 	button {
@@ -57,7 +71,8 @@
 	  }
   }
   
-  @media (orientation: landscape) {
+
+  @media only screen and (min-width:720px) {
 	body {
 		display: flex;
 		background-image: url(https://img.freepik.com/free-photo/solid-concrete-wall-textured-backdrop_53876-129493.jpg?w=996&t=st=1689840173~exp=1689840773~hmac=46f9afe1f804c7f675983f1cfb8633535db95791fc058ae52caa109a35d5e5f4);
@@ -67,6 +82,9 @@
 	}
 	
 	main {
+		display: block;
+  		margin-left: auto;
+  		margin-right: auto;
 		width: 80%;
 		height: 80%;
 		background-position: center;
@@ -76,6 +94,15 @@
 
 	#title {
 		text-align: center;
+		margin-bottom: 20% auto;
+	}
+
+	#teoricoSorteado {
+		margin: 15% auto;
+	}
+
+	#descripcion{
+		text-align: left;
 	}
 
 	button {

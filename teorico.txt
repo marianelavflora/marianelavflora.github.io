@@ -1,9 +1,8 @@
-Recuadro debajo de “Combinacion Lineal de Matrices”
+UNIDAD 2 Matrices
+
+2.7 Recuadro debajo de “Combinacion Lineal de Matrices”
 2.9 Definicion Matriz Elemental 
 2.10.1 Definicion Matriz Inversible 
-Teorema 2.10.2 (enunciado y dem) 
-Teorema 2.10.3 (demostracion)
-2.5.2 Teorema Roche Frobenius
-Definicion Producto Punto (la de la llave con el coseno, no la del triangulo
-Demostracion de la formula de PP
-Proyeccion ortogonal 
+Teorema 2.10.2 (enunciado y dem)
+
+Demuestre que el producto de Ab es inversible y (AB)^-1 = A^-1*B^-1 (Teorema 2.10.)

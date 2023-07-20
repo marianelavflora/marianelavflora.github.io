@@ -1,7 +1,5 @@
-var values = ["demostracion 2.3","demostracion 2.6","go","here"]
-const  str1 = "demostracion 2.3";
-const  str2 = "demostracion 2.6";
-const  str3 = "demostracion 3.7";
+var values = ["Demuestre que el producto de Ab es inversible y (AB)^-1 = A^-1*B^-1 (Teorema 2.10.3)","Enuncie el teorema de Roche Frobeniuis","Demuestre la derivada de una suma de f(x) y g(x)","Enuncie 3 propiedades del Producto Punto"]
+
 
 function sortear() { 
     values[Math.floor(Math.random() * values.length)];
