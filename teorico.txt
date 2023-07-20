@@ -1,0 +1,9 @@
+Recuadro debajo de “Combinacion Lineal de Matrices”
+2.9 Definicion Matriz Elemental 
+2.10.1 Definicion Matriz Inversible 
+Teorema 2.10.2 (enunciado y dem) 
+Teorema 2.10.3 (demostracion)
+2.5.2 Teorema Roche Frobenius
+Definicion Producto Punto (la de la llave con el coseno, no la del triangulo
+Demostracion de la formula de PP
+Proyeccion ortogonal 
