@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MaVi Flora — QA Engineer &amp; Developer</title>
+<meta name="description" content="Marianela Victoria Flora — QA Engineer, developer, robotics tinkerer. Portfolio, experience, projects and certifications." />
+
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- ================= RUNNING CAT (site-wide easter egg) ================= -->
+<div id="running-cat" aria-hidden="true">
+  <svg viewBox="0 0 120 70" width="90" height="52">
+    <g id="cat-body">
+      <ellipse cx="55" cy="45" rx="38" ry="18" fill="#b9b9bd"/>
+      <ellipse cx="55" cy="48" rx="30" ry="11" fill="#f4f4f4"/>
+      <circle cx="92" cy="30" r="16" fill="#b9b9bd"/>
+      <circle cx="92" cy="34" r="10" fill="#f4f4f4"/>
+      <polygon points="82,18 86,4 92,17" fill="#b9b9bd"/>
+      <polygon points="98,17 106,5 108,19" fill="#b9b9bd"/>
+      <polygon points="84,17 87,9 90,16" fill="#e8a8ab"/>
+      <polygon points="100,17 104,10 106,18" fill="#e8a8ab"/>
+      <circle cx="86" cy="30" r="2.2" fill="#1a1a1a"/>
+      <circle cx="98" cy="29" r="2.2" fill="#1a1a1a"/>
+      <path d="M92 34 q3 3 6 0" stroke="#1a1a1a" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+      <path d="M18 40 q-16 -6 -22 4" stroke="#b9b9bd" stroke-width="6" fill="none" stroke-linecap="round"/>
+      <g id="cat-legs" stroke="#b9b9bd" stroke-width="7" stroke-linecap="round">
+        <line x1="35" y1="58" x2="32" y2="70" class="leg leg1"/>
+        <line x1="50" y1="60" x2="48" y2="70" class="leg leg2"/>
+        <line x1="68" y1="60" x2="70" y2="70" class="leg leg3"/>
+        <line x1="80" y1="58" x2="84" y2="70" class="leg leg4"/>
+      </g>
+    </g>
+  </svg>
+</div>
+
+<!-- ================= HEADER ================= -->
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="#top" class="logo">MAVI<span class="dot">.</span></a>
+    <nav class="main-nav" id="main-nav">
+      <a href="#music">Music</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#life">Life</a>
+      <a href="#certifications">Certifications</a>
+      <a class="cv-btn" href="assets/cv/MaViFlora_CV.pdf" target="_blank" rel="noopener">Download CV</a>
+    </nav>
+    <button id="nav-toggle" class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ================= HERO / INTRO ================= -->
+<section id="top" class="hero">
+  <svg class="topo" viewBox="0 0 400 400" aria-hidden="true">
+    <g fill="none" stroke="#1a1a1a" stroke-width="1" opacity="0.35">
+      <path d="M-20 60 Q100 -10 220 50 T420 40"/>
+      <path d="M-30 100 Q90 40 210 95 T430 85"/>
+      <path d="M-30 140 Q100 90 230 140 T440 130"/>
+      <path d="M-30 180 Q110 130 240 178 T440 175"/>
+      <path d="M-30 220 Q120 175 250 215 T440 215"/>
+      <circle cx="60" cy="70" r="90"/>
+      <circle cx="60" cy="70" r="130"/>
+      <circle cx="60" cy="70" r="170"/>
+    </g>
+  </svg>
+
+  <div class="wrap hero-inner">
+    <div class="hero-copy">
+      <p class="hero-eyebrow">Reputation will follow your work.</p>
+      <h1 class="hero-title">
+        HEY, I'M <span class="outline">MaVi</span><br/>
+        AND I'M
+      </h1>
+      <p class="rotator-line">
+        <span id="rotator" class="rotator">SOFTWARE ENGINEER</span>
+      </p>
+      <p class="hero-sub">Software · QA Engineer · Robotics tinkerer · Building &amp; breaking things on purpose, from Córdoba, Argentina.</p>
+
+      <div class="hero-socials">
+        <a href="https://github.com/marianelavflora" target="_blank" rel="noopener" aria-label="GitHub">GitHub</a>
+        <a href="https://www.linkedin.com/in/marianela-victoria-flora/" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
+        <a href="https://x.com/mavifloraa" target="_blank" rel="noopener" aria-label="X / Twitter">X</a>
+        <a href="mailto:marianelavflora@gmail.com" aria-label="Email">Email</a>
+      </div>
+    </div>
+
+    <figure class="hero-photo">
+      <img src="assets/img/mavi-robot.jpg" alt="MaVi posing with a vintage TOMY Omnibot robot" />
+      <figcaption>Here with Gaucho from Paisanos</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ================= MUSIC PLAYER ================= -->
+<section id="music" class="section dark-section music-section">
+  <div class="wrap">
+    <p class="section-kicker">02 — while you browse</p>
+    <h2 class="section-title">May I interest you in some music?</h2>
+
+    <div class="cassette" id="cassette">
+      <div class="cassette-controls">
+        <button class="ctrl-btn" data-action="stop" aria-label="Stop">■</button>
+        <button class="ctrl-btn" data-action="prev" aria-label="Previous">◀◀</button>
+        <button class="ctrl-btn" data-action="play" aria-label="Play/Pause">▶</button>
+        <button class="ctrl-btn" data-action="next" aria-label="Next">▶▶</button>
+        <button class="ctrl-btn" data-action="mute" aria-label="Mute">🔊</button>
+      </div>
+      <div class="cassette-body">
+        <div class="cassette-window">
+          <div class="reel reel-left"><div class="reel-hub"></div></div>
+          <div class="reel reel-right"><div class="reel-hub"></div></div>
+          <div class="tape-strip"></div>
+        </div>
+        <p class="cassette-format">.mp3</p>
+        <p class="cassette-track" id="track-label">Track 1 of 6 — The Best of Both Worlds 🎸</p>
+      </div>
+      <div class="cassette-brand">
+        <span>MAVI-SONY</span>
+        <span>MAVIFLORA.DEV</span>
+      </div>
+    </div>
+    <p class="music-note">🎵 6 tracks loaded and ready to go — hit play.</p>
+
+    <audio id="audio-player" preload="none"></audio>
+  </div>
+</section>
+
+<!-- ================= PROJECTS & ACHIEVEMENTS ================= -->
+<section id="projects" class="section dark-section">
+  <div class="wrap">
+    <p class="section-kicker">03 — things I've built, won &amp; organized</p>
+    <h2 class="section-title">Projects &amp; Achievements</h2>
+    <p class="section-hint">Placeholders below — swap the photos and details for the real ones whenever you're ready 💛</p>
+
+    <div class="cards-grid">
+
+      <article class="card">
+        <div class="card-media placeholder-media">🏆<span>photo coming soon</span></div>
+        <div class="card-body">
+          <span class="tag tag-win">Hackathon · Won</span>
+          <h3>[ Hackathon Name ]</h3>
+          <p>Short description of the challenge, your role in the team, and the winning idea. Replace with the real story.</p>
+          <p class="card-meta">Month 2025 · Team of X</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-media placeholder-media">🎪<span>photo coming soon</span></div>
+        <div class="card-body">
+          <span class="tag tag-org">Hackathon · Organized</span>
+          <h3>[ Event Name ]</h3>
+          <p>What the event was about, how many people joined, and what you organized (logistics, judging, mentoring, etc.).</p>
+          <p class="card-meta">Month 2025 · Córdoba, Argentina</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-media placeholder-media">🕹️<span>photo coming soon</span></div>
+        <div class="card-body">
+          <span class="tag tag-jam">GameJam #1</span>
+          <h3>[ Game Title ]</h3>
+          <p>The theme, the tools you used, and what you were responsible for (design, code, QA, art).</p>
+          <p class="card-meta">Month 2025 · 48h jam</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-media placeholder-media">🕹️<span>photo coming soon</span></div>
+        <div class="card-body">
+          <span class="tag tag-jam">GameJam #2</span>
+          <h3>[ Game Title ]</h3>
+          <p>Same as above — swap in the real jam name, theme and a link if the game is playable somewhere.</p>
+          <p class="card-meta">Month 2025 · 48h jam</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-media placeholder-media">🎓<span>photo coming soon</span></div>
+        <div class="card-body">
+          <span class="tag tag-uni">University Project</span>
+          <h3>[ Robotic Prosthesis ]</h3>
+          <p>Community-focused assistive tech project — myoelectric sensors, actuators and controllers built with C++ at Innovación y Desarrollo UNC.</p>
+          <p class="card-meta">Feb – Jun 2025 · UNC</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-media placeholder-media">🎓<span>photo coming soon</span></div>
+        <div class="card-body">
+          <span class="tag tag-uni">University Project</span>
+          <h3>[ Add another facu project ]</h3>
+          <p>Extra slot — drop in another project from the Computer Engineering / Digital Systems program.</p>
+          <p class="card-meta">2022 – Present · UNC</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= EXPERIENCE ================= -->
+<section id="experience" class="section dark-section">
+  <div class="wrap">
+    <p class="section-kicker">04 — where I've worked</p>
+    <h2 class="section-title">Experience</h2>
+
+    <ul class="exp-list">
+      <li class="exp-row">
+        <div class="exp-logo" style="background:#1f6feb1a;color:#4c9aff;">EP</div>
+        <div class="exp-main">
+          <h3>Junior Software Testing Engineer <span class="exp-globe">🌐</span></h3>
+          <p>EPAM Systems</p>
+        </div>
+        <div class="exp-when">
+          <span>June 2025 – Present</span>
+          <span class="exp-remote">Remote</span>
+        </div>
+      </li>
+
+      <li class="exp-row">
+        <div class="exp-logo" style="background:#ff6b3d1a;color:#ff6b3d;">QA</div>
+        <div class="exp-main">
+          <h3>QA Tester <span class="exp-globe">🌐</span></h3>
+          <p>Independent — UTest, GameTester, TestIO</p>
+        </div>
+        <div class="exp-when">
+          <span>Jan 2025 – June 2025</span>
+          <span class="exp-remote">Remote</span>
+        </div>
+      </li>
+
+      <li class="exp-row">
+        <div class="exp-logo" style="background:#3ddc841a;color:#3ddc84;">ID</div>
+        <div class="exp-main">
+          <h3>Robotics Software Developer Intern <span class="exp-globe">🌐</span></h3>
+          <p>Innovación y Desarrollo UNC</p>
+        </div>
+        <div class="exp-when">
+          <span>Feb 2025 – June 2025</span>
+          <span class="exp-remote">Córdoba, AR</span>
+        </div>
+      </li>
+
+      <li class="exp-row">
+        <div class="exp-logo" style="background:#f5c5181a;color:#f5c518;">TR</div>
+        <div class="exp-main">
+          <h3>Robotics &amp; Programming Workshop Intern <span class="exp-globe">🌐</span></h3>
+          <p>Taller de Robótica y Programación UNC</p>
+        </div>
+        <div class="exp-when">
+          <span>Aug 2024 – Feb 2025</span>
+          <span class="exp-remote">Córdoba, AR</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= SOME OF MY LIFE ================= -->
+<section id="life" class="section dark-section">
+  <div class="wrap">
+    <p class="section-kicker">05 — some of my life</p>
+    <h2 class="section-title">A Little Bit of Me</h2>
+    <p class="section-hint">The non-work version of the story 💛</p>
+
+    <div class="cards-grid">
+
+      <article class="card">
+        <div class="card-media placeholder-media">🏡<span>photo coming soon</span></div>
+        <div class="card-body">
+          <span class="tag tag-uni">Roots</span>
+          <h3>Villa Ángela, Chaco</h3>
+          <p>I was born in Villa Ángela, Chaco — a little city in the middle of nowhere (kinda literally). My family still lives there and I always go back to visit.</p>
+          <p class="card-meta">Chaco, Argentina</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-media placeholder-media">🎒<span>photo coming soon</span></div>
+        <div class="card-body">
+          <span class="tag tag-org">New Chapter</span>
+          <h3>The Move to Córdoba</h3>
+          <p>In 2021 I moved to Córdoba to study Computer Engineering. Going from a small town to a big city where I knew no one, at 18, was kinda hard.</p>
+          <p class="card-meta">2021</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-media placeholder-media">👶<span>photo coming soon</span></div>
+        <div class="card-body">
+          <span class="tag tag-jam">Throwback</span>
+          <h3>Baby Engineer Era</h3>
+          <p>I wasn't born in front of a computer, but I was pretty close. Here's a photo with my brother from when I was a baby.</p>
+          <p class="card-meta">2003</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-media placeholder-media">🎉<span>photo coming soon</span></div>
+        <div class="card-body">
+          <span class="tag tag-win">Friends</span>
+          <h3>Sidequests With My People</h3>
+          <p>I love my friends and going on little sidequests with them — the best plans are usually the ones nobody planned.</p>
+          <p class="card-meta">Ongoing</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-media placeholder-media">☕<span>photo coming soon</span></div>
+        <div class="card-body">
+          <span class="tag tag-uni">Hobbies</span>
+          <h3>Sports, Gardening &amp; Coffee</h3>
+          <p>I love sports and gardening, and I'm a coffee lover — or coffee addict, most likely.</p>
+          <p class="card-meta">Every single day</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= CERTIFICATIONS ================= -->
+<section id="certifications" class="section dark-section">
+  <div class="wrap">
+    <p class="section-kicker">06 — paper trail</p>
+    <h2 class="section-title">Certifications</h2>
+
+    <div class="certs-grid">
+      <div class="cert-card">
+        <span class="cert-icon">📜</span>
+        <h3>QA Manual &amp; Automation Training</h3>
+        <p>Accenture</p>
+        <span class="cert-date">May 2025</span>
+      </div>
+
+      <div class="cert-card cert-empty">
+        <span class="cert-icon">＋</span>
+        <h3>Add certification</h3>
+        <p>Name &amp; institution</p>
+        <span class="cert-date">—</span>
+      </div>
+
+      <div class="cert-card cert-empty">
+        <span class="cert-icon">＋</span>
+        <h3>Add certification</h3>
+        <p>Name &amp; institution</p>
+        <span class="cert-date">—</span>
+      </div>
+
+      <div class="cert-card cert-empty">
+        <span class="cert-icon">＋</span>
+        <h3>Add certification</h3>
+        <p>Name &amp; institution</p>
+        <span class="cert-date">—</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="quote-box" id="quote-box">
+      <svg id="dog-runner" viewBox="0 0 100 60" width="70" height="42">
+        <g id="dog-body">
+          <ellipse cx="45" cy="35" rx="30" ry="13" fill="#ff6b3d"/>
+          <circle cx="78" cy="26" r="13" fill="#ff6b3d"/>
+          <ellipse cx="83" cy="29" rx="4.5" ry="3" fill="#2b160e"/>
+          <circle cx="83" cy="22" r="2" fill="#2b160e"/>
+          <polygon points="70,16 66,4 76,15" fill="#ff6b3d"/>
+          <path d="M16 30 q-14 8 -20 -2" stroke="#ff6b3d" stroke-width="6" fill="none" stroke-linecap="round"/>
+          <g stroke="#ff6b3d" stroke-width="6" stroke-linecap="round">
+            <line x1="28" y1="45" x2="25" y2="58" class="dogleg dogleg1"/>
+            <line x1="42" y1="47" x2="40" y2="58" class="dogleg dogleg2"/>
+            <line x1="58" y1="47" x2="60" y2="58" class="dogleg dogleg3"/>
+            <line x1="68" y1="45" x2="72" y2="58" class="dogleg dogleg4"/>
+          </g>
+        </g>
+      </svg>
+
+      <svg class="quote-emblem" viewBox="0 0 100 100" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M55 5 C40 5 40 20 40 30 C40 40 30 45 25 50 C30 55 40 60 40 70 C40 80 40 95 55 95"/>
+        <path d="M45 5 C60 5 60 20 60 30 C60 40 70 45 75 50 C70 55 60 60 60 70 C60 80 60 95 45 95"/>
+        <text x="16" y="30" font-family="Georgia, serif" font-size="20" stroke="none" fill="currentColor" text-anchor="middle">&ldquo;</text>
+        <text x="84" y="82" font-family="Georgia, serif" font-size="20" stroke="none" fill="currentColor" text-anchor="middle">&bdquo;</text>
+      </svg>
+      <p class="quote-text">Life's a climb,<br/>but the view is great.</p>
+      <span class="quote-attr">— MaVi Flora</span>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© <span id="year"></span> Marianela Victoria Flora. Built with way too much coffee.</p>
+      <div class="footer-socials">
+        <a href="https://github.com/marianelavflora" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/marianela-victoria-flora/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://x.com/mavifloraa" target="_blank" rel="noopener">X</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
