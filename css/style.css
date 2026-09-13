@@ -232,6 +232,7 @@ a{color:inherit;text-decoration:none;}
   height:150px;
   background:linear-gradient(135deg,#201d1a,#141210);
 }
+.card-media img{width:100%;height:100%;object-fit:cover;}
 .placeholder-media{
   display:flex;flex-direction:column;align-items:center;justify-content:center;
   gap:6px;font-size:2rem;color:var(--muted);
@@ -241,6 +242,12 @@ a{color:inherit;text-decoration:none;}
 .card-body h3{margin:10px 0 8px;font-size:1.2rem;}
 .card-body p{color:#c8c4b8;font-size:0.92rem;line-height:1.5;margin:0 0 10px;}
 .card-meta{color:var(--muted)!important;font-size:0.8rem!important;}
+.card-links{display:flex;flex-wrap:wrap;gap:12px;margin-top:10px;}
+.card-links a{
+  font-size:0.8rem;font-weight:700;color:var(--accent-2);
+  border-bottom:1px solid transparent;transition:border-color .2s;
+}
+.card-links a:hover{border-color:var(--accent-2);}
 .tag{
   display:inline-block;font-size:0.72rem;font-weight:700;letter-spacing:0.5px;
   text-transform:uppercase;padding:5px 10px;border-radius:999px;
