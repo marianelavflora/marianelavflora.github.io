@@ -260,6 +260,10 @@ a{color:inherit;text-decoration:none;}
 .tag-org{background:rgba(76,154,255,0.15);color:#4c9aff;}
 .tag-jam{background:rgba(61,220,132,0.15);color:#3ddc84;}
 .tag-uni{background:rgba(245,197,24,0.15);color:#f5c518;}
+.tag-robot{background:rgba(186,120,255,0.15);color:#ba78ff;}
+.tag-wip{background:rgba(0,200,200,0.15);color:#22cfcf;}
+.tag-soon{background:rgba(200,196,184,0.12);color:#c8c4b8;}
+.tag-row{display:flex;flex-wrap:wrap;gap:6px;}
 
 /* ============ EXPERIENCE ============ */
 .exp-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--dark-border);}
