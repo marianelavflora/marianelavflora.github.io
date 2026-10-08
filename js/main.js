@@ -10,7 +10,11 @@ mainNav?.querySelectorAll('a').forEach(a =>
 );
 
 // ============ ROTATING TITLE ============
-const words = ['SOFTWARE ENGINEER', 'QA ENGINEER', 'BUILDER', 'STILL LEARNING'];
+const rotatorWords = {
+  en: ['SOFTWARE ENGINEER', 'QA ENGINEER', 'BUILDER', 'STILL LEARNING'],
+  es: ['INGENIERA DE SOFTWARE', 'INGENIERA QA', 'CREADORA', 'SIEMPRE APRENDIENDO'],
+};
+const currentLang = () => (document.documentElement.lang === 'es' ? 'es' : 'en');
 const rotatorEl = document.getElementById('rotator');
 let wordIndex = 0;
 
@@ -18,12 +22,16 @@ function rotateWord() {
   if (!rotatorEl) return;
   rotatorEl.classList.add('fade');
   setTimeout(() => {
+    const words = rotatorWords[currentLang()];
     wordIndex = (wordIndex + 1) % words.length;
     rotatorEl.textContent = words[wordIndex];
     rotatorEl.classList.remove('fade');
   }, 250);
 }
 setInterval(rotateWord, 2000);
+document.addEventListener('langchange', () => {
+  if (rotatorEl) rotatorEl.textContent = rotatorWords[currentLang()][wordIndex];
+});
 
 // ============ RUNNING CAT ============
 const cat = document.getElementById('running-cat');
@@ -42,13 +50,18 @@ setInterval(() => launchCat(), 18000 + Math.random() * 12000);
 // player actually play something. Until then it's a fully working UI
 // (play/pause/next/prev/mute + spinning reels) with silent placeholders.
 const playlist = [
-  { title: 'Track 1 of 6 — The Best of Both Worlds 🎸', src: 'music/track1.mp3' },
-  { title: 'Track 2 of 6 — Hung Up 💫', src: 'music/track2.mp3' },
-  { title: 'Track 3 of 6 — Mamma Mia 🕺', src: 'music/track3.mp3' },
-  { title: 'Track 4 of 6 — Look What You Made Me Do 🐍', src: 'music/track4.mp3' },
-  { title: 'Track 5 of 6 — Amor Salvaje 🤠', src: 'music/track5.mp3' },
-  { title: 'Track 6 of 6 — Manchild 🎀', src: 'music/track6.mp3' },
+  { title: 'The Best of Both Worlds 🎸', src: 'music/track1.mp3' },
+  { title: 'Hung Up 💫', src: 'music/track2.mp3' },
+  { title: 'Mamma Mia 🕺', src: 'music/track3.mp3' },
+  { title: 'Look What You Made Me Do 🐍', src: 'music/track4.mp3' },
+  { title: 'Amor Salvaje 🤠', src: 'music/track5.mp3' },
+  { title: 'Manchild 🎀', src: 'music/track6.mp3' },
 ];
+
+function trackLabelText(i) {
+  const [track, of] = currentLang() === 'es' ? ['Tema', 'de'] : ['Track', 'of'];
+  return `${track} ${i + 1} ${of} ${playlist.length} — ${playlist[i].title}`;
+}
 
 const audio = document.getElementById('audio-player');
 const trackLabel = document.getElementById('track-label');
@@ -62,8 +75,11 @@ function loadTrack(i) {
   trackIndex = (i + playlist.length) % playlist.length;
   const track = playlist[trackIndex];
   audio.src = track.src;
-  trackLabel.textContent = track.title;
+  trackLabel.textContent = trackLabelText(trackIndex);
 }
+document.addEventListener('langchange', () => {
+  if (trackLabel) trackLabel.textContent = trackLabelText(trackIndex);
+});
 
 function setSpinning(spin) {
   reels.forEach(r => r.classList.toggle('spin', spin));
@@ -128,3 +144,22 @@ loadTrack(0);
 // ============ FOOTER YEAR ============
 const yearEl = document.getElementById('year');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+// ============ FLIP CARDS ============
+document.querySelectorAll('.flip-card').forEach(card => {
+  const flip = () => {
+    const flipped = card.classList.toggle('flipped');
+    card.setAttribute('aria-pressed', String(flipped));
+  };
+  card.addEventListener('click', e => {
+    if (e.target.closest('a')) return; // let links work without flipping
+    flip();
+  });
+  card.addEventListener('keydown', e => {
+    if (e.target !== card) return;
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      flip();
+    }
+  });
+});

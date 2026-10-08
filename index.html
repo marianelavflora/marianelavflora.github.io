@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=12" />
+<link rel="stylesheet" href="css/style.css?v=13" />
 </head>
 <body>
 
@@ -45,17 +45,23 @@
   <div class="wrap header-inner">
     <a href="#top" class="logo">MAVI<span class="dot">.</span></a>
     <nav class="main-nav" id="main-nav">
-      <a href="#music"><span class="nav-num">02</span> Music</a>
-      <a href="#projects"><span class="nav-num">03</span> Projects</a>
-      <a href="#work"><span class="nav-num">04</span> Work</a>
-      <a href="#experience"><span class="nav-num">05</span> Experience</a>
-      <a href="#life"><span class="nav-num">06</span> Life</a>
-      <a href="#certifications"><span class="nav-num">07</span> Certifications</a>
-      <a class="cv-btn" href="assets/cv/MaViFlora_CV.pdf" data-cv-trigger>View CV</a>
+      <a href="#music"><span class="nav-num">02</span> <span data-i18n="nav.music">Music</span></a>
+      <a href="#projects"><span class="nav-num">03</span> <span data-i18n="nav.projects">Projects</span></a>
+      <a href="#work"><span class="nav-num">04</span> <span data-i18n="nav.work">Work</span></a>
+      <a href="#experience"><span class="nav-num">05</span> <span data-i18n="nav.experience">Experience</span></a>
+      <a href="#life"><span class="nav-num">06</span> <span data-i18n="nav.life">Life</span></a>
+      <a href="#certifications"><span class="nav-num">07</span> <span data-i18n="nav.certs">Certifications</span></a>
+      <a class="cv-btn" href="assets/cv/MaViFlora_CV.pdf" data-cv-trigger data-i18n="nav.cv">View CV</a>
     </nav>
-    <button id="nav-toggle" class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+    <div class="header-actions">
+      <div class="lang-toggle" role="group" aria-label="Language / Idioma">
+        <button type="button" data-lang="en" aria-pressed="true">EN</button>
+        <button type="button" data-lang="es" aria-pressed="false">ES</button>
+      </div>
+      <button id="nav-toggle" class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
 </header>
 
@@ -76,15 +82,15 @@
 
   <div class="wrap hero-inner">
     <div class="hero-copy">
-      <p class="hero-eyebrow">Reputation will follow your work.</p>
-      <h1 class="hero-title">
+      <p class="hero-eyebrow" data-i18n="hero.eyebrow">Reputation will follow your work.</p>
+      <h1 class="hero-title" data-i18n="hero.title">
         HEY, I'M <span class="outline">MaVi</span><br/>
         AND I'M
       </h1>
       <p class="rotator-line">
         <span id="rotator" class="rotator">SOFTWARE ENGINEER</span>
       </p>
-      <p class="hero-sub">Software · QA Engineer · Robotics tinkerer · Building &amp; breaking things on purpose, from Córdoba, Argentina.</p>
+      <p class="hero-sub" data-i18n="hero.sub">Software · QA Engineer · Robotics tinkerer · Building &amp; breaking things on purpose, from Córdoba, Argentina.</p>
 
       <div class="hero-socials">
         <a href="https://github.com/marianelavflora" target="_blank" rel="noopener" aria-label="GitHub">
@@ -99,13 +105,13 @@
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.24 2.25h3.03l-6.62 7.56 7.79 10.94h-6.1l-4.78-6.5-5.47 6.5H2.06l7.08-8.09L1.66 2.25h6.25l4.32 5.94 5.99-5.94Zm-1.06 16.6h1.68L7.9 4.05H6.1l11.08 14.8Z"/></svg>
           <span>X</span>
         </a>
-        <a class="cv-btn hero-cv-btn" href="assets/cv/MaViFlora_CV.pdf" data-cv-trigger>View CV</a>
+        <a class="cv-btn hero-cv-btn" href="assets/cv/MaViFlora_CV.pdf" data-cv-trigger data-i18n="nav.cv">View CV</a>
       </div>
     </div>
 
     <figure class="hero-photo">
       <img src="assets/img/mavi-robot.jpg" alt="MaVi posing with a vintage TOMY Omnibot robot" />
-      <figcaption>Here with Gaucho from Paisanos</figcaption>
+      <figcaption data-i18n="hero.caption">Here with Gaucho from Paisanos</figcaption>
     </figure>
   </div>
 </section>
@@ -113,8 +119,8 @@
 <!-- ================= MUSIC PLAYER ================= -->
 <section id="music" class="section dark-section music-section">
   <div class="wrap">
-    <p class="section-kicker">02 — while you browse</p>
-    <h2 class="section-title">May I interest you in some music?</h2>
+    <p class="section-kicker" data-i18n="music.kicker">02 — while you browse</p>
+    <h2 class="section-title" data-i18n="music.title">May I interest you in some music?</h2>
 
     <div class="cassette" id="cassette">
       <div class="cassette-controls">
@@ -138,7 +144,7 @@
         <span>MAVIFLORA.DEV</span>
       </div>
     </div>
-    <p class="music-note">🎵 6 tracks loaded and ready to go — hit play.</p>
+    <p class="music-note" data-i18n="music.note">🎵 6 tracks loaded and ready to go — hit play.</p>
 
     <audio id="audio-player" preload="none"></audio>
   </div>
@@ -147,133 +153,244 @@
 <!-- ================= PROJECTS & ACHIEVEMENTS ================= -->
 <section id="projects" class="section dark-section">
   <div class="wrap">
-    <p class="section-kicker">03 — things I've built, won &amp; organized</p>
-    <h2 class="section-title">Projects &amp; Achievements</h2>
-    <p class="section-hint">Hackathons, gamejams and a bit of facu 💛</p>
+    <p class="section-kicker" data-i18n="projects.kicker">03 — things I've built, won &amp; organized</p>
+    <h2 class="section-title" data-i18n="projects.title">Projects &amp; Achievements</h2>
+    <p class="section-hint" data-i18n="projects.hint">Hackathons, gamejams and a bit of facu 💛</p>
+    <p class="flip-hint" data-i18n="projects.flipHint">↻ Click any card to flip it: the event is on the front, what we built is on the back.</p>
 
     <div class="cards-grid">
 
-      <article class="card">
-        <div class="card-media placeholder-media">🤖<span>photo coming soon</span></div>
-        <div class="card-body">
-          <div class="tag-row">
-            <span class="tag tag-robot">Robot</span>
-            <span class="tag tag-wip">WIP</span>
+      <article class="flip-card" tabindex="0" aria-pressed="false">
+        <div class="flip-inner">
+          <div class="card card-front">
+            <div class="card-media placeholder-media">🤖<span data-i18n="common.photoSoon">photo coming soon</span></div>
+            <div class="card-body">
+              <div class="tag-row">
+                <span class="tag tag-robot">Robot</span>
+                <span class="tag tag-wip">WIP</span>
+              </div>
+              <h3>robotElCono</h3>
+              <p data-i18n="elcono.front">A robot I'm building for the office at work.</p>
+              <p class="card-meta" data-i18n="elcono.meta">ESP32 · Work in progress</p>
+            </div>
           </div>
-          <h3>robotElCono</h3>
-          <p>A robot I'm building with an ESP32, based on Dou. Its job: live at the office and tell jokes to my coworkers.</p>
-          <p class="card-meta">ESP32 · Work in progress</p>
-        </div>
-      </article>
-
-      <article class="card">
-        <div class="card-media placeholder-media">🚀<span>photo coming soon</span></div>
-        <div class="card-body">
-          <span class="tag tag-soon">Hackathon · Coming Soon</span>
-          <h3>NASA Space Apps Challenge</h3>
-          <p>Taking part in the NASA Space Apps hackathon. More soon!</p>
-          <p class="card-meta">Coming soon</p>
-        </div>
-      </article>
-
-      <article class="card">
-        <div class="card-media placeholder-media">🛤️<span>photo coming soon</span></div>
-        <div class="card-body">
-          <span class="tag tag-wip">Hackathon · WIP</span>
-          <h3>AgentsOnRails Hackathon</h3>
-          <p>Currently participating in the AgentsOnRails hackathon. Stay tuned!</p>
-          <p class="card-meta">Work in progress</p>
-        </div>
-      </article>
-
-      <article class="card">
-        <div class="card-media placeholder-media">🏆<span>photo coming soon</span></div>
-        <div class="card-body">
-          <span class="tag tag-win">Hackathon · 1st Place</span>
-          <h3>Santex x Bugster Hackathon</h3>
-          <p>My first hackathon! Instead of coding, I mostly shared mate with my colleagues and pitched our product to the crowd — an AI chatbot + web MCP that simulated managing Santex's logistics.</p>
-          <p class="card-meta">1st Place</p>
-        </div>
-      </article>
-
-      <article class="card">
-        <div class="card-media"><img src="assets/img/projects/che-voz.jpg" alt="Che Voz hackathon presentation" /></div>
-        <div class="card-body">
-          <span class="tag tag-win">Hackathon · 3rd Place</span>
-          <h3>Che Voz</h3>
-          <p>Participated as a frontend dev. Che Voz is a voice assistant that detects your customer's location and activates an agent that speaks in their regional dialect.</p>
-          <p class="card-meta">3rd Place</p>
-          <div class="card-links">
-            <a href="https://che-voz.lat/en" target="_blank" rel="noopener">che-voz.lat ↗</a>
-            <a href="https://www.linkedin.com/feed/update/urn:li:activity:7413955133585223681/" target="_blank" rel="noopener">LinkedIn ↗</a>
+          <div class="card card-back">
+            <div class="card-body">
+              <span class="tag tag-product" data-i18n="common.product">The product</span>
+              <h3>robotElCono</h3>
+              <p data-i18n="elcono.back">A robot I'm building with an ESP32, based on Dou. Its job: live at the office and tell jokes to my coworkers.</p>
+            </div>
           </div>
         </div>
       </article>
 
-      <article class="card">
-        <div class="card-media"><img src="assets/img/projects/vibe-a-startup.jpg" alt="Vibe a Startup hackathon group photo" /></div>
-        <div class="card-body">
-          <span class="tag tag-uni">Hackathon · Participant</span>
-          <h3>Vibe a Startup</h3>
-          <p>What I liked most about this one was the butterfly effect it caused in my life — I met really cool people and ended up invited to mentor and help organize the Córdoba chapter of Aleph Hackathon.</p>
-          <p class="card-meta">Buenos Aires</p>
-          <div class="card-links">
-            <a href="https://x.com/vibeastartup/status/1949267026825863217" target="_blank" rel="noopener">Post ↗</a>
+      <article class="flip-card" tabindex="0" aria-pressed="false">
+        <div class="flip-inner">
+          <div class="card card-front">
+            <div class="card-media placeholder-media">🚀<span data-i18n="common.photoSoon">photo coming soon</span></div>
+            <div class="card-body">
+              <span class="tag tag-soon" data-i18n="nasa.tag">Hackathon · Coming Soon</span>
+              <h3>NASA Space Apps Challenge</h3>
+              <p data-i18n="nasa.front">Taking part in the NASA Space Apps hackathon. More soon!</p>
+              <p class="card-meta" data-i18n="common.comingSoon">Coming soon</p>
+            </div>
+          </div>
+          <div class="card card-back">
+            <div class="card-body">
+              <span class="tag tag-product" data-i18n="common.product">The product</span>
+              <h3>NASA Space Apps Challenge</h3>
+              <p data-i18n="common.productSoon">What we build will show up here soon 🚧</p>
+            </div>
           </div>
         </div>
       </article>
 
-      <article class="card">
-        <div class="card-media"><img src="assets/img/projects/aleph-hackathon.jpg" alt="Aleph Hackathon Córdoba Chapter group photo" /></div>
-        <div class="card-body">
-          <span class="tag tag-org">Hackathon · Organizer &amp; Mentor</span>
-          <h3>Aleph Hackathon — Córdoba Chapter</h3>
-          <p>Helped organize and mentored teams for the Córdoba chapter of Aleph Hackathon.</p>
-          <p class="card-meta">Córdoba, Argentina</p>
-          <div class="card-links">
-            <a href="https://www.linkedin.com/feed/update/urn:li:activity:7367755528992747521/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <article class="flip-card" tabindex="0" aria-pressed="false">
+        <div class="flip-inner">
+          <div class="card card-front">
+            <div class="card-media placeholder-media">🛤️<span data-i18n="common.photoSoon">photo coming soon</span></div>
+            <div class="card-body">
+              <span class="tag tag-wip" data-i18n="aor.tag">Hackathon · WIP</span>
+              <h3>AgentsOnRails Hackathon</h3>
+              <p data-i18n="aor.front">Currently participating in the AgentsOnRails hackathon. Stay tuned!</p>
+              <p class="card-meta" data-i18n="common.wip">Work in progress</p>
+            </div>
+          </div>
+          <div class="card card-back">
+            <div class="card-body">
+              <span class="tag tag-product" data-i18n="common.product">The product</span>
+              <h3>AgentsOnRails Hackathon</h3>
+              <p data-i18n="common.productSoon">What we build will show up here soon 🚧</p>
+            </div>
           </div>
         </div>
       </article>
 
-      <article class="card">
-        <div class="card-media"><img src="assets/img/projects/damian-quest.png" alt="Damian Quest game cover" /></div>
-        <div class="card-body">
-          <span class="tag tag-jam">GameJam #1</span>
-          <h3>Damian Quest</h3>
-          <p>Participated as a game dev using Godot. Built with my EPAM coworkers for the Córdoba GameJam.</p>
-          <p class="card-meta">Córdoba GameJam</p>
-          <div class="card-links">
-            <a href="https://marianelavflora.itch.io/damian-quest" target="_blank" rel="noopener">itch.io ↗</a>
-            <a href="https://github.com/marianelavflora/cordoba-game-jam-2026" target="_blank" rel="noopener">GitHub ↗</a>
+      <article class="flip-card" tabindex="0" aria-pressed="false">
+        <div class="flip-inner">
+          <div class="card card-front">
+            <div class="card-media placeholder-media">🏆<span data-i18n="common.photoSoon">photo coming soon</span></div>
+            <div class="card-body">
+              <span class="tag tag-win" data-i18n="santex.tag">Hackathon · 1st Place</span>
+              <h3>Santex x Bugster Hackathon</h3>
+              <p data-i18n="santex.front">My first hackathon! Instead of coding, I mostly shared mate with my colleagues and pitched our product to the crowd.</p>
+              <p class="card-meta" data-i18n="common.first">1st Place</p>
+            </div>
+          </div>
+          <div class="card card-back">
+            <div class="card-body">
+              <span class="tag tag-product" data-i18n="common.product">The product</span>
+              <h3 data-i18n="santex.backTitle">AI logistics chatbot</h3>
+              <p data-i18n="santex.back">An AI chatbot + web MCP that simulated managing Santex's logistics.</p>
+            </div>
           </div>
         </div>
       </article>
 
-      <article class="card">
-        <div class="card-media"><img src="assets/img/projects/chubby-ninjas.png" alt="Chubby Ninjas game cover" /></div>
-        <div class="card-body">
-          <span class="tag tag-jam">GameJam #2</span>
-          <h3>Chubby Ninjas</h3>
-          <p>Helped develop initial features in Godot for this game — full credit to my teammates Joaquín Giménez and Agustín Godoy.</p>
-          <p class="card-meta">Samda Game Jam</p>
-          <div class="card-links">
-            <a href="https://fernecito64.itch.io/chubby-ninjas" target="_blank" rel="noopener">itch.io ↗</a>
-            <a href="https://github.com/JoaquinGimenez-112733/BoomerangJam.git" target="_blank" rel="noopener">GitHub ↗</a>
-            <a href="https://www.youtube.com/watch?v=2I_wiTIgnFo" target="_blank" rel="noopener">YouTube ↗</a>
+      <article class="flip-card" tabindex="0" aria-pressed="false">
+        <div class="flip-inner">
+          <div class="card card-front">
+            <div class="card-media"><img src="assets/img/projects/che-voz.jpg" alt="Che Voz hackathon presentation" /></div>
+            <div class="card-body">
+              <span class="tag tag-win" data-i18n="chevoz.tag">Hackathon · 3rd Place</span>
+              <h3>Che Voz</h3>
+              <p data-i18n="chevoz.front">Participated as a frontend dev and our team took 3rd place.</p>
+              <p class="card-meta" data-i18n="common.third">3rd Place</p>
+            </div>
+          </div>
+          <div class="card card-back">
+            <div class="card-body">
+              <span class="tag tag-product" data-i18n="common.product">The product</span>
+              <h3>Che Voz</h3>
+              <p data-i18n="chevoz.back">A voice assistant that detects your customer's location and activates an agent that speaks in their regional dialect.</p>
+              <div class="card-links">
+                <a href="https://che-voz.lat/en" target="_blank" rel="noopener">che-voz.lat ↗</a>
+                <a href="https://www.linkedin.com/feed/update/urn:li:activity:7413955133585223681/" target="_blank" rel="noopener">LinkedIn ↗</a>
+              </div>
+            </div>
           </div>
         </div>
       </article>
 
-      <article class="card">
-        <div class="card-media"><img src="assets/img/projects/dou-hackware.jpg" alt="Team with the Dou robot at Paisanos Hackware" /></div>
-        <div class="card-body">
-          <span class="tag tag-win">Hackathon · Community Award</span>
-          <h3>Dou</h3>
-          <p>Designed and implemented the features and electronics for Dou, an anti-Tamagotchi, at Paisanos Hackware.</p>
-          <p class="card-meta">Community Award</p>
-          <div class="card-links">
-            <a href="https://www.linkedin.com/feed/update/urn:li:activity:7502774141113053184/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <article class="flip-card" tabindex="0" aria-pressed="false">
+        <div class="flip-inner">
+          <div class="card card-front">
+            <div class="card-media"><img src="assets/img/projects/vibe-a-startup.jpg" alt="Vibe a Startup hackathon group photo" /></div>
+            <div class="card-body">
+              <span class="tag tag-uni" data-i18n="vibe.tag">Hackathon · Participant</span>
+              <h3>Vibe a Startup</h3>
+              <p data-i18n="vibe.front">Participated in the Vibe a Startup hackathon in Buenos Aires.</p>
+              <p class="card-meta">Buenos Aires</p>
+            </div>
+          </div>
+          <div class="card card-back">
+            <div class="card-body">
+              <span class="tag tag-product" data-i18n="common.outcome">What came out of it</span>
+              <h3>Vibe a Startup</h3>
+              <p data-i18n="vibe.back">What I liked most about this one was the butterfly effect it caused in my life — I met really cool people and ended up invited to mentor and help organize the Córdoba chapter of Aleph Hackathon.</p>
+              <div class="card-links">
+                <a href="https://x.com/vibeastartup/status/1949267026825863217" target="_blank" rel="noopener">Post ↗</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="flip-card" tabindex="0" aria-pressed="false">
+        <div class="flip-inner">
+          <div class="card card-front">
+            <div class="card-media"><img src="assets/img/projects/aleph-hackathon.jpg" alt="Aleph Hackathon Córdoba Chapter group photo" /></div>
+            <div class="card-body">
+              <span class="tag tag-org" data-i18n="aleph.tag">Hackathon · Organizer &amp; Mentor</span>
+              <h3>Aleph Hackathon — Córdoba Chapter</h3>
+              <p data-i18n="aleph.front">Organizer &amp; mentor at the Córdoba chapter of Aleph Hackathon.</p>
+              <p class="card-meta">Córdoba, Argentina</p>
+            </div>
+          </div>
+          <div class="card card-back">
+            <div class="card-body">
+              <span class="tag tag-product" data-i18n="common.role">My role</span>
+              <h3>Aleph Hackathon — Córdoba Chapter</h3>
+              <p data-i18n="aleph.back">Helped organize and mentored teams for the Córdoba chapter of Aleph Hackathon.</p>
+              <div class="card-links">
+                <a href="https://www.linkedin.com/feed/update/urn:li:activity:7367755528992747521/" target="_blank" rel="noopener">LinkedIn ↗</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="flip-card" tabindex="0" aria-pressed="false">
+        <div class="flip-inner">
+          <div class="card card-front">
+            <div class="card-media"><img src="assets/img/projects/damian-quest.png" alt="Damian Quest game cover" /></div>
+            <div class="card-body">
+              <span class="tag tag-jam">GameJam #1</span>
+              <h3>Córdoba GameJam</h3>
+              <p data-i18n="damian.front">Joined the Córdoba GameJam with my EPAM coworkers.</p>
+              <p class="card-meta">Córdoba GameJam</p>
+            </div>
+          </div>
+          <div class="card card-back">
+            <div class="card-body">
+              <span class="tag tag-product" data-i18n="common.product">The product</span>
+              <h3>Damian Quest</h3>
+              <p data-i18n="damian.back">A game built in Godot, where I participated as a game dev.</p>
+              <div class="card-links">
+                <a href="https://marianelavflora.itch.io/damian-quest" target="_blank" rel="noopener">itch.io ↗</a>
+                <a href="https://github.com/marianelavflora/cordoba-game-jam-2026" target="_blank" rel="noopener">GitHub ↗</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="flip-card" tabindex="0" aria-pressed="false">
+        <div class="flip-inner">
+          <div class="card card-front">
+            <div class="card-media"><img src="assets/img/projects/chubby-ninjas.png" alt="Chubby Ninjas game cover" /></div>
+            <div class="card-body">
+              <span class="tag tag-jam">GameJam #2</span>
+              <h3>Samda Game Jam</h3>
+              <p data-i18n="chubby.front">My second gamejam, building alongside my teammates Joaquín Giménez and Agustín Godoy.</p>
+              <p class="card-meta">Samda Game Jam</p>
+            </div>
+          </div>
+          <div class="card card-back">
+            <div class="card-body">
+              <span class="tag tag-product" data-i18n="common.product">The product</span>
+              <h3>Chubby Ninjas</h3>
+              <p data-i18n="chubby.back">Helped develop initial features in Godot for this game — full credit to my teammates Joaquín Giménez and Agustín Godoy.</p>
+              <div class="card-links">
+                <a href="https://fernecito64.itch.io/chubby-ninjas" target="_blank" rel="noopener">itch.io ↗</a>
+                <a href="https://github.com/JoaquinGimenez-112733/BoomerangJam.git" target="_blank" rel="noopener">GitHub ↗</a>
+                <a href="https://www.youtube.com/watch?v=2I_wiTIgnFo" target="_blank" rel="noopener">YouTube ↗</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="flip-card" tabindex="0" aria-pressed="false">
+        <div class="flip-inner">
+          <div class="card card-front">
+            <div class="card-media"><img src="assets/img/projects/dou-hackware.jpg" alt="Team with the Dou robot at Paisanos Hackware" /></div>
+            <div class="card-body">
+              <span class="tag tag-win" data-i18n="dou.tag">Hackathon · Community Award</span>
+              <h3>Paisanos Hackware</h3>
+              <p data-i18n="dou.front">Participated in Paisanos Hackware, where Dou won the Community Award.</p>
+              <p class="card-meta" data-i18n="dou.meta">Community Award</p>
+            </div>
+          </div>
+          <div class="card card-back">
+            <div class="card-body">
+              <span class="tag tag-product" data-i18n="common.product">The product</span>
+              <h3>Dou</h3>
+              <p data-i18n="dou.back">An anti-Tamagotchi. I designed and implemented its features and electronics.</p>
+              <div class="card-links">
+                <a href="https://www.linkedin.com/feed/update/urn:li:activity:7502774141113053184/" target="_blank" rel="noopener">LinkedIn ↗</a>
+              </div>
+            </div>
           </div>
         </div>
       </article>
@@ -285,38 +402,38 @@
 <!-- ================= SOME OF MY WORK ================= -->
 <section id="work" class="section dark-section">
   <div class="wrap">
-    <p class="section-kicker">04 — some of my work</p>
-    <h2 class="section-title">Some of My Work</h2>
-    <p class="section-hint">A peek at what I actually do day to day — swap in real screenshots whenever you're ready 💛</p>
+    <p class="section-kicker" data-i18n="work.kicker">04 — some of my work</p>
+    <h2 class="section-title" data-i18n="work.title">Some of My Work</h2>
+    <p class="section-hint" data-i18n="work.hint">A peek at what I actually do day to day — swap in real screenshots whenever you're ready 💛</p>
 
     <div class="cards-grid">
 
       <article class="card">
-        <div class="card-media placeholder-media">🐞<span>photo coming soon</span></div>
+        <div class="card-media placeholder-media">🐞<span data-i18n="common.photoSoon">photo coming soon</span></div>
         <div class="card-body">
-          <span class="tag tag-uni">Work Sample</span>
+          <span class="tag tag-uni" data-i18n="work.tag">Work Sample</span>
           <h3>[ Bug Report / Test Case ]</h3>
-          <p>Short description of a testing artifact, dashboard, or workflow you're proud of.</p>
+          <p data-i18n="work.bug">Short description of a testing artifact, dashboard, or workflow you're proud of.</p>
           <p class="card-meta">EPAM · 2025</p>
         </div>
       </article>
 
       <article class="card">
-        <div class="card-media placeholder-media">🤖<span>photo coming soon</span></div>
+        <div class="card-media placeholder-media">🤖<span data-i18n="common.photoSoon">photo coming soon</span></div>
         <div class="card-body">
-          <span class="tag tag-uni">Work Sample</span>
+          <span class="tag tag-uni" data-i18n="work.tag">Work Sample</span>
           <h3>[ Robotics Build ]</h3>
-          <p>A photo or clip from a hardware/software build you shipped.</p>
+          <p data-i18n="work.robot">A photo or clip from a hardware/software build you shipped.</p>
           <p class="card-meta">2025</p>
         </div>
       </article>
 
       <article class="card">
-        <div class="card-media placeholder-media">💻<span>photo coming soon</span></div>
+        <div class="card-media placeholder-media">💻<span data-i18n="common.photoSoon">photo coming soon</span></div>
         <div class="card-body">
-          <span class="tag tag-uni">Work Sample</span>
-          <h3>[ Add another sample ]</h3>
-          <p>Extra slot for anything else worth showing off — code, docs, a demo link.</p>
+          <span class="tag tag-uni" data-i18n="work.tag">Work Sample</span>
+          <h3 data-i18n="work.anotherTitle">[ Add another sample ]</h3>
+          <p data-i18n="work.another">Extra slot for anything else worth showing off — code, docs, a demo link.</p>
           <p class="card-meta">2025</p>
         </div>
       </article>
@@ -328,30 +445,30 @@
 <!-- ================= EXPERIENCE ================= -->
 <section id="experience" class="section dark-section">
   <div class="wrap">
-    <p class="section-kicker">05 — where I've worked</p>
-    <h2 class="section-title">Experience</h2>
+    <p class="section-kicker" data-i18n="exp.kicker">05 — where I've worked</p>
+    <h2 class="section-title" data-i18n="exp.title">Experience</h2>
 
     <ul class="exp-list">
       <li class="exp-row">
         <div class="exp-logo"><img src="assets/img/logos/epam.jpg" alt="EPAM Systems" /></div>
         <div class="exp-main">
-          <h3>Junior Software Testing Engineer <span class="exp-globe">🌐</span></h3>
+          <h3><span data-i18n="exp.t1">Junior Software Testing Engineer</span> <span class="exp-globe">🌐</span></h3>
           <p>EPAM Systems</p>
         </div>
         <div class="exp-when">
-          <span>June 2025 – Present</span>
-          <span class="exp-remote">Remote</span>
+          <span data-i18n="exp.d1">June 2025 – Present</span>
+          <span class="exp-remote" data-i18n="exp.remote">Remote</span>
         </div>
       </li>
 
       <li class="exp-row">
         <div class="exp-logo"><img src="assets/img/logos/utest.png" alt="UTest" /></div>
         <div class="exp-main">
-          <h3>QA Tester <span class="exp-globe">🌐</span></h3>
-          <p>Independent — UTest, GameTester, TestIO</p>
+          <h3><span data-i18n="exp.t2">QA Tester</span> <span class="exp-globe">🌐</span></h3>
+          <p data-i18n="exp.indep">Independent — UTest, GameTester, TestIO</p>
         </div>
         <div class="exp-when">
-          <span>Jan 2025 – June 2025</span>
+          <span data-i18n="exp.d2">Jan 2025 – June 2025</span>
           <span class="exp-remote">Córdoba, AR</span>
         </div>
       </li>
@@ -359,11 +476,11 @@
       <li class="exp-row">
         <div class="exp-logo"><img src="assets/img/logos/unc.jpg" alt="Universidad Nacional de Córdoba" /></div>
         <div class="exp-main">
-          <h3>Robotics Software Developer Intern <span class="exp-globe">🌐</span></h3>
+          <h3><span data-i18n="exp.t3">Robotics Software Developer Intern</span> <span class="exp-globe">🌐</span></h3>
           <p>Innovación y Desarrollo UNC</p>
         </div>
         <div class="exp-when">
-          <span>Feb 2025 – June 2025</span>
+          <span data-i18n="exp.d3">Feb 2025 – June 2025</span>
           <span class="exp-remote">Córdoba, AR</span>
         </div>
       </li>
@@ -371,11 +488,11 @@
       <li class="exp-row">
         <div class="exp-logo"><img src="assets/img/logos/unc.jpg" alt="Universidad Nacional de Córdoba" /></div>
         <div class="exp-main">
-          <h3>Robotics &amp; Programming Workshop Intern <span class="exp-globe">🌐</span></h3>
+          <h3><span data-i18n="exp.t4">Robotics &amp; Programming Workshop Intern</span> <span class="exp-globe">🌐</span></h3>
           <p>Taller de Robótica y Programación UNC</p>
         </div>
         <div class="exp-when">
-          <span>Aug 2024 – Feb 2025</span>
+          <span data-i18n="exp.d4">Aug 2024 – Feb 2025</span>
           <span class="exp-remote">Córdoba, AR</span>
         </div>
       </li>
@@ -386,18 +503,18 @@
 <!-- ================= SOME OF MY LIFE ================= -->
 <section id="life" class="section dark-section">
   <div class="wrap">
-    <p class="section-kicker">06 — some of my life</p>
-    <h2 class="section-title">A Little Bit of Me</h2>
-    <p class="section-hint">The non-work version of the story 💛</p>
+    <p class="section-kicker" data-i18n="life.kicker">06 — some of my life</p>
+    <h2 class="section-title" data-i18n="life.title">A Little Bit of Me</h2>
+    <p class="section-hint" data-i18n="life.hint">The non-work version of the story 💛</p>
 
     <div class="cards-grid">
 
       <article class="card">
         <div class="card-media"><img src="assets/img/life/villa-angela.jpg" alt="Villa Ángela, Chaco welcome sign" /></div>
         <div class="card-body">
-          <span class="tag tag-uni">Roots</span>
+          <span class="tag tag-uni" data-i18n="life.rootsTag">Roots</span>
           <h3>Villa Ángela, Chaco</h3>
-          <p>I was born in Villa Ángela, Chaco — a little city in the middle of nowhere (kinda literally). My family still lives there and I always go back to visit.</p>
+          <p data-i18n="life.roots">I was born in Villa Ángela, Chaco — a little city in the middle of nowhere (kinda literally). My family still lives there and I always go back to visit.</p>
           <p class="card-meta">Chaco, Argentina</p>
         </div>
       </article>
@@ -405,9 +522,9 @@
       <article class="card">
         <div class="card-media"><img src="assets/img/life/cordoba.webp" alt="Córdoba Cathedral with an AMO CBA sign" /></div>
         <div class="card-body">
-          <span class="tag tag-org">New Chapter</span>
-          <h3>The Move to Córdoba</h3>
-          <p>In 2021 I moved to Córdoba to study Computer Engineering. Going from a small town to a big city where I knew no one, at 18, was kinda hard.</p>
+          <span class="tag tag-org" data-i18n="life.moveTag">New Chapter</span>
+          <h3 data-i18n="life.moveTitle">The Move to Córdoba</h3>
+          <p data-i18n="life.move">In 2021 I moved to Córdoba to study Computer Engineering. Going from a small town to a big city where I knew no one, at 18, was kinda hard.</p>
           <p class="card-meta">2021</p>
         </div>
       </article>
@@ -415,9 +532,9 @@
       <article class="card">
         <div class="card-media"><img src="assets/img/life/baby-me.jpg" alt="Baby MaVi with her brother at the computer, 2003" /></div>
         <div class="card-body">
-          <span class="tag tag-jam">Throwback</span>
-          <h3>Baby Engineer Era</h3>
-          <p>I wasn't born in front of a computer, but I was pretty close. Here's a photo with my brother from when I was a baby.</p>
+          <span class="tag tag-jam" data-i18n="life.babyTag">Throwback</span>
+          <h3 data-i18n="life.babyTitle">Baby Engineer Era</h3>
+          <p data-i18n="life.baby">I wasn't born in front of a computer, but I was pretty close. Here's a photo with my brother from when I was a baby.</p>
           <p class="card-meta">2003</p>
         </div>
       </article>
@@ -425,20 +542,20 @@
       <article class="card">
         <div class="card-media"><img src="assets/img/life/my-people.jpg" alt="MaVi with her friends on a night out" /></div>
         <div class="card-body">
-          <span class="tag tag-win">Friends</span>
-          <h3>Sidequests With My People</h3>
-          <p>I love my friends and going on little sidequests with them — the best plans are usually the ones nobody planned.</p>
-          <p class="card-meta">Ongoing</p>
+          <span class="tag tag-win" data-i18n="life.friendsTag">Friends</span>
+          <h3 data-i18n="life.friendsTitle">Sidequests With My People</h3>
+          <p data-i18n="life.friends">I love my friends and going on little sidequests with them — the best plans are usually the ones nobody planned.</p>
+          <p class="card-meta" data-i18n="life.ongoing">Ongoing</p>
         </div>
       </article>
 
       <article class="card">
-        <div class="card-media placeholder-media">☕<span>photo coming soon</span></div>
+        <div class="card-media placeholder-media">☕<span data-i18n="common.photoSoon">photo coming soon</span></div>
         <div class="card-body">
-          <span class="tag tag-uni">Hobbies</span>
-          <h3>Sports, Gardening &amp; Coffee</h3>
-          <p>I love sports and gardening, and I'm a coffee lover — or coffee addict, most likely.</p>
-          <p class="card-meta">Every single day</p>
+          <span class="tag tag-uni" data-i18n="life.hobbiesTag">Hobbies</span>
+          <h3 data-i18n="life.hobbiesTitle">Sports, Gardening &amp; Coffee</h3>
+          <p data-i18n="life.hobbies">I love sports and gardening, and I'm a coffee lover — or coffee addict, most likely.</p>
+          <p class="card-meta" data-i18n="life.everyday">Every single day</p>
         </div>
       </article>
 
@@ -449,43 +566,43 @@
 <!-- ================= CERTIFICATIONS ================= -->
 <section id="certifications" class="section dark-section">
   <div class="wrap">
-    <p class="section-kicker">07 — paper trail</p>
-    <h2 class="section-title">Certifications</h2>
+    <p class="section-kicker" data-i18n="certs.kicker">07 — paper trail</p>
+    <h2 class="section-title" data-i18n="certs.title">Certifications</h2>
 
     <div class="certs-grid">
       <a class="cert-card" href="https://www.linkedin.com/in/marianela-victoria-flora/details/certifications/" target="_blank" rel="noopener">
         <span class="cert-icon"><img src="assets/img/certs/aws-sbg.png" alt="" /></span>
         <h3>AWS SBG UNC: Founding Builder 2026</h3>
         <p>AWS SBG UNC</p>
-        <span class="cert-date">May 2026</span>
+        <span class="cert-date" data-i18n="certs.d1">May 2026</span>
       </a>
 
       <a class="cert-card" href="https://www.linkedin.com/in/marianela-victoria-flora/details/certifications/" target="_blank" rel="noopener">
         <span class="cert-icon"><img src="assets/img/certs/linkedin.svg" alt="" /></span>
         <h3>Software Testing Foundations: Bug Writing and Management</h3>
         <p>LinkedIn</p>
-        <span class="cert-date">June 2025</span>
+        <span class="cert-date" data-i18n="certs.d2">June 2025</span>
       </a>
 
       <a class="cert-card" href="https://www.linkedin.com/in/marianela-victoria-flora/details/certifications/" target="_blank" rel="noopener">
         <span class="cert-icon"><img src="assets/img/certs/accenture.svg" alt="" /></span>
-        <h3>QA Manual &amp; Automation Training</h3>
+        <h3 data-i18n="certs.accenture">QA Manual &amp; Automation Training</h3>
         <p>Accenture</p>
-        <span class="cert-date">April 2025</span>
+        <span class="cert-date" data-i18n="certs.d3">April 2025</span>
       </a>
 
       <a class="cert-card" href="https://www.linkedin.com/in/marianela-victoria-flora/details/certifications/" target="_blank" rel="noopener">
         <span class="cert-icon"><img src="assets/img/certs/oracle.svg" alt="" /></span>
         <h3>Oracle Next Education F2 T5 — Back-end</h3>
         <p>Alura Latam</p>
-        <span class="cert-date">October 2023</span>
+        <span class="cert-date" data-i18n="certs.d4">October 2023</span>
       </a>
 
       <a class="cert-card" href="https://www.linkedin.com/in/marianela-victoria-flora/details/certifications/" target="_blank" rel="noopener">
         <span class="cert-icon"><img src="assets/img/certs/cambridge.svg" alt="" /></span>
         <h3>C1 Advanced</h3>
         <p>Cambridge University Press &amp; Assessment</p>
-        <span class="cert-date">December 2021</span>
+        <span class="cert-date" data-i18n="certs.d5">December 2021</span>
       </a>
     </div>
   </div>
@@ -520,12 +637,12 @@
         <path d="M0 5 C15 5 15 20 15 30 C15 40 25 45 30 50 C25 55 15 60 15 70 C15 80 15 95 0 95"/>
         <text x="33" y="90" font-family="Georgia, serif" font-size="18" stroke="none" fill="currentColor" text-anchor="middle">&bdquo;</text>
       </svg>
-      <p class="quote-text">Life's a climb,<br/>but the view is great.</p>
+      <p class="quote-text" data-i18n="footer.quote">Life's a climb,<br/>but the view is great.</p>
       <span class="quote-attr">— Hannah Montana</span>
     </div>
 
     <div class="footer-bottom">
-      <p>© <span id="year"></span> Marianela Victoria Flora. Built with way too much coffee.</p>
+      <p>© <span id="year"></span> Marianela Victoria Flora. <span data-i18n="footer.built">Built with way too much coffee.</span></p>
       <div class="footer-socials">
         <a href="https://github.com/marianelavflora" target="_blank" rel="noopener">GitHub</a>
         <a href="https://www.linkedin.com/in/marianela-victoria-flora/" target="_blank" rel="noopener">LinkedIn</a>
@@ -555,7 +672,8 @@
   </div>
 </div>
 
-<script src="js/main.js?v=12"></script>
+<script src="js/main.js?v=13"></script>
+<script src="js/i18n.js?v=13"></script>
 <script type="module" src="js/cv-preview.js?v=12"></script>
 </body>
 </html>
