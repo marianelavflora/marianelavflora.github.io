@@ -6,6 +6,7 @@ const ES = {
   'nav.music': 'Música',
   'nav.projects': 'Proyectos',
   'nav.experience': 'Experiencia',
+  'nav.stack': 'Stack',
   'nav.life': 'Vida',
   'nav.certs': 'Certificaciones',
   'nav.cv': 'Ver CV',
@@ -40,25 +41,25 @@ const ES = {
   'elcono.meta': 'ESP32 · En progreso',
   'elcono.back': 'Un robot que estoy armando con una ESP32, basado en Dou. Su laburo: vivir en la oficina y tirarle chistes a mis compañeros.',
 
-  'nasa.tag': 'Hackatón · Próximamente',
+  'nasa.tag': 'Próximamente',
   'nasa.front': 'Voy a participar en la hackatón NASA Space Apps. ¡Pronto más info!',
 
   'aor.front': 'Estoy participando en la hackatón AgentsOnRails. ¡Atentos!',
 
-  'santex.tag': 'Hackatón · 1er puesto',
+  'santex.tag': '1er puesto',
   'santex.front': '¡Mi primera hackatón! En vez de codear, más que nada compartí mates con mis compañeros y le presenté nuestro producto al público.',
   'santex.backTitle': 'Chatbot de logística con IA',
   'santex.back': 'Un chatbot con IA + un MCP web que simulaba la gestión de la logística de Santex.',
 
-  'chevoz.tag': 'Hackatón · 3er puesto',
+  'chevoz.tag': '3er puesto',
   'chevoz.front': 'Participé como frontend dev y nuestro equipo salió tercero.',
   'chevoz.back': 'Un asistente de voz que detecta la ubicación de tu cliente y activa un agente que habla en su dialecto regional.',
 
-  'vibe.tag': 'Hackatón · Participante',
+  'vibe.tag': 'Participante',
   'vibe.front': 'Participé en la hackatón Vibe a Startup en Buenos Aires.',
   'vibe.back': 'Lo que más me gustó de esta fue el efecto mariposa que tuvo en mi vida: conocí gente re copada y terminé invitada a mentorear y ayudar a organizar el capítulo Córdoba de Aleph Hackathon.',
 
-  'aleph.tag': 'Hackatón · Organizadora y mentora',
+  'aleph.tag': 'Organizadora y mentora',
   'aleph.front': 'Organizadora y mentora en el capítulo Córdoba de Aleph Hackathon.',
   'aleph.back': 'Ayudé a organizar y mentoreé equipos en el capítulo Córdoba de Aleph Hackathon.',
 
@@ -68,7 +69,7 @@ const ES = {
   'chubby.front': 'Mi segunda gamejam, junto a mis compañeros Joaquín Giménez y Agustín Godoy.',
   'chubby.back': 'Ayudé a desarrollar las primeras features en Godot de este juego. Todo el crédito para mis compañeros Joaquín Giménez y Agustín Godoy.',
 
-  'dou.tag': 'Hackatón · Premio de la Comunidad',
+  'dou.tag': 'Premio de la Comunidad',
   'dou.meta': 'Premio de la Comunidad',
   'dou.front': 'Participé en Paisanos Hackware, donde Dou ganó el Premio de la Comunidad.',
   'dou.back': 'Un anti-Tamagotchi. Diseñé e implementé sus features y su electrónica.',
@@ -87,7 +88,23 @@ const ES = {
   'exp.d4': 'Ago 2024 – Feb 2025',
   'exp.remote': 'Remoto',
 
-  'life.kicker': '05 — algo de mi vida',
+  'stack.kicker': '05 — con qué laburo',
+  'stack.title': 'Stack y herramientas',
+  'stack.lang': 'Lenguajes',
+  'stack.qa': 'Testing y QA',
+  'stack.tools': 'Herramientas',
+  'stack.hw': 'Hardware y juegos',
+  'stack.functional': 'Testing funcional',
+  'stack.regression': 'Regresión',
+  'stack.exploratory': 'Exploratorio',
+  'stack.game': 'Testing de juegos',
+  'stack.multi': 'Multiplataforma',
+  'stack.cases': 'Casos de prueba',
+  'stack.bugs': 'Reporte de bugs',
+  'stack.agile': 'Agile / Scrum',
+  'stack.sensors': 'Sensores y actuadores',
+
+  'life.kicker': '06 — algo de mi vida',
   'life.title': 'Un Poquito de Mí',
   'life.hint': 'La versión de la historia fuera del laburo 💛',
   'life.rootsTag': 'Raíces',
@@ -107,7 +124,7 @@ const ES = {
   'life.hobbies': 'Me encantan el deporte y la jardinería, y soy amante del café (o adicta, más bien).',
   'life.everyday': 'Todos los días',
 
-  'certs.kicker': '06 — los papeles',
+  'certs.kicker': '07 — los papeles',
   'certs.title': 'Certificaciones',
   'certs.accenture': 'Capacitación en QA Manual y Automation',
   'certs.d1': 'Mayo 2026',
