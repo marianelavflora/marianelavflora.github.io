@@ -5,7 +5,6 @@
 const ES = {
   'nav.music': 'Música',
   'nav.projects': 'Proyectos',
-  'nav.work': 'Trabajo',
   'nav.experience': 'Experiencia',
   'nav.life': 'Vida',
   'nav.certs': 'Certificaciones',
@@ -73,16 +72,7 @@ const ES = {
   'dou.front': 'Participé en Paisanos Hackware, donde Dou ganó el Premio de la Comunidad.',
   'dou.back': 'Un anti-Tamagotchi. Diseñé e implementé sus features y su electrónica.',
 
-  'work.kicker': '04 — algo de mi trabajo',
-  'work.title': 'Algo de Mi Trabajo',
-  'work.hint': 'Un vistazo a lo que hago día a día — cambiá por capturas reales cuando quieras 💛',
-  'work.tag': 'Muestra de trabajo',
-  'work.bug': 'Breve descripción de un artefacto de testing, dashboard o flujo del que estés orgullosa.',
-  'work.robot': 'Una foto o clip de un proyecto de hardware/software que entregaste.',
-  'work.anotherTitle': '[ Agregá otra muestra ]',
-  'work.another': 'Espacio extra para cualquier cosa que valga la pena mostrar: código, docs, un link a una demo.',
-
-  'exp.kicker': '05 — dónde trabajé',
+  'exp.kicker': '04 — dónde trabajé',
   'exp.title': 'Experiencia',
   'exp.t1': 'Junior Software Testing Engineer',
   'exp.t2': 'QA Tester',
@@ -96,7 +86,7 @@ const ES = {
   'exp.d4': 'Ago 2024 – Feb 2025',
   'exp.remote': 'Remoto',
 
-  'life.kicker': '06 — algo de mi vida',
+  'life.kicker': '05 — algo de mi vida',
   'life.title': 'Un Poquito de Mí',
   'life.hint': 'La versión de la historia fuera del laburo 💛',
   'life.rootsTag': 'Raíces',
@@ -116,7 +106,7 @@ const ES = {
   'life.hobbies': 'Me encantan el deporte y la jardinería, y soy amante del café (o adicta, más bien).',
   'life.everyday': 'Todos los días',
 
-  'certs.kicker': '07 — los papeles',
+  'certs.kicker': '06 — los papeles',
   'certs.title': 'Certificaciones',
   'certs.accenture': 'Capacitación en QA Manual y Automation',
   'certs.d1': 'Mayo 2026',
