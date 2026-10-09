@@ -25,6 +25,7 @@ const ES = {
   'projects.flipHint': '↻ Hacé click en cualquier card para darla vuelta: adelante está el evento, atrás lo que construimos.',
 
   'common.hackathon': 'Hackatón',
+  'common.productPhotoSoon': 'foto del producto próximamente',
   'common.photoSoon': 'foto próximamente',
   'common.product': 'El producto',
   'common.outcome': 'Lo que me dejó',

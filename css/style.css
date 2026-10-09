@@ -303,7 +303,6 @@ a{color:inherit;text-decoration:none;}
 .flip-card .card-back:hover{transform:rotateY(180deg);}
 .card-back{
   visibility:hidden;
-  display:flex;flex-direction:column;justify-content:center;
   background:linear-gradient(160deg,#211d1a,var(--dark-card));
 }
 .flip-card.flipped .card-back{visibility:visible;}
