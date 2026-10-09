@@ -21,7 +21,7 @@ const ES = {
 
   'projects.kicker': '03 — cosas que armé, gané y organicé',
   'projects.title': 'Proyectos y Logros',
-  'projects.hint': 'Hackatones, gamejams y un poco de facu 💛',
+  'projects.hint': 'Hackatones, gamejams, proyectos personales y momentos con gente increíble',
   'projects.flipHint': '↻ Hacé click en cualquier card para darla vuelta: adelante está el evento, atrás lo que construimos.',
 
   'common.photoSoon': 'foto próximamente',
