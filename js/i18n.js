@@ -25,6 +25,14 @@ const ES = {
   'projects.hint': 'Hackatones, gamejams, proyectos personales y momentos con gente increíble',
   'projects.flipHint': '↻ Hacé click en cualquier card para darla vuelta: adelante está el evento, atrás lo que construimos.',
 
+  'month.jan': 'Ene',
+  'month.may': 'May',
+  'month.jul': 'Jul',
+  'month.aug': 'Ago',
+  'month.sep': 'Sep',
+  'month.oct': 'Oct',
+  'month.nov': 'Nov',
+
   'common.hackathon': 'Hackatón',
   'common.productPhotoSoon': 'foto del producto próximamente',
   'common.photoSoon': 'foto próximamente',
