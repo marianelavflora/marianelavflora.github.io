@@ -18,7 +18,8 @@ const ES = {
 
   'music.kicker': '02 — mientras navegás',
   'music.title': '¿Te pongo un poco de música?',
-  'music.note': '🎵 6 temas cargados y listos — dale play.',
+  'music.note': '🎵 6 temas en la cola, dale play.',
+  'music.open': '¿No carga? Abrila en YouTube ↗',
 
   'projects.kicker': '03 — cosas que armé, gané y organicé',
   'projects.title': 'Proyectos y Logros',

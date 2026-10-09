@@ -7,8 +7,7 @@ GitHub Pages.
 
 - `index.html` — all page content/sections
 - `css/style.css` — all styling
-- `js/main.js` — rotating title, cassette player, running cat, mobile nav
-- `music/` — drop your own mp3s here (see `music/README.md`)
+- `js/main.js` — rotating title, running cat, mobile nav
 - `projects/` — drop project/hackathon/gamejam photos here (see `projects/README.md`)
 - `assets/cv/MaViFlora_CV.pdf` — downloadable CV linked from the header
 
@@ -19,7 +18,7 @@ GitHub Pages.
   media (see `projects/README.md`).
 - **Certifications**: edit `#certifications` in `index.html` — 3 empty slots
   are ready for more certs.
-- **Music**: see `music/README.md`.
+- **Music**: the YouTube playlist in `#music` is an `iframe`; change the video IDs in its `src` (and in the "Open it on YouTube" link) to swap songs.
 - **Colors**: main tokens live at the top of `css/style.css` under `:root`.
 
 ## Running locally
