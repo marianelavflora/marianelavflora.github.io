@@ -275,6 +275,12 @@ a{color:inherit;text-decoration:none;}
 .tag-wip{background:rgba(0,200,200,0.15);color:#22cfcf;}
 .tag-soon{background:rgba(200,196,184,0.12);color:#c8c4b8;}
 .tag-row{display:flex;flex-wrap:wrap;gap:6px;}
+/* Section 03: filled pill = event type (same colour on every card),
+   outlined pill = status / result of that event. */
+.tag-hackathon{background:rgba(245,197,24,0.15);color:#f5c518;}
+.tag-gamejam{background:rgba(61,220,132,0.15);color:#3ddc84;}
+.tag-facu{background:rgba(255,126,182,0.15);color:#ff7eb6;}
+.tag.tag-status{background:transparent;border:1px solid currentColor;padding:4px 9px;}
 .tag-product{background:rgba(244,239,228,0.1);color:var(--cream);}
 
 /* flip cards: event on the front, product on the back */
