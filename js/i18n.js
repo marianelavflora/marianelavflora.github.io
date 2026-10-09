@@ -24,6 +24,7 @@ const ES = {
   'projects.hint': 'Hackatones, gamejams, proyectos personales y momentos con gente increíble',
   'projects.flipHint': '↻ Hacé click en cualquier card para darla vuelta: adelante está el evento, atrás lo que construimos.',
 
+  'common.hackathon': 'Hackatón',
   'common.photoSoon': 'foto próximamente',
   'common.product': 'El producto',
   'common.outcome': 'Lo que me dejó',
@@ -41,7 +42,6 @@ const ES = {
   'nasa.tag': 'Hackatón · Próximamente',
   'nasa.front': 'Voy a participar en la hackatón NASA Space Apps. ¡Pronto más info!',
 
-  'aor.tag': 'Hackatón · En progreso',
   'aor.front': 'Estoy participando en la hackatón AgentsOnRails. ¡Atentos!',
 
   'santex.tag': 'Hackatón · 1er puesto',
