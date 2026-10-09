@@ -18,12 +18,21 @@ const ES = {
 
   'music.kicker': '02 — mientras navegás',
   'music.title': '¿Te pongo un poco de música?',
-  'music.note': '🎵 6 temas cargados y listos — dale play.',
+  'music.note': '🎵 6 temas en la cola, dale play.',
+  'music.open': '¿No carga? Abrila en YouTube ↗',
 
   'projects.kicker': '03 — cosas que armé, gané y organicé',
   'projects.title': 'Proyectos y Logros',
   'projects.hint': 'Hackatones, gamejams, proyectos personales y momentos con gente increíble',
   'projects.flipHint': '↻ Hacé click en cualquier card para darla vuelta: adelante está el evento, atrás lo que construimos.',
+
+  'month.jan': 'Ene',
+  'month.may': 'May',
+  'month.jul': 'Jul',
+  'month.aug': 'Ago',
+  'month.sep': 'Sep',
+  'month.oct': 'Oct',
+  'month.nov': 'Nov',
 
   'common.hackathon': 'Hackatón',
   'common.productPhotoSoon': 'foto del producto próximamente',
