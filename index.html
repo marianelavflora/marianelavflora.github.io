@@ -122,31 +122,17 @@
     <p class="section-kicker" data-i18n="music.kicker">02 — while you browse</p>
     <h2 class="section-title" data-i18n="music.title">May I interest you in some music?</h2>
 
-    <div class="cassette" id="cassette">
-      <div class="cassette-controls">
-        <button class="ctrl-btn" data-action="stop" aria-label="Stop">■</button>
-        <button class="ctrl-btn" data-action="prev" aria-label="Previous">◀◀</button>
-        <button class="ctrl-btn" data-action="play" aria-label="Play/Pause">▶</button>
-        <button class="ctrl-btn" data-action="next" aria-label="Next">▶▶</button>
-        <button class="ctrl-btn" data-action="mute" aria-label="Mute">🔊</button>
-      </div>
-      <div class="cassette-body">
-        <div class="cassette-window">
-          <div class="reel reel-left"><div class="reel-hub"></div></div>
-          <div class="reel reel-right"><div class="reel-hub"></div></div>
-          <div class="tape-strip"></div>
-        </div>
-        <p class="cassette-format">.mp3</p>
-        <p class="cassette-track" id="track-label">Track 1 of 6 — The Best of Both Worlds 🎸</p>
-      </div>
-      <div class="cassette-brand">
-        <span>MAVI-SONY</span>
-        <span>MAVIFLORA.DEV</span>
-      </div>
+    <div class="yt-player">
+      <iframe
+        src="https://www.youtube-nocookie.com/embed/uVjRe8QXFHY?playlist=EDwb9jOVRtU,unfzfe8f9NI,3tmd-ClpJxA,n7guctwiVuY,aSugSGCC12I&amp;rel=0"
+        title="MaVi's playlist on YouTube"
+        loading="lazy"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen></iframe>
     </div>
-    <p class="music-note" data-i18n="music.note">🎵 6 tracks loaded and ready to go — hit play.</p>
-
-    <audio id="audio-player" preload="none"></audio>
+    <p class="music-note"><span data-i18n="music.note">🎵 6 songs queued up, hit play.</span>
+      <a href="https://www.youtube.com/watch_videos?video_ids=uVjRe8QXFHY,EDwb9jOVRtU,unfzfe8f9NI,3tmd-ClpJxA,n7guctwiVuY,aSugSGCC12I" target="_blank" rel="noopener" data-i18n="music.open">Not loading? Open it on YouTube ↗</a></p>
   </div>
 </section>
 
@@ -158,275 +144,294 @@
     <p class="section-hint" data-i18n="projects.hint">Hackathons, gamejams, personal projects and moments with amazing people</p>
     <p class="flip-hint" data-i18n="projects.flipHint">↻ Click any card to flip it: the event is on the front, what we built is on the back.</p>
 
-    <div class="cards-grid">
-
-      <article class="flip-card" tabindex="0" aria-pressed="false">
-        <div class="flip-inner">
-          <div class="card card-front">
-            <div class="card-media placeholder-media">🤖<span data-i18n="common.photoSoon">photo coming soon</span></div>
-            <div class="card-body">
-              <div class="tag-row">
-                <span class="tag tag-robot">Robot</span>
-                <span class="tag tag-status tag-wip">WIP</span>
+    <ol class="timeline">
+      <li class="tl-item">
+        <span class="tl-date"><span data-i18n="month.nov">Nov</span> 2026</span>
+        <article class="flip-card" tabindex="0" aria-pressed="false">
+          <div class="flip-inner">
+            <div class="card card-front">
+              <div class="card-media placeholder-media">🚀<span data-i18n="common.photoSoon">photo coming soon</span></div>
+              <div class="card-body">
+                <div class="tag-row">
+                  <span class="tag tag-hackathon" data-i18n="common.hackathon">Hackathon</span>
+                  <span class="tag tag-status tag-soon" data-i18n="nasa.tag">Coming Soon</span>
+                </div>
+                <h3>NASA Space Apps Challenge</h3>
+                <p data-i18n="nasa.front">Taking part in the NASA Space Apps hackathon. More soon!</p>
+                <p class="card-meta" data-i18n="common.comingSoon">Coming soon</p>
               </div>
-              <h3>robotElCono</h3>
-              <p data-i18n="elcono.front">A robot I'm building for the office at work.</p>
-              <p class="card-meta" data-i18n="elcono.meta">ESP32 · Work in progress</p>
             </div>
-          </div>
-          <div class="card card-back">
-            <div class="card-media placeholder-media">🤖<span data-i18n="common.productPhotoSoon">product photo coming soon</span></div>
-            <div class="card-body">
-              <span class="tag tag-product" data-i18n="common.product">The product</span>
-              <h3>robotElCono</h3>
-              <p data-i18n="elcono.back">A robot I'm building with an ESP32, based on Dou. Its job: live at the office and tell jokes to my coworkers.</p>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <article class="flip-card" tabindex="0" aria-pressed="false">
-        <div class="flip-inner">
-          <div class="card card-front">
-            <div class="card-media placeholder-media">🚀<span data-i18n="common.photoSoon">photo coming soon</span></div>
-            <div class="card-body">
-              <div class="tag-row">
-                <span class="tag tag-hackathon" data-i18n="common.hackathon">Hackathon</span>
-                <span class="tag tag-status tag-soon" data-i18n="nasa.tag">Coming Soon</span>
-              </div>
-              <h3>NASA Space Apps Challenge</h3>
-              <p data-i18n="nasa.front">Taking part in the NASA Space Apps hackathon. More soon!</p>
-              <p class="card-meta" data-i18n="common.comingSoon">Coming soon</p>
-            </div>
-          </div>
-          <div class="card card-back">
-            <div class="card-media placeholder-media">🚀<span data-i18n="common.productPhotoSoon">product photo coming soon</span></div>
-            <div class="card-body">
-              <span class="tag tag-product" data-i18n="common.product">The product</span>
-              <h3>NASA Space Apps Challenge</h3>
-              <p data-i18n="common.productSoon">What we build will show up here soon 🚧</p>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <article class="flip-card" tabindex="0" aria-pressed="false">
-        <div class="flip-inner">
-          <div class="card card-front">
-            <div class="card-media placeholder-media">🛤️<span data-i18n="common.photoSoon">photo coming soon</span></div>
-            <div class="card-body">
-              <div class="tag-row">
-                <span class="tag tag-hackathon" data-i18n="common.hackathon">Hackathon</span>
-                <span class="tag tag-status tag-wip">WIP</span>
-              </div>
-              <h3>AgentsOnRails Hackathon</h3>
-              <p data-i18n="aor.front">Currently participating in the AgentsOnRails hackathon. Stay tuned!</p>
-              <p class="card-meta" data-i18n="common.wip">Work in progress</p>
-            </div>
-          </div>
-          <div class="card card-back">
-            <div class="card-media placeholder-media">🛤️<span data-i18n="common.productPhotoSoon">product photo coming soon</span></div>
-            <div class="card-body">
-              <span class="tag tag-product" data-i18n="common.product">The product</span>
-              <h3>AgentsOnRails Hackathon</h3>
-              <p data-i18n="common.productSoon">What we build will show up here soon 🚧</p>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <article class="flip-card" tabindex="0" aria-pressed="false">
-        <div class="flip-inner">
-          <div class="card card-front">
-            <div class="card-media placeholder-media">🏆<span data-i18n="common.photoSoon">photo coming soon</span></div>
-            <div class="card-body">
-              <div class="tag-row">
-                <span class="tag tag-hackathon" data-i18n="common.hackathon">Hackathon</span>
-                <span class="tag tag-status tag-win" data-i18n="santex.tag">1st Place</span>
-              </div>
-              <h3>Santex x Bugster Hackathon</h3>
-              <p data-i18n="santex.front">My first hackathon! Instead of coding, I mostly shared mate with my colleagues and pitched our product to the crowd.</p>
-              <p class="card-meta" data-i18n="common.first">1st Place</p>
-            </div>
-          </div>
-          <div class="card card-back">
-            <div class="card-media placeholder-media">💬<span data-i18n="common.productPhotoSoon">product photo coming soon</span></div>
-            <div class="card-body">
-              <span class="tag tag-product" data-i18n="common.product">The product</span>
-              <h3 data-i18n="santex.backTitle">AI logistics chatbot</h3>
-              <p data-i18n="santex.back">An AI chatbot + web MCP that simulated managing Santex's logistics.</p>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <article class="flip-card" tabindex="0" aria-pressed="false">
-        <div class="flip-inner">
-          <div class="card card-front">
-            <div class="card-media"><img src="assets/img/projects/che-voz.jpg" alt="Che Voz hackathon presentation" /></div>
-            <div class="card-body">
-              <div class="tag-row">
-                <span class="tag tag-hackathon" data-i18n="common.hackathon">Hackathon</span>
-                <span class="tag tag-status tag-win" data-i18n="chevoz.tag">3rd Place</span>
-              </div>
-              <h3>Che Voz</h3>
-              <p data-i18n="chevoz.front">Participated as a frontend dev and our team took 3rd place.</p>
-              <p class="card-meta" data-i18n="common.third">3rd Place</p>
-            </div>
-          </div>
-          <div class="card card-back">
-            <div class="card-media placeholder-media">🎙️<span data-i18n="common.productPhotoSoon">product photo coming soon</span></div>
-            <div class="card-body">
-              <span class="tag tag-product" data-i18n="common.product">The product</span>
-              <h3>Che Voz</h3>
-              <p data-i18n="chevoz.back">A voice assistant that detects your customer's location and activates an agent that speaks in their regional dialect.</p>
-              <div class="card-links">
-                <a href="https://che-voz.lat/en" target="_blank" rel="noopener">che-voz.lat ↗</a>
-                <a href="https://www.linkedin.com/feed/update/urn:li:activity:7413955133585223681/" target="_blank" rel="noopener">LinkedIn ↗</a>
+            <div class="card card-back">
+              <div class="card-media placeholder-media">🚀<span data-i18n="common.productPhotoSoon">product photo coming soon</span></div>
+              <div class="card-body">
+                <span class="tag tag-product" data-i18n="common.product">The product</span>
+                <h3>NASA Space Apps Challenge</h3>
+                <p data-i18n="common.productSoon">What we build will show up here soon 🚧</p>
               </div>
             </div>
           </div>
-        </div>
-      </article>
-
-      <article class="flip-card" tabindex="0" aria-pressed="false">
-        <div class="flip-inner">
-          <div class="card card-front">
-            <div class="card-media"><img src="assets/img/projects/vibe-a-startup.jpg" alt="Vibe a Startup hackathon group photo" /></div>
-            <div class="card-body">
-              <div class="tag-row">
-                <span class="tag tag-hackathon" data-i18n="common.hackathon">Hackathon</span>
-                <span class="tag tag-status tag-soon" data-i18n="vibe.tag">Participant</span>
-              </div>
-              <h3>Vibe a Startup</h3>
-              <p data-i18n="vibe.front">Participated in the Vibe a Startup hackathon in Buenos Aires.</p>
-              <p class="card-meta">Buenos Aires</p>
-            </div>
-          </div>
-          <div class="card card-back">
-            <div class="card-media placeholder-media">🦋<span data-i18n="common.productPhotoSoon">product photo coming soon</span></div>
-            <div class="card-body">
-              <span class="tag tag-product" data-i18n="common.outcome">What came out of it</span>
-              <h3>Vibe a Startup</h3>
-              <p data-i18n="vibe.back">What I liked most about this one was the butterfly effect it caused in my life — I met really cool people and ended up invited to mentor and help organize the Córdoba chapter of Aleph Hackathon.</p>
-              <div class="card-links">
-                <a href="https://x.com/vibeastartup/status/1949267026825863217" target="_blank" rel="noopener">Post ↗</a>
+        </article>
+      </li>
+      <li class="tl-item">
+        <span class="tl-date"><span data-i18n="month.oct">Oct</span> 2026</span>
+        <article class="flip-card" tabindex="0" aria-pressed="false">
+          <div class="flip-inner">
+            <div class="card card-front">
+              <div class="card-media placeholder-media">🛤️<span data-i18n="common.photoSoon">photo coming soon</span></div>
+              <div class="card-body">
+                <div class="tag-row">
+                  <span class="tag tag-hackathon" data-i18n="common.hackathon">Hackathon</span>
+                  <span class="tag tag-status tag-wip">WIP</span>
+                </div>
+                <h3>AgentsOnRails Hackathon</h3>
+                <p data-i18n="aor.front">Currently participating in the AgentsOnRails hackathon. Stay tuned!</p>
+                <p class="card-meta" data-i18n="common.wip">Work in progress</p>
               </div>
             </div>
-          </div>
-        </div>
-      </article>
-
-      <article class="flip-card" tabindex="0" aria-pressed="false">
-        <div class="flip-inner">
-          <div class="card card-front">
-            <div class="card-media"><img src="assets/img/projects/aleph-hackathon.jpg" alt="Aleph Hackathon Córdoba Chapter group photo" /></div>
-            <div class="card-body">
-              <div class="tag-row">
-                <span class="tag tag-hackathon" data-i18n="common.hackathon">Hackathon</span>
-                <span class="tag tag-status tag-org" data-i18n="aleph.tag">Organizer &amp; Mentor</span>
-              </div>
-              <h3>Aleph Hackathon — Córdoba Chapter</h3>
-              <p data-i18n="aleph.front">Organizer &amp; mentor at the Córdoba chapter of Aleph Hackathon.</p>
-              <p class="card-meta">Córdoba, Argentina</p>
-            </div>
-          </div>
-          <div class="card card-back">
-            <div class="card-media placeholder-media">🧑‍🏫<span data-i18n="common.productPhotoSoon">product photo coming soon</span></div>
-            <div class="card-body">
-              <span class="tag tag-product" data-i18n="common.role">My role</span>
-              <h3>Aleph Hackathon — Córdoba Chapter</h3>
-              <p data-i18n="aleph.back">Helped organize and mentored teams for the Córdoba chapter of Aleph Hackathon.</p>
-              <div class="card-links">
-                <a href="https://www.linkedin.com/feed/update/urn:li:activity:7367755528992747521/" target="_blank" rel="noopener">LinkedIn ↗</a>
+            <div class="card card-back">
+              <div class="card-media placeholder-media">🛤️<span data-i18n="common.productPhotoSoon">product photo coming soon</span></div>
+              <div class="card-body">
+                <span class="tag tag-product" data-i18n="common.product">The product</span>
+                <h3>AgentsOnRails Hackathon</h3>
+                <p data-i18n="common.productSoon">What we build will show up here soon 🚧</p>
               </div>
             </div>
           </div>
-        </div>
-      </article>
-
-      <article class="flip-card" tabindex="0" aria-pressed="false">
-        <div class="flip-inner">
-          <div class="card card-front">
-            <div class="card-media"><img src="assets/img/projects/damian-quest.png" alt="Damian Quest game cover" /></div>
-            <div class="card-body">
-              <span class="tag tag-gamejam">GameJam #1</span>
-              <h3>Córdoba GameJam</h3>
-              <p data-i18n="damian.front">Joined the Córdoba GameJam with my EPAM coworkers.</p>
-              <p class="card-meta">Córdoba GameJam</p>
+        </article>
+      </li>
+      <li class="tl-item">
+        <span class="tl-date"><span data-i18n="month.sep">Sep</span> 2026</span>
+        <article class="flip-card" tabindex="0" aria-pressed="false">
+          <div class="flip-inner">
+            <div class="card card-front">
+              <div class="card-media placeholder-media">🤖<span data-i18n="common.photoSoon">photo coming soon</span></div>
+              <div class="card-body">
+                <div class="tag-row">
+                  <span class="tag tag-robot">Robot</span>
+                  <span class="tag tag-status tag-wip">WIP</span>
+                </div>
+                <h3>robotElCono</h3>
+                <p data-i18n="elcono.front">A robot I'm building for the office at work.</p>
+                <p class="card-meta" data-i18n="elcono.meta">ESP32 · Work in progress</p>
+              </div>
             </div>
-          </div>
-          <div class="card card-back">
-            <div class="card-media placeholder-media">🎮<span data-i18n="common.productPhotoSoon">product photo coming soon</span></div>
-            <div class="card-body">
-              <span class="tag tag-product" data-i18n="common.product">The product</span>
-              <h3>Damian Quest</h3>
-              <p data-i18n="damian.back">A game built in Godot, where I participated as a game dev.</p>
-              <div class="card-links">
-                <a href="https://marianelavflora.itch.io/damian-quest" target="_blank" rel="noopener">itch.io ↗</a>
-                <a href="https://github.com/marianelavflora/cordoba-game-jam-2026" target="_blank" rel="noopener">GitHub ↗</a>
+            <div class="card card-back">
+              <div class="card-media placeholder-media">🤖<span data-i18n="common.productPhotoSoon">product photo coming soon</span></div>
+              <div class="card-body">
+                <span class="tag tag-product" data-i18n="common.product">The product</span>
+                <h3>robotElCono</h3>
+                <p data-i18n="elcono.back">A robot I'm building with an ESP32, based on Dou. Its job: live at the office and tell jokes to my coworkers.</p>
               </div>
             </div>
           </div>
-        </div>
-      </article>
-
-      <article class="flip-card" tabindex="0" aria-pressed="false">
-        <div class="flip-inner">
-          <div class="card card-front">
-            <div class="card-media"><img src="assets/img/projects/chubby-ninjas.png" alt="Chubby Ninjas game cover" /></div>
-            <div class="card-body">
-              <span class="tag tag-gamejam">GameJam #2</span>
-              <h3>Samda Game Jam</h3>
-              <p data-i18n="chubby.front">My second gamejam, building alongside my teammates Joaquín Giménez and Agustín Godoy.</p>
-              <p class="card-meta">Samda Game Jam</p>
+        </article>
+      </li>
+      <li class="tl-item">
+        <span class="tl-date"><span data-i18n="month.sep">Sep</span> 2026</span>
+        <article class="flip-card" tabindex="0" aria-pressed="false">
+          <div class="flip-inner">
+            <div class="card card-front">
+              <div class="card-media"><img src="assets/img/projects/dou-hackware.jpg" alt="Team with the Dou robot at Paisanos Hackware" /></div>
+              <div class="card-body">
+                <div class="tag-row">
+                  <span class="tag tag-hackathon" data-i18n="common.hackathon">Hackathon</span>
+                  <span class="tag tag-status tag-win" data-i18n="dou.tag">Community Award</span>
+                </div>
+                <h3>Paisanos Hackware</h3>
+                <p data-i18n="dou.front">Participated in Paisanos Hackware, where Dou won the Community Award.</p>
+                <p class="card-meta" data-i18n="dou.meta">Community Award</p>
+              </div>
             </div>
-          </div>
-          <div class="card card-back">
-            <div class="card-media placeholder-media">🥷<span data-i18n="common.productPhotoSoon">product photo coming soon</span></div>
-            <div class="card-body">
-              <span class="tag tag-product" data-i18n="common.product">The product</span>
-              <h3>Chubby Ninjas</h3>
-              <p data-i18n="chubby.back">Helped develop initial features in Godot for this game — full credit to my teammates Joaquín Giménez and Agustín Godoy.</p>
-              <div class="card-links">
-                <a href="https://fernecito64.itch.io/chubby-ninjas" target="_blank" rel="noopener">itch.io ↗</a>
-                <a href="https://github.com/JoaquinGimenez-112733/BoomerangJam.git" target="_blank" rel="noopener">GitHub ↗</a>
-                <a href="https://www.youtube.com/watch?v=2I_wiTIgnFo" target="_blank" rel="noopener">YouTube ↗</a>
+            <div class="card card-back">
+              <div class="card-media placeholder-media">🐣<span data-i18n="common.productPhotoSoon">product photo coming soon</span></div>
+              <div class="card-body">
+                <span class="tag tag-product" data-i18n="common.product">The product</span>
+                <h3>Dou</h3>
+                <p data-i18n="dou.back">An anti-Tamagotchi. I designed and implemented its features and electronics.</p>
+                <div class="card-links">
+                  <a href="https://www.linkedin.com/feed/update/urn:li:activity:7502774141113053184/" target="_blank" rel="noopener">LinkedIn ↗</a>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </article>
-
-      <article class="flip-card" tabindex="0" aria-pressed="false">
-        <div class="flip-inner">
-          <div class="card card-front">
-            <div class="card-media"><img src="assets/img/projects/dou-hackware.jpg" alt="Team with the Dou robot at Paisanos Hackware" /></div>
-            <div class="card-body">
-              <div class="tag-row">
-                <span class="tag tag-hackathon" data-i18n="common.hackathon">Hackathon</span>
-                <span class="tag tag-status tag-win" data-i18n="dou.tag">Community Award</span>
-              </div>
-              <h3>Paisanos Hackware</h3>
-              <p data-i18n="dou.front">Participated in Paisanos Hackware, where Dou won the Community Award.</p>
-              <p class="card-meta" data-i18n="dou.meta">Community Award</p>
-            </div>
-          </div>
-          <div class="card card-back">
-            <div class="card-media placeholder-media">🐣<span data-i18n="common.productPhotoSoon">product photo coming soon</span></div>
-            <div class="card-body">
-              <span class="tag tag-product" data-i18n="common.product">The product</span>
-              <h3>Dou</h3>
-              <p data-i18n="dou.back">An anti-Tamagotchi. I designed and implemented its features and electronics.</p>
-              <div class="card-links">
-                <a href="https://www.linkedin.com/feed/update/urn:li:activity:7502774141113053184/" target="_blank" rel="noopener">LinkedIn ↗</a>
+        </article>
+      </li>
+      <li class="tl-item">
+        <span class="tl-date"><span data-i18n="month.aug">Aug</span> 2026</span>
+        <article class="flip-card" tabindex="0" aria-pressed="false">
+          <div class="flip-inner">
+            <div class="card card-front">
+              <div class="card-media"><img src="assets/img/projects/chubby-ninjas.png" alt="Chubby Ninjas game cover" /></div>
+              <div class="card-body">
+                <span class="tag tag-gamejam">GameJam #2</span>
+                <h3>Samda Game Jam</h3>
+                <p data-i18n="chubby.front">My second gamejam, building alongside my teammates Joaquín Giménez and Agustín Godoy.</p>
+                <p class="card-meta">Samda Game Jam</p>
               </div>
             </div>
+            <div class="card card-back">
+              <div class="card-media placeholder-media">🥷<span data-i18n="common.productPhotoSoon">product photo coming soon</span></div>
+              <div class="card-body">
+                <span class="tag tag-product" data-i18n="common.product">The product</span>
+                <h3>Chubby Ninjas</h3>
+                <p data-i18n="chubby.back">Helped develop initial features in Godot for this game — full credit to my teammates Joaquín Giménez and Agustín Godoy.</p>
+                <div class="card-links">
+                  <a href="https://fernecito64.itch.io/chubby-ninjas" target="_blank" rel="noopener">itch.io ↗</a>
+                  <a href="https://github.com/JoaquinGimenez-112733/BoomerangJam.git" target="_blank" rel="noopener">GitHub ↗</a>
+                  <a href="https://www.youtube.com/watch?v=2I_wiTIgnFo" target="_blank" rel="noopener">YouTube ↗</a>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-      </article>
-
-    </div>
+        </article>
+      </li>
+      <li class="tl-item">
+        <span class="tl-date"><span data-i18n="month.jan">Jan</span> 2026</span>
+        <article class="flip-card" tabindex="0" aria-pressed="false">
+          <div class="flip-inner">
+            <div class="card card-front">
+              <div class="card-media"><img src="assets/img/projects/damian-quest.png" alt="Damian Quest game cover" /></div>
+              <div class="card-body">
+                <span class="tag tag-gamejam">GameJam #1</span>
+                <h3>Córdoba GameJam</h3>
+                <p data-i18n="damian.front">Joined the Córdoba GameJam with my EPAM coworkers.</p>
+                <p class="card-meta">Córdoba GameJam</p>
+              </div>
+            </div>
+            <div class="card card-back">
+              <div class="card-media placeholder-media">🎮<span data-i18n="common.productPhotoSoon">product photo coming soon</span></div>
+              <div class="card-body">
+                <span class="tag tag-product" data-i18n="common.product">The product</span>
+                <h3>Damian Quest</h3>
+                <p data-i18n="damian.back">A game built in Godot, where I participated as a game dev.</p>
+                <div class="card-links">
+                  <a href="https://marianelavflora.itch.io/damian-quest" target="_blank" rel="noopener">itch.io ↗</a>
+                  <a href="https://github.com/marianelavflora/cordoba-game-jam-2026" target="_blank" rel="noopener">GitHub ↗</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </li>
+      <li class="tl-item">
+        <span class="tl-date"><span data-i18n="month.sep">Sep</span> 2025</span>
+        <article class="flip-card" tabindex="0" aria-pressed="false">
+          <div class="flip-inner">
+            <div class="card card-front">
+              <div class="card-media"><img src="assets/img/projects/che-voz.jpg" alt="Che Voz hackathon presentation" /></div>
+              <div class="card-body">
+                <div class="tag-row">
+                  <span class="tag tag-hackathon" data-i18n="common.hackathon">Hackathon</span>
+                  <span class="tag tag-status tag-win" data-i18n="chevoz.tag">3rd Place</span>
+                </div>
+                <h3>Che Voz</h3>
+                <p data-i18n="chevoz.front">Participated as a frontend dev and our team took 3rd place.</p>
+                <p class="card-meta" data-i18n="common.third">3rd Place</p>
+              </div>
+            </div>
+            <div class="card card-back">
+              <div class="card-media placeholder-media">🎙️<span data-i18n="common.productPhotoSoon">product photo coming soon</span></div>
+              <div class="card-body">
+                <span class="tag tag-product" data-i18n="common.product">The product</span>
+                <h3>Che Voz</h3>
+                <p data-i18n="chevoz.back">A voice assistant that detects your customer's location and activates an agent that speaks in their regional dialect.</p>
+                <div class="card-links">
+                  <a href="https://che-voz.lat/en" target="_blank" rel="noopener">che-voz.lat ↗</a>
+                  <a href="https://www.linkedin.com/feed/update/urn:li:activity:7413955133585223681/" target="_blank" rel="noopener">LinkedIn ↗</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </li>
+      <li class="tl-item">
+        <span class="tl-date"><span data-i18n="month.aug">Aug</span> 2025</span>
+        <article class="flip-card" tabindex="0" aria-pressed="false">
+          <div class="flip-inner">
+            <div class="card card-front">
+              <div class="card-media"><img src="assets/img/projects/aleph-hackathon.jpg" alt="Aleph Hackathon Córdoba Chapter group photo" /></div>
+              <div class="card-body">
+                <div class="tag-row">
+                  <span class="tag tag-hackathon" data-i18n="common.hackathon">Hackathon</span>
+                  <span class="tag tag-status tag-org" data-i18n="aleph.tag">Organizer &amp; Mentor</span>
+                </div>
+                <h3>Aleph Hackathon — Córdoba Chapter</h3>
+                <p data-i18n="aleph.front">Organizer &amp; mentor at the Córdoba chapter of Aleph Hackathon.</p>
+                <p class="card-meta">Córdoba, Argentina</p>
+              </div>
+            </div>
+            <div class="card card-back">
+              <div class="card-media placeholder-media">🧑‍🏫<span data-i18n="common.productPhotoSoon">product photo coming soon</span></div>
+              <div class="card-body">
+                <span class="tag tag-product" data-i18n="common.role">My role</span>
+                <h3>Aleph Hackathon — Córdoba Chapter</h3>
+                <p data-i18n="aleph.back">Helped organize and mentored teams for the Córdoba chapter of Aleph Hackathon.</p>
+                <div class="card-links">
+                  <a href="https://www.linkedin.com/feed/update/urn:li:activity:7367755528992747521/" target="_blank" rel="noopener">LinkedIn ↗</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </li>
+      <li class="tl-item">
+        <span class="tl-date"><span data-i18n="month.jul">Jul</span> 2025</span>
+        <article class="flip-card" tabindex="0" aria-pressed="false">
+          <div class="flip-inner">
+            <div class="card card-front">
+              <div class="card-media"><img src="assets/img/projects/vibe-a-startup.jpg" alt="Vibe a Startup hackathon group photo" /></div>
+              <div class="card-body">
+                <div class="tag-row">
+                  <span class="tag tag-hackathon" data-i18n="common.hackathon">Hackathon</span>
+                  <span class="tag tag-status tag-soon" data-i18n="vibe.tag">Participant</span>
+                </div>
+                <h3>Vibe a Startup</h3>
+                <p data-i18n="vibe.front">Participated in the Vibe a Startup hackathon in Buenos Aires.</p>
+                <p class="card-meta">Buenos Aires</p>
+              </div>
+            </div>
+            <div class="card card-back">
+              <div class="card-media placeholder-media">🦋<span data-i18n="common.productPhotoSoon">product photo coming soon</span></div>
+              <div class="card-body">
+                <span class="tag tag-product" data-i18n="common.outcome">What came out of it</span>
+                <h3>Vibe a Startup</h3>
+                <p data-i18n="vibe.back">What I liked most about this one was the butterfly effect it caused in my life — I met really cool people and ended up invited to mentor and help organize the Córdoba chapter of Aleph Hackathon.</p>
+                <div class="card-links">
+                  <a href="https://x.com/vibeastartup/status/1949267026825863217" target="_blank" rel="noopener">Post ↗</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </li>
+      <li class="tl-item">
+        <span class="tl-date"><span data-i18n="month.may">May</span> 2025</span>
+        <article class="flip-card" tabindex="0" aria-pressed="false">
+          <div class="flip-inner">
+            <div class="card card-front">
+              <div class="card-media placeholder-media">🏆<span data-i18n="common.photoSoon">photo coming soon</span></div>
+              <div class="card-body">
+                <div class="tag-row">
+                  <span class="tag tag-hackathon" data-i18n="common.hackathon">Hackathon</span>
+                  <span class="tag tag-status tag-win" data-i18n="santex.tag">1st Place</span>
+                </div>
+                <h3>Santex x Bugster Hackathon</h3>
+                <p data-i18n="santex.front">My first hackathon! Instead of coding, I mostly shared mate with my colleagues and pitched our product to the crowd.</p>
+                <p class="card-meta" data-i18n="common.first">1st Place</p>
+              </div>
+            </div>
+            <div class="card card-back">
+              <div class="card-media placeholder-media">💬<span data-i18n="common.productPhotoSoon">product photo coming soon</span></div>
+              <div class="card-body">
+                <span class="tag tag-product" data-i18n="common.product">The product</span>
+                <h3 data-i18n="santex.backTitle">AI logistics chatbot</h3>
+                <p data-i18n="santex.back">An AI chatbot + web MCP that simulated managing Santex's logistics.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+      </li>
+    </ol>
   </div>
 </section>
 
