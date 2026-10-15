@@ -1,9 +1,8 @@
-import * as pdfjsLib from 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/6.3.289/pdf.min.mjs';
+// pdf.js is only downloaded the first time someone opens the CV, so it never
+// slows down (or, if the CDN is down, breaks) the rest of the page.
+const PDFJS = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/6.3.289';
 
-pdfjsLib.GlobalWorkerOptions.workerSrc =
-  'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/6.3.289/pdf.worker.min.mjs';
-
-const CV_SRC = 'assets/cv/MaViFlora_CV.pdf';
+const CV_SRC = '/assets/cv/MaViFlora_CV.pdf';
 
 const modal = document.getElementById('cv-modal');
 const canvas = document.getElementById('cv-pdf-canvas');
@@ -23,6 +22,8 @@ let renderTask = null;
 async function ensureLoaded() {
   if (pdfDoc) return;
   canvasWrap.classList.add('loading');
+  const pdfjsLib = await import(/* @vite-ignore */ `${PDFJS}/pdf.min.mjs`);
+  pdfjsLib.GlobalWorkerOptions.workerSrc = `${PDFJS}/pdf.worker.min.mjs`;
   pdfDoc = await pdfjsLib.getDocument({ url: CV_SRC }).promise;
   canvasWrap.classList.remove('loading');
 }

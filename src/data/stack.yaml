@@ -1,0 +1,34 @@
+# 05 — Stack & Toolbox. Groups and chips are shown in this order.
+
+- id: languages
+  icon: 💻
+  title: { en: Languages, es: Lenguajes }
+  items: [Python, C++, SQL, JavaScript, HTML & CSS]
+
+- id: qa
+  icon: 🐞
+  title: { en: Testing & QA, es: Testing y QA }
+  items:
+    - Selenium
+    - Playwright
+    - { en: Functional testing, es: Testing funcional }
+    - { en: Regression, es: Regresión }
+    - { en: Exploratory, es: Exploratorio }
+    - { en: Game testing, es: Testing de juegos }
+    - { en: Multiplatform, es: Multiplataforma }
+    - { en: Test cases, es: Casos de prueba }
+    - { en: Bug reports, es: Reporte de bugs }
+
+- id: tools
+  icon: 🛠️
+  title: { en: Tools, es: Herramientas }
+  items: [Git & GitHub, Jira, Confluence, Agile / Scrum]
+
+- id: hardware
+  icon: 🤖
+  title: { en: Hardware & Games, es: Hardware y juegos }
+  items:
+    - ESP32
+    - Arduino
+    - { en: Sensors & actuators, es: Sensores y actuadores }
+    - Godot

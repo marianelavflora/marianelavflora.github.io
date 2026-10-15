@@ -1,0 +1,15 @@
+---
+// Photo for a card, or an emoji + "photo coming soon" placeholder when there's none yet.
+import { en, es, type Text } from '../i18n';
+
+interface Props {
+  image?: string;
+  alt?: string;
+  emoji?: string;
+  placeholder: Text;
+}
+const { image, alt, emoji, placeholder } = Astro.props;
+---
+{image
+  ? <div class="card-media"><img src={image} alt={alt} /></div>
+  : <div class="card-media placeholder-media">{emoji}<span {...es(placeholder)}>{en(placeholder)}</span></div>}

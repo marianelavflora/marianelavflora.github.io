@@ -1,0 +1,33 @@
+---
+import { en, es } from '../i18n';
+import { ui } from '../i18n/ui';
+
+const links = [
+  { href: '#music', num: '02', label: ui.nav.music },
+  { href: '#projects', num: '03', label: ui.nav.projects },
+  { href: '#experience', num: '04', label: ui.nav.experience },
+  { href: '#stack', num: '05', label: ui.nav.stack },
+  { href: '#life', num: '06', label: ui.nav.life },
+  { href: '#certifications', num: '07', label: ui.nav.certs },
+];
+---
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="#top" class="logo">MAVI<span class="dot">.</span></a>
+    <nav class="main-nav" id="main-nav">
+      {links.map(link => (
+        <a href={link.href}><span class="nav-num">{link.num}</span> <span {...es(link.label)}>{en(link.label)}</span></a>
+      ))}
+      <a class="cv-btn" href="/assets/cv/MaViFlora_CV.pdf" data-cv-trigger {...es(ui.nav.cv)}>{en(ui.nav.cv)}</a>
+    </nav>
+    <div class="header-actions">
+      <div class="lang-toggle" role="group" aria-label="Language / Idioma">
+        <button type="button" data-lang="en" aria-pressed="true">EN</button>
+        <button type="button" data-lang="es" aria-pressed="false">ES</button>
+      </div>
+      <button id="nav-toggle" class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>

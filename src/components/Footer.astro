@@ -1,0 +1,46 @@
+---
+import { en, es } from '../i18n';
+import { ui } from '../i18n/ui';
+---
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="quote-box" id="quote-box">
+      <svg id="dog-runner" viewBox="0 0 100 60" width="70" height="42">
+        <g id="dog-body">
+          <ellipse cx="45" cy="35" rx="30" ry="13" fill="#ff6b3d"/>
+          <circle cx="78" cy="26" r="13" fill="#ff6b3d"/>
+          <ellipse cx="83" cy="29" rx="4.5" ry="3" fill="#2b160e"/>
+          <circle cx="83" cy="22" r="2" fill="#2b160e"/>
+          <polygon points="70,16 66,4 76,15" fill="#ff6b3d"/>
+          <path d="M16 30 q-14 8 -20 -2" stroke="#ff6b3d" stroke-width="6" fill="none" stroke-linecap="round"/>
+          <g stroke="#ff6b3d" stroke-width="6" stroke-linecap="round">
+            <line x1="28" y1="45" x2="25" y2="58" class="dogleg dogleg1"/>
+            <line x1="42" y1="47" x2="40" y2="58" class="dogleg dogleg2"/>
+            <line x1="58" y1="47" x2="60" y2="58" class="dogleg dogleg3"/>
+            <line x1="68" y1="45" x2="72" y2="58" class="dogleg dogleg4"/>
+          </g>
+        </g>
+      </svg>
+
+      <svg class="quote-emblem quote-emblem-left" viewBox="0 0 40 100" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M40 5 C25 5 25 20 25 30 C25 40 15 45 10 50 C15 55 25 60 25 70 C25 80 25 95 40 95"/>
+        <text x="7" y="24" font-family="Georgia, serif" font-size="18" stroke="none" fill="currentColor" text-anchor="middle">&ldquo;</text>
+      </svg>
+      <svg class="quote-emblem quote-emblem-right" viewBox="0 0 40 100" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M0 5 C15 5 15 20 15 30 C15 40 25 45 30 50 C25 55 15 60 15 70 C15 80 15 95 0 95"/>
+        <text x="33" y="90" font-family="Georgia, serif" font-size="18" stroke="none" fill="currentColor" text-anchor="middle">&bdquo;</text>
+      </svg>
+      <p class="quote-text" {...es(ui.footer.quote)} set:html={en(ui.footer.quote)} />
+      <span class="quote-attr">— Hannah Montana</span>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© <span id="year"></span> Marianela Victoria Flora. <span {...es(ui.footer.built)}>{en(ui.footer.built)}</span></p>
+      <div class="footer-socials">
+        <a href="https://github.com/marianelavflora" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/marianela-victoria-flora/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://x.com/mavifloraa" target="_blank" rel="noopener">X</a>
+      </div>
+    </div>
+  </div>
+</footer>

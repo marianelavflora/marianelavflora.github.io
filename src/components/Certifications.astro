@@ -1,0 +1,27 @@
+---
+import { getCollection } from 'astro:content';
+import { en, es, monthYear, newestFirst } from '../i18n';
+import { ui } from '../i18n/ui';
+import SectionHeading from './SectionHeading.astro';
+
+const certs = newestFirst(await getCollection('certifications'), c => c.data.date);
+---
+<section id="certifications" class="section dark-section">
+  <div class="wrap">
+    <SectionHeading kicker={ui.certs.kicker} title={ui.certs.title} />
+
+    <div class="certs-grid">
+      {certs.map(({ data: cert }) => {
+        const date = monthYear(cert.date, 'long');
+        return (
+          <a class="cert-card" href={cert.url} target="_blank" rel="noopener">
+            <span class="cert-icon"><img src={cert.icon} alt="" /></span>
+            <h3 {...es(cert.title)}>{en(cert.title)}</h3>
+            <p>{cert.issuer}</p>
+            <span class="cert-date" {...es(date)}>{date.en}</span>
+          </a>
+        );
+      })}
+    </div>
+  </div>
+</section>

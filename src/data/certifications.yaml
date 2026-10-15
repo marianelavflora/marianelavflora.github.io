@@ -1,0 +1,34 @@
+# 07 — Certifications, shown newest first by `date` (YYYY-MM).
+# `url` defaults to the LinkedIn certifications page.
+
+- id: aws-sbg-founding-builder
+  title: "AWS SBG UNC: Founding Builder 2026"
+  issuer: AWS SBG UNC
+  icon: /assets/img/certs/aws-sbg.png
+  date: 2026-05
+
+- id: linkedin-bug-writing
+  title: "Software Testing Foundations: Bug Writing and Management"
+  issuer: LinkedIn
+  icon: /assets/img/certs/linkedin.svg
+  date: 2025-06
+
+- id: accenture-qa
+  title:
+    en: QA Manual & Automation Training
+    es: Capacitación en QA Manual y Automation
+  issuer: Accenture
+  icon: /assets/img/certs/accenture.svg
+  date: 2025-04
+
+- id: oracle-one
+  title: Oracle Next Education F2 T5 — Back-end
+  issuer: Alura Latam
+  icon: /assets/img/certs/oracle.svg
+  date: 2023-10
+
+- id: cambridge-c1
+  title: C1 Advanced
+  issuer: Cambridge University Press & Assessment
+  icon: /assets/img/certs/cambridge.svg
+  date: 2021-12

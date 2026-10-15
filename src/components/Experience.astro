@@ -1,0 +1,25 @@
+---
+import { getCollection } from 'astro:content';
+import { en, es, newestFirst } from '../i18n';
+import { ui } from '../i18n/ui';
+import SectionHeading from './SectionHeading.astro';
+import ExperienceRow from './ExperienceRow.astro';
+
+const all = newestFirst(await getCollection('experience'), e => e.data.start);
+const jobs = all.filter(e => e.data.kind === 'job');
+const volunteering = all.filter(e => e.data.kind === 'volunteering');
+---
+<section id="experience" class="section dark-section">
+  <div class="wrap">
+    <SectionHeading kicker={ui.exp.kicker} title={ui.exp.title} />
+
+    <ul class="exp-list">
+      {jobs.map(e => <ExperienceRow job={e.data} />)}
+    </ul>
+
+    <h3 class="exp-subtitle" {...es(ui.exp.volunteering)}>{en(ui.exp.volunteering)}</h3>
+    <ul class="exp-list">
+      {volunteering.map(e => <ExperienceRow job={e.data} />)}
+    </ul>
+  </div>
+</section>

@@ -1,0 +1,232 @@
+# 03 — Projects & Achievements.
+# One entry per card. The page sorts them newest first by `date`, so the
+# order here doesn't matter (cards with the same month keep this order).
+#
+# Fields:
+#   date       YYYY-MM, shown as "Sep 2026" on the timeline
+#   hidden     true = keep the entry but don't show it yet
+#   type       hackathon | gamejam | robot (sets the tag colour)
+#   typeLabel  optional custom text for the type tag (e.g. "GameJam #2")
+#   status     optional second tag: kind is win | soon | org | wip
+#   front      the event: title, text, meta, and an image (+ alt) or an emoji
+#   back       what came out of it: label is product | role | outcome
+#
+# Any text can be one string (same in both languages) or { en, es }.
+
+- id: nasa
+  hidden: true
+  date: 2026-11
+  type: hackathon
+  status:
+    kind: soon
+    label: { en: Coming Soon, es: Próximamente }
+  front:
+    emoji: 🚀
+    title: NASA Space Apps Challenge
+    text:
+      en: Taking part in the NASA Space Apps hackathon. More soon!
+      es: Voy a participar en la hackatón NASA Space Apps. ¡Pronto más info!
+    meta: { en: Coming soon, es: Próximamente }
+  back:
+    emoji: 🚀
+    title: NASA Space Apps Challenge
+    text:
+      en: What we build will show up here soon 🚧
+      es: Lo que construyamos va a aparecer acá pronto 🚧
+
+- id: agents-on-rails
+  hidden: true
+  date: 2026-10
+  type: hackathon
+  status: { kind: wip, label: WIP }
+  front:
+    emoji: 🛤️
+    title: AgentsOnRails Hackathon
+    text:
+      en: Currently participating in the AgentsOnRails hackathon. Stay tuned!
+      es: Estoy participando en la hackatón AgentsOnRails. ¡Atentos!
+    meta: { en: Work in progress, es: En progreso }
+  back:
+    emoji: 🛤️
+    title: AgentsOnRails Hackathon
+    text:
+      en: What we build will show up here soon 🚧
+      es: Lo que construyamos va a aparecer acá pronto 🚧
+
+- id: robot-el-cono
+  date: 2026-09
+  type: robot
+  status: { kind: wip, label: WIP }
+  front:
+    emoji: 🤖
+    title: robotElCono
+    text:
+      en: A robot I'm building for the office at work.
+      es: Un robot que estoy haciendo para la oficina del laburo.
+    meta: { en: ESP32 · Work in progress, es: ESP32 · En progreso }
+  back:
+    emoji: 🤖
+    title: robotElCono
+    text:
+      en: "A robot I'm building with an ESP32, based on Dou. Its job: live at the office and tell jokes to my coworkers."
+      es: "Un robot que estoy armando con una ESP32, basado en Dou. Su laburo: vivir en la oficina y tirarle chistes a mis compañeros."
+
+- id: dou
+  date: 2026-09
+  type: hackathon
+  status:
+    kind: win
+    label: { en: Community Award, es: Premio de la Comunidad }
+  front:
+    image: /assets/img/projects/dou-hackware.jpg
+    alt: Team with the Dou robot at Paisanos Hackware
+    title: Paisanos Hackware
+    text:
+      en: Participated in Paisanos Hackware, where Dou won the Community Award.
+      es: Participé en Paisanos Hackware, donde Dou ganó el Premio de la Comunidad.
+    meta: { en: Community Award, es: Premio de la Comunidad }
+  back:
+    emoji: 🐣
+    title: Dou
+    text:
+      en: An anti-Tamagotchi. I designed and implemented its features and electronics.
+      es: Un anti-Tamagotchi. Diseñé e implementé sus features y su electrónica.
+    links:
+      - { label: LinkedIn ↗, url: "https://www.linkedin.com/feed/update/urn:li:activity:7502774141113053184/" }
+
+- id: chubby-ninjas
+  date: 2026-08
+  type: gamejam
+  typeLabel: "GameJam #2"
+  front:
+    image: /assets/img/projects/chubby-ninjas.png
+    alt: Chubby Ninjas game cover
+    title: Samda Game Jam
+    text:
+      en: My second gamejam, building alongside my teammates Joaquín Giménez and Agustín Godoy.
+      es: Mi segunda gamejam, junto a mis compañeros Joaquín Giménez y Agustín Godoy.
+    meta: Samda Game Jam
+  back:
+    emoji: 🥷
+    title: Chubby Ninjas
+    text:
+      en: Helped develop initial features in Godot for this game — full credit to my teammates Joaquín Giménez and Agustín Godoy.
+      es: Ayudé a desarrollar las primeras features en Godot de este juego. Todo el crédito para mis compañeros Joaquín Giménez y Agustín Godoy.
+    links:
+      - { label: itch.io ↗, url: "https://fernecito64.itch.io/chubby-ninjas" }
+      - { label: GitHub ↗, url: "https://github.com/JoaquinGimenez-112733/BoomerangJam.git" }
+      - { label: YouTube ↗, url: "https://www.youtube.com/watch?v=2I_wiTIgnFo" }
+
+- id: damian-quest
+  date: 2026-01
+  type: gamejam
+  typeLabel: "GameJam #1"
+  front:
+    image: /assets/img/projects/damian-quest.png
+    alt: Damian Quest game cover
+    title: Córdoba GameJam
+    text:
+      en: Joined the Córdoba GameJam with my EPAM coworkers.
+      es: Participé de la Córdoba GameJam con mis compañeros de EPAM.
+    meta: Córdoba GameJam
+  back:
+    emoji: 🎮
+    title: Damian Quest
+    text:
+      en: A game built in Godot, where I participated as a game dev.
+      es: Un juego hecho en Godot, donde participé como game dev.
+    links:
+      - { label: itch.io ↗, url: "https://marianelavflora.itch.io/damian-quest" }
+      - { label: GitHub ↗, url: "https://github.com/marianelavflora/cordoba-game-jam-2026" }
+
+- id: che-voz
+  date: 2025-09
+  type: hackathon
+  status:
+    kind: win
+    label: { en: 3rd Place, es: 3er puesto }
+  front:
+    image: /assets/img/projects/che-voz.jpg
+    alt: Che Voz hackathon presentation
+    title: Che Voz
+    text:
+      en: Participated as a frontend dev and our team took 3rd place.
+      es: Participé como frontend dev y nuestro equipo salió tercero.
+    meta: { en: 3rd Place, es: 3er puesto }
+  back:
+    emoji: 🎙️
+    title: Che Voz
+    text:
+      en: A voice assistant that detects your customer's location and activates an agent that speaks in their regional dialect.
+      es: Un asistente de voz que detecta la ubicación de tu cliente y activa un agente que habla en su dialecto regional.
+    links:
+      - { label: che-voz.lat ↗, url: "https://che-voz.lat/en" }
+      - { label: LinkedIn ↗, url: "https://www.linkedin.com/feed/update/urn:li:activity:7413955133585223681/" }
+
+- id: aleph
+  date: 2025-08
+  type: hackathon
+  status:
+    kind: org
+    label: { en: Organizer & Mentor, es: Organizadora y mentora }
+  front:
+    image: /assets/img/projects/aleph-hackathon.jpg
+    alt: Aleph Hackathon Córdoba Chapter group photo
+    title: Aleph Hackathon — Córdoba Chapter
+    text:
+      en: Organizer & mentor at the Córdoba chapter of Aleph Hackathon.
+      es: Organizadora y mentora en el capítulo Córdoba de Aleph Hackathon.
+    meta: Córdoba, Argentina
+  back:
+    label: role
+    emoji: 🧑‍🏫
+    title: Aleph Hackathon — Córdoba Chapter
+    text:
+      en: Helped organize and mentored teams for the Córdoba chapter of Aleph Hackathon.
+      es: Ayudé a organizar y mentoreé equipos en el capítulo Córdoba de Aleph Hackathon.
+    links:
+      - { label: LinkedIn ↗, url: "https://www.linkedin.com/feed/update/urn:li:activity:7367755528992747521/" }
+
+- id: vibe-a-startup
+  date: 2025-07
+  type: hackathon
+  status:
+    kind: soon
+    label: { en: Participant, es: Participante }
+  front:
+    image: /assets/img/projects/vibe-a-startup.jpg
+    alt: Vibe a Startup hackathon group photo
+    title: Vibe a Startup
+    text:
+      en: Participated in the Vibe a Startup hackathon in Buenos Aires.
+      es: Participé en la hackatón Vibe a Startup en Buenos Aires.
+    meta: Buenos Aires
+  back:
+    label: outcome
+    emoji: 🦋
+    title: Vibe a Startup
+    text:
+      en: What I liked most about this one was the butterfly effect it caused in my life — I met really cool people and ended up invited to mentor and help organize the Córdoba chapter of Aleph Hackathon.
+      es: "Lo que más me gustó de esta fue el efecto mariposa que tuvo en mi vida: conocí gente re copada y terminé invitada a mentorear y ayudar a organizar el capítulo Córdoba de Aleph Hackathon."
+    links:
+      - { label: Post ↗, url: "https://x.com/vibeastartup/status/1949267026825863217" }
+
+- id: santex
+  date: 2025-05
+  type: hackathon
+  status:
+    kind: win
+    label: { en: 1st Place, es: 1er puesto }
+  front:
+    emoji: 🏆
+    title: Santex x Bugster Hackathon
+    text:
+      en: My first hackathon! Instead of coding, I mostly shared mate with my colleagues and pitched our product to the crowd.
+      es: ¡Mi primera hackatón! En vez de codear, más que nada compartí mates con mis compañeros y le presenté nuestro producto al público.
+    meta: { en: 1st Place, es: 1er puesto }
+  back:
+    emoji: 💬
+    title: { en: AI logistics chatbot, es: Chatbot de logística con IA }
+    text:
+      en: An AI chatbot + web MCP that simulated managing Santex's logistics.
+      es: Un chatbot con IA + un MCP web que simulaba la gestión de la logística de Santex.
