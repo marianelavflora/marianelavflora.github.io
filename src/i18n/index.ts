@@ -27,12 +27,6 @@ const split = (ym: string) => {
   return { year, index: Number(month) - 1 };
 };
 
-/** Month name only, e.g. "Sep" / "Sep". */
-export function monthName(ym: string, style: 'short' | 'long' = 'short') {
-  const { index } = split(ym);
-  return { en: MONTHS[style].en[index], es: MONTHS[style].es[index] };
-}
-
 /** "June 2025" style label. */
 export function monthYear(ym: string, style: 'short' | 'long' = 'short') {
   const { year, index } = split(ym);
