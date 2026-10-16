@@ -1,15 +1,15 @@
 ---
-// 03 — the big timeline: projects, jobs, volunteering and certifications in
-// one line, newest first and grouped by year. It reads the same data files as
-// before (projects.yaml, experience.yaml, certifications.yaml), so adding an
-// entry to any of them puts it on the timeline in the right spot.
+// 03 — the big timeline: projects, jobs, volunteering, certifications and
+// education in one line, newest first and grouped by year. It reads the data
+// files (projects.yaml, experience.yaml, certifications.yaml, education.yaml),
+// so adding an entry to any of them puts it on the timeline in the right spot.
 import { getCollection } from 'astro:content';
-import { en, es, dateRange, monthYear, type Text } from '../i18n';
+import { en, es, dateRange, expectedRange, monthYear, type Text } from '../i18n';
 import { ui } from '../i18n/ui';
 import SectionHeading from './SectionHeading.astro';
 import ProjectCard from './ProjectCard.astro';
 
-type Kind = 'project' | 'job' | 'volunteering' | 'cert';
+type Kind = 'project' | 'job' | 'volunteering' | 'cert' | 'education';
 
 const projects = (await getCollection('projects'))
   .filter(p => !p.data.hidden)
@@ -27,9 +27,16 @@ const certs = (await getCollection('certifications')).map(c => ({
   cert: c.data,
 }));
 
-// Newest first; within the same month, projects first, then jobs, volunteering, certs.
-const rank: Record<Kind, number> = { project: 0, job: 1, volunteering: 2, cert: 3 };
-const entries = [...projects, ...experience, ...certs].sort(
+const education = (await getCollection('education')).map(d => ({
+  kind: 'education' as const,
+  date: d.data.start,
+  order: d.data.order,
+  degree: d.data,
+}));
+
+// Newest first; within the same month, projects first, then jobs, volunteering, certs, education.
+const rank: Record<Kind, number> = { project: 0, job: 1, volunteering: 2, cert: 3, education: 4 };
+const entries = [...projects, ...experience, ...certs, ...education].sort(
   (a, b) => b.date.localeCompare(a.date) || rank[a.kind] - rank[b.kind] || a.order - b.order,
 );
 
@@ -43,6 +50,7 @@ const filters: { kind: Kind; label: Text }[] = [
   { kind: 'job', label: ui.journey.filter.job },
   { kind: 'volunteering', label: ui.journey.filter.volunteering },
   { kind: 'cert', label: ui.journey.filter.cert },
+  { kind: 'education', label: ui.journey.filter.education },
 ];
 const count = (kind: Kind) => entries.filter(e => e.kind === kind).length;
 ---
@@ -89,6 +97,26 @@ const count = (kind: Kind) => entries.filter(e => e.kind === kind).length;
                       <span class="jr-sub">{cert.issuer}</span>
                     </span>
                   </a>
+                </li>
+              );
+            }
+            if (e.kind === 'education') {
+              const { degree } = e;
+              const dates = degree.end ? dateRange(degree.start, degree.end) : expectedRange(degree.start, degree.expected);
+              return (
+                <li class="jr-item jr-education" data-kind="education">
+                  <span class="jr-date" {...es(dates)}>{en(dates)}</span>
+                  <div class="jr-mini">
+                    <span class="jr-logo"><img src={degree.logo} alt={degree.logoAlt} /></span>
+                    <span class="jr-text">
+                      <span class="jr-kind" {...es(ui.journey.kind.education)}>{en(ui.journey.kind.education)}</span>
+                      <strong>
+                        <span {...es(degree.title)}>{en(degree.title)}</span>
+                        {!degree.end && <span class="jr-now" {...es(ui.journey.studying)}>{en(ui.journey.studying)}</span>}
+                      </strong>
+                      <span class="jr-sub" {...es(degree.school)}>{en(degree.school)}</span>
+                    </span>
+                  </div>
                 </li>
               );
             }

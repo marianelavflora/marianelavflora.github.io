@@ -81,6 +81,20 @@ const certifications = defineCollection({
   }),
 });
 
+const education = defineCollection({
+  loader: yamlList('src/data/education.yaml'),
+  schema: z.object({
+    order,
+    title: text,
+    school: text,
+    logo: z.string(),
+    logoAlt: z.string(),
+    start: month,
+    end: month.nullable().default(null),
+    expected: z.number().int().optional(),
+  }),
+});
+
 const stack = defineCollection({
   loader: yamlList('src/data/stack.yaml'),
   schema: z.object({
@@ -105,4 +119,4 @@ const life = defineCollection({
   }),
 });
 
-export const collections = { projects, experience, certifications, stack, life };
+export const collections = { projects, experience, certifications, education, stack, life };

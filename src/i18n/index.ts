@@ -43,6 +43,13 @@ export function dateRange(start: string, end: string | null): Text {
   return { en: `${from.en} – ${to.en}`, es: `${from.es} – ${to.es}` };
 }
 
+/** "Mar 2022 – 2028 (expected)", for a degree that's still going. */
+export function expectedRange(start: string, expected?: number): Text {
+  const from = monthYear(start);
+  if (!expected) return { en: `${from.en} – Present`, es: `${from.es} – Actualidad` };
+  return { en: `${from.en} – ${expected} (expected)`, es: `${from.es} – ${expected} (estimado)` };
+}
+
 type Ordered = { data: { order: number } };
 
 /** Entries in the same order as their YAML file. */

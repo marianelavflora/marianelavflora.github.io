@@ -1,0 +1,20 @@
+# Degrees, shown on the 03 Journey timeline at their `start` month.
+#   start  YYYY-MM when it started
+#   end    YYYY-MM when it finished; leave it out while it's still going
+#   expected  the year it should end (only shown while it's still going)
+
+- id: unc-computer-engineering
+  title: { en: Computer Engineering, es: Ingeniería en Computación }
+  school: Universidad Nacional de Córdoba (UNC)
+  logo: /assets/img/logos/unc.jpg
+  logoAlt: Universidad Nacional de Córdoba
+  start: 2022-03
+  expected: 2028
+
+- id: unc-digital-systems
+  title: { en: Digital Systems Technician, es: Tecnicatura en Sistemas Digitales }
+  school: Universidad Nacional de Córdoba (UNC)
+  logo: /assets/img/logos/unc.jpg
+  logoAlt: Universidad Nacional de Córdoba
+  start: 2024-03
+  expected: 2027
