@@ -53,7 +53,7 @@ if (yearEl) yearEl.textContent = new Date().getFullYear();
 // Each project card holds two photos (event + product) that swap every few
 // seconds; hovering or focusing the card pauses it. Clicking a real photo
 // opens it big in the lightbox, where the arrows go between the two.
-const PHOTO_SWAP_MS = 5000;
+const PHOTO_SWAP_MS = 3000;
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 document.querySelectorAll('[data-photos]').forEach(box => {
