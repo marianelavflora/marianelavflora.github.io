@@ -5,8 +5,7 @@ import type { Text } from '.';
 export const ui = {
   nav: {
     music: { en: 'Music', es: 'Música' },
-    projects: { en: 'Projects', es: 'Proyectos' },
-    experience: { en: 'Experience', es: 'Experiencia' },
+    journey: { en: 'Journey', es: 'Recorrido' },
     stack: 'Stack',
     life: { en: 'Life', es: 'Vida' },
     certs: { en: 'Certifications', es: 'Certificaciones' },
@@ -30,17 +29,30 @@ export const ui = {
     note: { en: '🎵 6 songs queued up, hit play.', es: '🎵 6 temas en la cola, dale play.' },
     open: { en: 'Not loading? Open it on YouTube ↗', es: '¿No carga? Abrila en YouTube ↗' },
   },
-  projects: {
-    kicker: { en: '03 — things I\'ve built, won &amp; organized', es: '03 — cosas que armé, gané y organicé' },
-    title: { en: 'Projects &amp; Achievements', es: 'Proyectos y Logros' },
+  journey: {
+    kicker: { en: '03 — the journey so far', es: '03 — el recorrido hasta ahora' },
+    title: { en: 'Projects, Work &amp; Milestones', es: 'Proyectos, Laburo e Hitos' },
     hint: {
-      en: 'Hackathons, gamejams, personal projects and moments with amazing people',
-      es: 'Hackatones, gamejams, proyectos personales y momentos con gente increíble',
+      en: 'Hackathons, gamejams, jobs, volunteering and certifications, all in one line',
+      es: 'Hackatones, gamejams, trabajos, voluntariados y certificaciones, todo en una línea',
     },
     flipHint: {
-      en: '↻ Click any card to flip it: the event is on the front, what we built is on the back.',
-      es: '↻ Hacé click en cualquier card para darla vuelta: adelante está el evento, atrás lo que construimos.',
+      en: '↻ Click any project to flip it: the event is on the front, what we built is on the back.',
+      es: '↻ Hacé click en cualquier proyecto para darlo vuelta: adelante está el evento, atrás lo que construimos.',
     },
+    filter: {
+      all: { en: 'All', es: 'Todo' },
+      project: { en: 'Projects', es: 'Proyectos' },
+      job: { en: 'Work', es: 'Trabajo' },
+      volunteering: { en: 'Volunteering', es: 'Voluntariados' },
+      cert: { en: 'Certifications', es: 'Certificaciones' },
+    },
+    kind: {
+      job: { en: 'Work', es: 'Trabajo' },
+      volunteering: { en: 'Volunteering', es: 'Voluntariado' },
+      cert: { en: 'Certification', es: 'Certificación' },
+    },
+    now: { en: 'Now', es: 'Hoy' },
   },
   type: {
     hackathon: { en: 'Hackathon', es: 'Hackatón' },
@@ -54,22 +66,17 @@ export const ui = {
   },
   photoSoon: { en: 'photo coming soon', es: 'foto próximamente' },
   productPhotoSoon: { en: 'product photo coming soon', es: 'foto del producto próximamente' },
-  exp: {
-    kicker: { en: '04 — where I\'ve worked', es: '04 — dónde trabajé' },
-    title: { en: 'Experience', es: 'Experiencia' },
-    volunteering: { en: 'Volunteering', es: 'Voluntariados' },
-  },
   stack: {
-    kicker: { en: '05 — what I work with', es: '05 — con qué laburo' },
+    kicker: { en: '04 — what I work with', es: '04 — con qué laburo' },
     title: { en: 'Stack &amp; Toolbox', es: 'Stack y herramientas' },
   },
   life: {
-    kicker: { en: '06 — some of my life', es: '06 — algo de mi vida' },
+    kicker: { en: '05 — some of my life', es: '05 — algo de mi vida' },
     title: { en: 'A Little Bit of Me', es: 'Un Poquito de Mí' },
     hint: { en: 'The non-work version of the story 💛', es: 'La versión de la historia fuera del laburo 💛' },
   },
   certs: {
-    kicker: { en: '07 — paper trail', es: '07 — los papeles' },
+    kicker: { en: '06 — paper trail', es: '06 — los papeles' },
     title: { en: 'Certifications', es: 'Certificaciones' },
   },
   footer: {

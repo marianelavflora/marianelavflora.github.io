@@ -1,0 +1,139 @@
+---
+// 03 — the big timeline: projects, jobs, volunteering and certifications in
+// one line, newest first and grouped by year. It reads the same data files as
+// before (projects.yaml, experience.yaml, certifications.yaml), so adding an
+// entry to any of them puts it on the timeline in the right spot.
+import { getCollection } from 'astro:content';
+import { en, es, dateRange, monthYear, type Text } from '../i18n';
+import { ui } from '../i18n/ui';
+import SectionHeading from './SectionHeading.astro';
+import ProjectCard from './ProjectCard.astro';
+
+type Kind = 'project' | 'job' | 'volunteering' | 'cert';
+
+const projects = (await getCollection('projects'))
+  .filter(p => !p.data.hidden)
+  .map(p => ({ kind: 'project' as const, date: p.data.date, order: p.data.order, project: p.data }));
+const experience = (await getCollection('experience')).map(e => ({
+  kind: e.data.kind,
+  date: e.data.start,
+  order: e.data.order,
+  exp: e.data,
+}));
+const certs = (await getCollection('certifications')).map(c => ({
+  kind: 'cert' as const,
+  date: c.data.date,
+  order: c.data.order,
+  cert: c.data,
+}));
+
+// Newest first; within the same month, projects first, then jobs, volunteering, certs.
+const rank: Record<Kind, number> = { project: 0, job: 1, volunteering: 2, cert: 3 };
+const entries = [...projects, ...experience, ...certs].sort(
+  (a, b) => b.date.localeCompare(a.date) || rank[a.kind] - rank[b.kind] || a.order - b.order,
+);
+
+const years = [...new Set(entries.map(e => e.date.slice(0, 4)))].map(year => ({
+  year,
+  entries: entries.filter(e => e.date.startsWith(year)),
+}));
+
+const filters: { kind: Kind | 'all'; label: Text }[] = [
+  { kind: 'all', label: ui.journey.filter.all },
+  { kind: 'project', label: ui.journey.filter.project },
+  { kind: 'job', label: ui.journey.filter.job },
+  { kind: 'volunteering', label: ui.journey.filter.volunteering },
+  { kind: 'cert', label: ui.journey.filter.cert },
+];
+---
+<section id="journey" class="section dark-section">
+  <div class="wrap">
+    <SectionHeading kicker={ui.journey.kicker} title={ui.journey.title} hint={ui.journey.hint} />
+
+    <div class="jr-filters" role="group" aria-label="Filter the timeline">
+      {filters.map(f => (
+        <button type="button" class={`jr-chip jr-${f.kind}`} data-filter={f.kind} aria-pressed={String(f.kind === 'all')}>
+          {f.kind !== 'all' && <i aria-hidden="true"></i>}<span {...es(f.label)}>{en(f.label)}</span>
+        </button>
+      ))}
+    </div>
+    <p class="flip-hint" {...es(ui.journey.flipHint)} set:html={en(ui.journey.flipHint)} />
+
+    {years.map(({ year, entries }) => (
+      <div class="jr-year-group">
+        <h3 class="jr-year">{year}</h3>
+        <ol class="jr-list">
+          {entries.map(e => {
+            if (e.kind === 'project') {
+              const date = monthYear(e.date);
+              return (
+                <li class="jr-item jr-project" data-kind="project">
+                  <span class="jr-date" {...es(date)}>{date.en}</span>
+                  <ProjectCard project={e.project} />
+                </li>
+              );
+            }
+            if (e.kind === 'cert') {
+              const { cert } = e;
+              const date = monthYear(cert.date);
+              return (
+                <li class="jr-item jr-cert" data-kind="cert">
+                  <span class="jr-date" {...es(date)}>{date.en}</span>
+                  <a class="jr-mini" href={cert.url} target="_blank" rel="noopener">
+                    <span class="jr-logo"><img src={cert.icon} alt="" /></span>
+                    <span class="jr-text">
+                      <span class="jr-kind" {...es(ui.journey.kind.cert)}>{en(ui.journey.kind.cert)}</span>
+                      <strong {...es(cert.title)}>{en(cert.title)}</strong>
+                      <span class="jr-sub">{cert.issuer}</span>
+                    </span>
+                  </a>
+                </li>
+              );
+            }
+            const { exp } = e;
+            const dates = dateRange(exp.start, exp.end);
+            const kindLabel = ui.journey.kind[e.kind];
+            return (
+              <li class={`jr-item jr-${e.kind}`} data-kind={e.kind}>
+                <span class="jr-date" {...es(dates)}>{en(dates)}</span>
+                <div class="jr-mini">
+                  <span class="jr-logo"><img src={exp.logo} alt={exp.logoAlt} /></span>
+                  <span class="jr-text">
+                    <span class="jr-kind" {...es(kindLabel)}>{en(kindLabel)}</span>
+                    <strong>
+                      <span {...es(exp.title)}>{en(exp.title)}</span>
+                      {!exp.end && <span class="jr-now" {...es(ui.journey.now)}>{en(ui.journey.now)}</span>}
+                    </strong>
+                    <span class="jr-sub"><span {...es(exp.org)}>{en(exp.org)}</span> · <span {...es(exp.location)}>{en(exp.location)}</span></span>
+                  </span>
+                </div>
+              </li>
+            );
+          })}
+        </ol>
+      </div>
+    ))}
+  </div>
+</section>
+
+<script>
+  // Legend chips double as filters: show one kind (or all) and hide the year
+  // headings that end up empty.
+  const chips = document.querySelectorAll<HTMLButtonElement>('.jr-chip');
+  const groups = document.querySelectorAll<HTMLElement>('.jr-year-group');
+  chips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      const kind = chip.dataset.filter;
+      chips.forEach(c => c.setAttribute('aria-pressed', String(c === chip)));
+      groups.forEach(group => {
+        let visible = 0;
+        group.querySelectorAll<HTMLElement>('.jr-item').forEach(item => {
+          const show = kind === 'all' || item.dataset.kind === kind;
+          item.hidden = !show;
+          if (show) visible++;
+        });
+        group.hidden = visible === 0;
+      });
+    });
+  });
+</script>

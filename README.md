@@ -11,15 +11,15 @@ Action publishes it to GitHub Pages.
 ```
 src/
   data/            ← the content: edit these to update the site
-    projects.yaml        03 Projects & Achievements (flip cards)
-    experience.yaml      04 Experience (jobs + volunteering)
-    stack.yaml           05 Stack & Toolbox
-    life.yaml            06 A Little Bit of Me
-    certifications.yaml  07 Certifications
+    projects.yaml        03 Journey timeline: project flip cards
+    experience.yaml      03 Journey timeline: jobs + volunteering
+    stack.yaml           04 Stack & Toolbox
+    life.yaml            05 A Little Bit of Me
+    certifications.yaml  06 Certifications (also on the 03 timeline)
   i18n/
     ui.ts          ← nav, section titles and labels (English + Spanish)
     index.ts         date formatting and EN/ES helpers
-  components/      one .astro file per section (Hero, Projects, ...)
+  components/      one .astro file per section (Hero, Journey, ...)
   layouts/         the <head> and page shell
   pages/index.astro  puts the sections together
   scripts/         browser JS: rotating title, cat, flip cards, EN/ES toggle, CV preview
@@ -32,8 +32,9 @@ public/            copied as-is: images, CV PDF, CNAME
 
 Every text can be a single string (same in both languages) or `{ en, es }`.
 
-- **Add a project:** add an entry to `src/data/projects.yaml`. Cards are sorted
-  newest first by `date` (`YYYY-MM`), so it lands in the right spot on its own.
+- **Add a project:** add an entry to `src/data/projects.yaml`. The 03 timeline
+  sorts everything newest first by `date` (`YYYY-MM`) and groups it by year, so
+  it lands in the right spot on its own.
   Put its photo in `public/assets/img/projects/` and reference it as
   `/assets/img/projects/your-photo.jpg`. No photo yet? Use `emoji:` instead and
   the card shows a "photo coming soon" placeholder. `hidden: true` keeps an

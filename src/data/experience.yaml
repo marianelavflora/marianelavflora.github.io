@@ -1,4 +1,4 @@
-# 04 — Experience. Jobs and volunteering, shown newest first by `start`.
+# Jobs and volunteering, shown on the 03 Journey timeline at their `start` month.
 #   kind      job | volunteering
 #   start/end YYYY-MM; leave `end` out while it's still going ("Present")
 #   location  one string, or { en, es } when it needs translating
