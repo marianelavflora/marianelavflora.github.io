@@ -15,6 +15,7 @@
   --kind-volunteering:#3ddc84;
   --kind-cert:#f5c518;
   --kind-education:#b388ff;
+  --kind-life:#ff7ac6;
   --radius:14px;
   --display:'Archivo Black', 'Arial Black', sans-serif;
   --body:'Space Grotesk', 'Segoe UI', sans-serif;
@@ -307,6 +308,7 @@ a{color:inherit;text-decoration:none;}
 .jr-volunteering,.jr-chip.jr-volunteering{--kind:var(--kind-volunteering);}
 .jr-cert,.jr-chip.jr-cert{--kind:var(--kind-cert);}
 .jr-education,.jr-chip.jr-education{--kind:var(--kind-education);}
+.jr-life,.jr-chip.jr-life{--kind:var(--kind-life);}
 
 .jr-filters{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:-12px 0 22px;}
 .jr-filters-label{color:var(--muted);font-weight:700;font-size:0.8rem;letter-spacing:1px;text-transform:uppercase;margin-right:4px;}
@@ -377,6 +379,10 @@ a.jr-mini:hover{transform:translateY(-2px);border-color:var(--kind);}
 .jr-kind{color:var(--kind);font-size:0.66rem;font-weight:800;letter-spacing:1px;text-transform:uppercase;}
 .jr-text strong{font-size:0.98rem;}
 .jr-sub{color:var(--muted);font-size:0.84rem;}
+/* life milestones: a real photo instead of a logo */
+.jr-life .jr-photo{width:96px;height:72px;background:var(--dark-border);}
+.jr-life .jr-photo img{object-fit:cover;}
+.jr-link{color:var(--kind);font-size:0.8rem;font-weight:700;margin-top:2px;}
 .jr-now{
   display:inline-block;margin-left:8px;vertical-align:2px;
   background:var(--kind);color:var(--ink);border-radius:999px;

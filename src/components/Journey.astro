@@ -1,9 +1,10 @@
 ---
-// 03 — the big timeline: projects, jobs, volunteering, certifications and
-// education in one line, newest first and grouped by year. Next to the main
+// 03 — the big timeline: projects, jobs, volunteering, certifications,
+// education and life milestones in one line, newest first and grouped by year. Next to the main
 // line, a blue lane and a green lane show how long each job and each
 // volunteering role lasted. It reads the data
-// files (projects.yaml, experience.yaml, certifications.yaml, education.yaml),
+// files (projects.yaml, experience.yaml, certifications.yaml, education.yaml,
+// milestones.yaml),
 // so adding an entry to any of them puts it on the timeline in the right spot.
 import { getCollection } from 'astro:content';
 import { en, es, dateRange, expectedRange, monthYear, type Text } from '../i18n';
@@ -12,7 +13,7 @@ import SectionHeading from './SectionHeading.astro';
 import ProjectCard from './ProjectCard.astro';
 import JourneyLanes, { type Lane } from './JourneyLanes.astro';
 
-type Kind = 'project' | 'job' | 'volunteering' | 'cert' | 'education';
+type Kind = 'project' | 'job' | 'volunteering' | 'cert' | 'education' | 'life';
 
 const projects = (await getCollection('projects'))
   .filter(p => !p.data.hidden)
@@ -37,9 +38,17 @@ const education = (await getCollection('education')).map(d => ({
   degree: d.data,
 }));
 
-// Newest first; within the same month, projects first, then jobs, volunteering, certs, education.
-const rank: Record<Kind, number> = { project: 0, job: 1, volunteering: 2, cert: 3, education: 4 };
-const entries = [...projects, ...experience, ...certs, ...education]
+// A year-only milestone sorts as January of that year.
+const milestones = (await getCollection('milestones')).map(m => ({
+  kind: 'life' as const,
+  date: m.data.date.length === 4 ? `${m.data.date}-01` : m.data.date,
+  order: m.data.order,
+  milestone: m.data,
+}));
+
+// Newest first; within the same month, projects first, then jobs, volunteering, certs, education, life.
+const rank: Record<Kind, number> = { project: 0, job: 1, volunteering: 2, cert: 3, education: 4, life: 5 };
+const entries = [...projects, ...experience, ...certs, ...education, ...milestones]
   .sort((a, b) => b.date.localeCompare(a.date) || rank[a.kind] - rank[b.kind] || a.order - b.order)
   .map((e, row) => ({ ...e, row }));
 
@@ -94,6 +103,7 @@ const filters: { kind: Kind; label: Text }[] = [
   { kind: 'volunteering', label: ui.journey.filter.volunteering },
   { kind: 'cert', label: ui.journey.filter.cert },
   { kind: 'education', label: ui.journey.filter.education },
+  { kind: 'life', label: ui.journey.filter.life },
 ];
 const count = (kind: Kind) => entries.filter(e => e.kind === kind).length;
 ---
@@ -172,6 +182,27 @@ const count = (kind: Kind) => entries.filter(e => e.kind === kind).length;
                       <span class="jr-sub" {...es(degree.school)}>{en(degree.school)}</span>
                     </span>
                   </div>
+                </li>
+              );
+            }
+            if (e.kind === 'life') {
+              const { milestone: m } = e;
+              const date = m.date.length === 4 ? m.date : monthYear(m.date);
+              const Tag = m.link ? 'a' : 'div';
+              const linkProps = m.link ? { href: m.link.url, target: '_blank', rel: 'noopener' } : {};
+              return (
+                <li class="jr-item jr-life" data-kind="life">
+                  <span class="jr-date" {...es(date)}>{en(date)}</span>
+                  <JourneyLanes lanes={lanesAt(e.row)} />
+                  <Tag class="jr-mini" {...linkProps}>
+                    <span class={m.image ? 'jr-logo jr-photo' : 'jr-logo'}><img src={m.image ?? m.icon} alt={m.alt} loading="lazy" /></span>
+                    <span class="jr-text">
+                      <span class="jr-kind" {...es(ui.journey.kind.life)}>{en(ui.journey.kind.life)}</span>
+                      <strong {...es(m.title)}>{en(m.title)}</strong>
+                      <span class="jr-sub" {...es(m.text)}>{en(m.text)}</span>
+                      {m.link && <span class="jr-link">{m.link.label} ↗</span>}
+                    </span>
+                  </Tag>
                 </li>
               );
             }

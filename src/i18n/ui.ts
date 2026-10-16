@@ -25,8 +25,8 @@ export const ui = {
     kicker: { en: '02 — the journey so far', es: '02 — el recorrido hasta ahora' },
     title: { en: 'Projects, Work &amp; Milestones', es: 'Proyectos, Laburo e Hitos' },
     hint: {
-      en: 'Hackathons, gamejams, jobs, volunteering, certifications and studies, all in one line',
-      es: 'Hackatones, gamejams, trabajos, voluntariados, certificaciones y estudios, todo en una línea',
+      en: 'Hackathons, gamejams, jobs, volunteering, certifications, studies and life, all in one line',
+      es: 'Hackatones, gamejams, trabajos, voluntariados, certificaciones, estudios y vida, todo en una línea',
     },
     photoHint: {
       en: '📷 Each project shows the event and what we built. Click a photo to see it big.',
@@ -40,12 +40,14 @@ export const ui = {
       volunteering: { en: 'Volunteering', es: 'Voluntariados' },
       cert: { en: 'Certifications', es: 'Certificaciones' },
       education: { en: 'Education', es: 'Educación' },
+      life: { en: 'Life', es: 'Vida' },
     },
     kind: {
       job: { en: 'Work', es: 'Trabajo' },
       volunteering: { en: 'Volunteering', es: 'Voluntariado' },
       cert: { en: 'Certification', es: 'Certificación' },
       education: { en: 'Education', es: 'Educación' },
+      life: { en: 'Life', es: 'Vida' },
     },
     lanes: {
       job: { en: 'Work', es: 'Laburo' },
