@@ -51,7 +51,7 @@ if (yearEl) yearEl.textContent = new Date().getFullYear();
 
 // ============ PROJECT PHOTOS ============
 // Each project card holds two photos (event + product) that swap every few
-// seconds; hovering or focusing the card pauses it. Clicking a real photo
+// seconds; hovering or focusing the card pauses it, and the arrows switch by hand. Clicking a real photo
 // opens it big in the lightbox, where the arrows go between the two.
 const PHOTO_SWAP_MS = 3000;
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -70,9 +70,17 @@ document.querySelectorAll('[data-photos]').forEach(box => {
   box.addEventListener('mouseleave', () => { paused = false; });
   box.addEventListener('focusin', () => { paused = true; });
   box.addEventListener('focusout', () => { paused = false; });
-  if (!reduceMotion && slides.length > 1) {
-    setInterval(() => { if (!paused && !document.hidden) show(current + 1); }, PHOTO_SWAP_MS);
-  }
+  // the arrows switch by hand and restart the countdown, so the photo you
+  // picked stays up for the full interval
+  let timer;
+  const restart = () => {
+    clearInterval(timer);
+    if (reduceMotion || slides.length < 2) return;
+    timer = setInterval(() => { if (!paused && !document.hidden) show(current + 1); }, PHOTO_SWAP_MS);
+  };
+  box.querySelectorAll('[data-photo-step]').forEach(btn =>
+    btn.addEventListener('click', () => { show(current + Number(btn.dataset.photoStep)); restart(); }));
+  restart();
 });
 
 const lightbox = document.getElementById('photo-lightbox');

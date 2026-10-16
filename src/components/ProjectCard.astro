@@ -31,6 +31,8 @@ const photos = [
         <figcaption class="card-photo-label" {...es(p.label)}>{en(p.label)}</figcaption>
       </figure>
     ))}
+    <button type="button" class="card-photo-nav card-photo-prev" data-photo-step="-1" aria-label="Previous photo">‹</button>
+    <button type="button" class="card-photo-nav card-photo-next" data-photo-step="1" aria-label="Next photo">›</button>
     <div class="card-photo-dots" aria-hidden="true"><i class="active"></i><i></i></div>
   </div>
   <div class="card-body">
