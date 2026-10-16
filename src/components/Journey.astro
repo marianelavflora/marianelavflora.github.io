@@ -38,24 +38,26 @@ const years = [...new Set(entries.map(e => e.date.slice(0, 4)))].map(year => ({
   entries: entries.filter(e => e.date.startsWith(year)),
 }));
 
-const filters: { kind: Kind | 'all'; label: Text }[] = [
-  { kind: 'all', label: ui.journey.filter.all },
+const filters: { kind: Kind; label: Text }[] = [
   { kind: 'project', label: ui.journey.filter.project },
   { kind: 'job', label: ui.journey.filter.job },
   { kind: 'volunteering', label: ui.journey.filter.volunteering },
   { kind: 'cert', label: ui.journey.filter.cert },
 ];
+const count = (kind: Kind) => entries.filter(e => e.kind === kind).length;
 ---
 <section id="journey" class="section dark-section">
   <div class="wrap">
     <SectionHeading kicker={ui.journey.kicker} title={ui.journey.title} hint={ui.journey.hint} />
 
     <div class="jr-filters" role="group" aria-label="Filter the timeline">
+      <span class="jr-filters-label" {...es(ui.journey.filter.show)}>{en(ui.journey.filter.show)}</span>
       {filters.map(f => (
-        <button type="button" class={`jr-chip jr-${f.kind}`} data-filter={f.kind} aria-pressed={String(f.kind === 'all')}>
-          {f.kind !== 'all' && <i aria-hidden="true"></i>}<span {...es(f.label)}>{en(f.label)}</span>
+        <button type="button" class={`jr-chip jr-${f.kind}`} data-filter={f.kind} aria-pressed="true">
+          <i aria-hidden="true">✓</i><span {...es(f.label)}>{en(f.label)}</span> <small>{count(f.kind)}</small>
         </button>
       ))}
+      <button type="button" class="jr-show-all" hidden {...es(ui.journey.filter.all)}>{en(ui.journey.filter.all)}</button>
     </div>
     <p class="flip-hint" {...es(ui.journey.flipHint)} set:html={en(ui.journey.flipHint)} />
 
@@ -117,23 +119,39 @@ const filters: { kind: Kind | 'all'; label: Text }[] = [
 </section>
 
 <script>
-  // Legend chips double as filters: show one kind (or all) and hide the year
-  // headings that end up empty.
-  const chips = document.querySelectorAll<HTMLButtonElement>('.jr-chip');
+  // Each chip turns its kind on or off, so several kinds can show at once.
+  // Year headings that end up empty are hidden too. Turning the last kind off
+  // (or clicking "Show all") brings everything back.
+  const chips = [...document.querySelectorAll<HTMLButtonElement>('.jr-chip')];
+  const showAll = document.querySelector<HTMLButtonElement>('.jr-show-all')!;
   const groups = document.querySelectorAll<HTMLElement>('.jr-year-group');
+  const active = new Set(chips.map(c => c.dataset.filter));
+
+  function render() {
+    if (active.size === 0) chips.forEach(c => active.add(c.dataset.filter));
+    chips.forEach(c => c.setAttribute('aria-pressed', String(active.has(c.dataset.filter))));
+    showAll.hidden = active.size === chips.length;
+    groups.forEach(group => {
+      let visible = 0;
+      group.querySelectorAll<HTMLElement>('.jr-item').forEach(item => {
+        const show = active.has(item.dataset.kind);
+        item.hidden = !show;
+        if (show) visible++;
+      });
+      group.hidden = visible === 0;
+    });
+  }
+
   chips.forEach(chip => {
     chip.addEventListener('click', () => {
       const kind = chip.dataset.filter;
-      chips.forEach(c => c.setAttribute('aria-pressed', String(c === chip)));
-      groups.forEach(group => {
-        let visible = 0;
-        group.querySelectorAll<HTMLElement>('.jr-item').forEach(item => {
-          const show = kind === 'all' || item.dataset.kind === kind;
-          item.hidden = !show;
-          if (show) visible++;
-        });
-        group.hidden = visible === 0;
-      });
+      if (active.has(kind)) active.delete(kind);
+      else active.add(kind);
+      render();
     });
+  });
+  showAll.addEventListener('click', () => {
+    chips.forEach(c => active.add(c.dataset.filter));
+    render();
   });
 </script>

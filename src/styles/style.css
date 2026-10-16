@@ -287,17 +287,30 @@ a{color:inherit;text-decoration:none;}
 .jr-volunteering,.jr-chip.jr-volunteering{--kind:var(--kind-volunteering);}
 .jr-cert,.jr-chip.jr-cert{--kind:var(--kind-cert);}
 
-.jr-filters{display:flex;flex-wrap:wrap;gap:8px;margin:-12px 0 22px;}
+.jr-filters{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:-12px 0 22px;}
+.jr-filters-label{color:var(--muted);font-weight:700;font-size:0.8rem;letter-spacing:1px;text-transform:uppercase;margin-right:4px;}
+/* chip on = filled with its colour and a check; off = outlined and greyed out */
 .jr-chip{
   display:inline-flex;align-items:center;gap:8px;cursor:pointer;
-  font:inherit;font-weight:700;font-size:0.85rem;color:var(--cream);
-  background:transparent;border:1.5px solid var(--dark-border);border-radius:999px;
-  padding:7px 15px;transition:border-color .2s, background .2s, color .2s;
+  font:inherit;font-weight:700;font-size:0.88rem;color:var(--cream);
+  background:color-mix(in srgb,var(--kind) 18%,transparent);
+  border:1.5px solid var(--kind);border-radius:999px;
+  padding:7px 14px 7px 9px;transition:border-color .2s, background .2s, color .2s;
 }
-.jr-chip i{width:10px;height:10px;border-radius:50%;background:var(--kind);}
-.jr-chip:hover{border-color:var(--kind,var(--cream));}
-.jr-chip[aria-pressed="true"]{background:var(--cream);color:var(--ink);border-color:var(--cream);}
-.jr-chip:focus-visible{outline:2px solid var(--accent-2);outline-offset:3px;}
+.jr-chip i{
+  width:18px;height:18px;border-radius:50%;flex:none;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--kind);color:var(--ink);font-style:normal;font-size:0.68rem;font-weight:900;
+}
+.jr-chip small{font-size:0.74rem;opacity:0.7;}
+.jr-chip[aria-pressed="false"]{background:transparent;border-color:var(--dark-border);color:var(--muted);}
+.jr-chip[aria-pressed="false"] i{background:transparent;border:1.5px solid var(--muted);color:transparent;}
+.jr-chip[aria-pressed="false"]:hover{border-color:var(--kind);}
+.jr-chip:focus-visible,.jr-show-all:focus-visible{outline:2px solid var(--accent-2);outline-offset:3px;}
+.jr-show-all{
+  background:none;border:none;padding:0;cursor:pointer;
+  font:inherit;font-weight:700;font-size:0.82rem;color:var(--accent-2);text-decoration:underline;
+}
 
 .jr-year{
   display:flex;align-items:center;gap:14px;

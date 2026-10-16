@@ -41,7 +41,8 @@ export const ui = {
       es: '↻ Hacé click en cualquier proyecto para darlo vuelta: adelante está el evento, atrás lo que construimos.',
     },
     filter: {
-      all: { en: 'All', es: 'Todo' },
+      show: { en: 'Show:', es: 'Mostrar:' },
+      all: { en: 'Show all', es: 'Mostrar todo' },
       project: { en: 'Projects', es: 'Proyectos' },
       job: { en: 'Work', es: 'Trabajo' },
       volunteering: { en: 'Volunteering', es: 'Voluntariados' },
