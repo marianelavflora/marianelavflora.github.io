@@ -314,20 +314,21 @@ a{color:inherit;text-decoration:none;}
   font:inherit;font-weight:700;font-size:0.82rem;color:var(--accent-2);text-decoration:underline;
 }
 
+.jr-year-head{position:relative;padding:34px 0 16px;}
 .jr-year{
   display:flex;align-items:center;gap:14px;
-  font-family:var(--display);font-size:1.7rem;margin:34px 0 16px;
+  font-family:var(--display);font-size:1.7rem;margin:0;
 }
 .jr-year::after{content:'';flex:1;height:1px;background:var(--dark-border);}
 .jr-list{list-style:none;margin:0;padding:0;position:relative;}
 .jr-list::before{
-  content:'';position:absolute;top:0;bottom:0;left:120px;width:2px;
+  content:'';position:absolute;top:0;bottom:0;left:var(--jr-main);width:2px;
   background:var(--dark-border);
 }
-.jr-item{display:grid;grid-template-columns:104px 1fr;gap:36px;padding-bottom:14px;position:relative;}
+.jr-item{display:grid;grid-template-columns:104px 1fr;gap:76px;padding-bottom:14px;position:relative;}
 .jr-item[hidden],.jr-year-group[hidden]{display:none;}
 .jr-item::before{
-  content:'';position:absolute;left:113px;top:4px;
+  content:'';position:absolute;left:calc(var(--jr-main) - 7px);top:4px;
   width:16px;height:16px;border-radius:50%;
   background:var(--kind);border:3px solid var(--dark);
 }
@@ -363,10 +364,39 @@ a.jr-mini:hover{transform:translateY(-2px);border-color:var(--kind);}
   font-size:0.6rem;font-weight:800;letter-spacing:0.5px;text-transform:uppercase;padding:2px 8px;
 }
 
+/* the work and volunteering lanes, left of the main line */
+#journey{--jr-job:116px;--jr-volunteering:134px;--jr-main:160px;}
+.jr-lanes{position:absolute;inset:0;pointer-events:none;}
+.jr-lane{position:absolute;top:0;bottom:0;width:3px;border-radius:2px;background:var(--kind);}
+.jr-lane-job{--kind:var(--kind-job);left:var(--jr-job);}
+.jr-lane-volunteering{--kind:var(--kind-volunteering);left:var(--jr-volunteering);}
+/* where it started: the lane stops at a dot */
+.jr-lane.is-start{bottom:auto;height:12px;}
+.jr-lane.is-start::after,.jr-lane.is-full:has(.jr-pill)::after{
+  content:'';position:absolute;left:50%;top:7px;transform:translateX(-50%);
+  width:11px;height:11px;border-radius:50%;background:var(--kind);border:2px solid var(--dark);
+}
+.jr-pill{
+  position:absolute;left:50%;top:22px;transform:translateX(-50%);z-index:1;
+  writing-mode:vertical-rl;white-space:nowrap;
+  background:var(--kind);color:var(--ink);border-radius:999px;padding:6px 1px;
+  font-size:0.6rem;font-weight:800;letter-spacing:0.5px;
+}
+.jr-lane-labels{position:relative;height:96px;margin-top:6px;}
+.jr-lane-labels span{
+  position:absolute;bottom:0;transform:translateX(-50%) rotate(180deg);writing-mode:vertical-rl;
+  font-size:0.66rem;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--kind);
+}
+.jr-lane-labels .jr-job{left:calc(var(--jr-job) + 1.5px);}
+.jr-lane-labels .jr-volunteering{left:calc(var(--jr-volunteering) + 1.5px);}
+.jr-lane-labels .jr-main{left:calc(var(--jr-main) + 1px);color:var(--muted);}
+#journey[data-off~="job"] :is(.jr-lane-job,.jr-lane-labels .jr-job),
+#journey[data-off~="volunteering"] :is(.jr-lane-volunteering,.jr-lane-labels .jr-volunteering){display:none;}
+
 @media (max-width:720px){
-  .jr-list::before{left:7px;}
-  .jr-item{grid-template-columns:1fr;gap:8px;padding-left:32px;}
-  .jr-item::before{left:0;}
+  #journey{--jr-job:2px;--jr-volunteering:13px;--jr-main:26px;}
+  .jr-item{grid-template-columns:1fr;gap:8px;padding-left:50px;}
+  .jr-pill{display:none;}
   .jr-date{text-align:left;}
   .jr-project .card{grid-template-columns:1fr;}
   .jr-project .card-media{min-height:150px;}

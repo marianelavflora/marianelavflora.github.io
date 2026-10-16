@@ -54,6 +54,11 @@ export const ui = {
       cert: { en: 'Certification', es: 'Certificación' },
       education: { en: 'Education', es: 'Educación' },
     },
+    lanes: {
+      job: { en: 'Work', es: 'Laburo' },
+      volunteering: { en: 'Volunteering', es: 'Voluntariado' },
+      all: { en: 'Everything', es: 'Todo' },
+    },
     now: { en: 'Now', es: 'Hoy' },
     studying: { en: 'In progress', es: 'Cursando' },
   },
