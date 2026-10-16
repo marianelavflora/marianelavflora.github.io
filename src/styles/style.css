@@ -14,6 +14,7 @@
   --kind-job:#4c9aff;
   --kind-volunteering:#3ddc84;
   --kind-cert:#f5c518;
+  --kind-education:#b388ff;
   --radius:14px;
   --display:'Archivo Black', 'Arial Black', sans-serif;
   --body:'Space Grotesk', 'Segoe UI', sans-serif;
@@ -286,6 +287,7 @@ a{color:inherit;text-decoration:none;}
 .jr-job,.jr-chip.jr-job{--kind:var(--kind-job);}
 .jr-volunteering,.jr-chip.jr-volunteering{--kind:var(--kind-volunteering);}
 .jr-cert,.jr-chip.jr-cert{--kind:var(--kind-cert);}
+.jr-education,.jr-chip.jr-education{--kind:var(--kind-education);}
 
 .jr-filters{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:-12px 0 22px;}
 .jr-filters-label{color:var(--muted);font-weight:700;font-size:0.8rem;letter-spacing:1px;text-transform:uppercase;margin-right:4px;}
@@ -543,3 +545,14 @@ a.jr-mini:hover{transform:translateY(-2px);border-color:var(--kind);}
   .cv-modal{padding:0;}
   .cv-modal-panel{max-width:100%;height:100%;border-radius:0;}
 }
+
+/* ============ EDUCATION (mockup) ============ */
+.edu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;}
+.edu-card{background:var(--dark-card);border:1px solid var(--dark-border);border-top:4px solid var(--kind-education);border-radius:var(--radius);padding:22px;}
+.edu-head{display:flex;gap:14px;align-items:center;}
+.edu-head h3{margin:0;font-size:1.15rem;}
+.edu-head p{margin:2px 0 0;}
+.edu-bar{height:8px;border-radius:999px;background:var(--dark-border);margin:20px 0 8px;overflow:hidden;}
+.edu-bar span{display:block;height:100%;background:var(--kind-education);border-radius:999px;}
+.edu-dates{display:flex;justify-content:space-between;margin:0;color:var(--muted);font-size:0.8rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;}
+.edu-dates b{color:var(--kind-education);}
