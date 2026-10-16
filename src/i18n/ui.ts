@@ -4,7 +4,6 @@ import type { Text } from '.';
 
 export const ui = {
   nav: {
-    music: { en: 'Music', es: 'Música' },
     journey: { en: 'Journey', es: 'Recorrido' },
     stack: 'Stack',
     life: { en: 'Life', es: 'Vida' },
@@ -22,14 +21,8 @@ export const ui = {
     },
     caption: { en: 'Here with Gaucho from Paisanos', es: 'Acá con Gaucho de Paisanos' },
   },
-  music: {
-    kicker: { en: '02 — while you browse', es: '02 — mientras navegás' },
-    title: { en: 'May I interest you in some music?', es: '¿Te pongo un poco de música?' },
-    note: { en: '🎵 6 songs queued up, hit play.', es: '🎵 6 temas en la cola, dale play.' },
-    open: { en: 'Not loading? Open it on YouTube ↗', es: '¿No carga? Abrila en YouTube ↗' },
-  },
   journey: {
-    kicker: { en: '03 — the journey so far', es: '03 — el recorrido hasta ahora' },
+    kicker: { en: '02 — the journey so far', es: '02 — el recorrido hasta ahora' },
     title: { en: 'Projects, Work &amp; Milestones', es: 'Proyectos, Laburo e Hitos' },
     hint: {
       en: 'Hackathons, gamejams, jobs, volunteering, certifications and studies, all in one line',
@@ -77,11 +70,11 @@ export const ui = {
   productPhotoSoon: { en: 'product photo coming soon', es: 'foto del producto próximamente' },
 
   stack: {
-    kicker: { en: '04 — what I work with', es: '04 — con qué laburo' },
+    kicker: { en: '03 — what I work with', es: '03 — con qué laburo' },
     title: { en: 'Stack &amp; Toolbox', es: 'Stack y herramientas' },
   },
   life: {
-    kicker: { en: '05 — some of my life', es: '05 — algo de mi vida' },
+    kicker: { en: '04 — some of my life', es: '04 — algo de mi vida' },
     title: { en: 'A Little Bit of Me', es: 'Un Poquito de Mí' },
     hint: { en: 'The non-work version of the story 💛', es: 'La versión de la historia fuera del laburo 💛' },
   },
