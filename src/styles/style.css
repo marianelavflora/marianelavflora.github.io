@@ -158,11 +158,13 @@ a{color:inherit;text-decoration:none;}
 }
 .hero-socials a svg{width:18px;height:18px;flex-shrink:0;}
 .hero-socials a:hover{border-color:var(--accent);color:var(--accent);}
-.hero-cv-btn{
-  font-size:0.9rem!important;
-  padding:9px 20px;border-radius:999px;
-  border-bottom:none!important;
+/* Same look as the header .cv-btn (which picks up .main-nav a styles) */
+.hero-socials a.hero-cv-btn{
+  display:block;font-size:0.95rem;font-weight:700;
+  padding:9px 18px;border:none;
+  opacity:0.85;transition:opacity .2s;
 }
+.hero-socials a.hero-cv-btn:hover{opacity:1;}
 
 /* ============ SHARED SECTION STYLES ============ */
 .section{padding:100px 0;}
