@@ -1,6 +1,8 @@
 ---
 // 03 — the big timeline: projects, jobs, volunteering, certifications and
-// education in one line, newest first and grouped by year. It reads the data
+// education in one line, newest first and grouped by year. Next to the main
+// line, a blue lane and a green lane show how long each job and each
+// volunteering role lasted. It reads the data
 // files (projects.yaml, experience.yaml, certifications.yaml, education.yaml),
 // so adding an entry to any of them puts it on the timeline in the right spot.
 import { getCollection } from 'astro:content';
@@ -8,6 +10,7 @@ import { en, es, dateRange, expectedRange, monthYear, type Text } from '../i18n'
 import { ui } from '../i18n/ui';
 import SectionHeading from './SectionHeading.astro';
 import ProjectCard from './ProjectCard.astro';
+import JourneyLanes, { type Lane } from './JourneyLanes.astro';
 
 type Kind = 'project' | 'job' | 'volunteering' | 'cert' | 'education';
 
@@ -36,9 +39,49 @@ const education = (await getCollection('education')).map(d => ({
 
 // Newest first; within the same month, projects first, then jobs, volunteering, certs, education.
 const rank: Record<Kind, number> = { project: 0, job: 1, volunteering: 2, cert: 3, education: 4 };
-const entries = [...projects, ...experience, ...certs, ...education].sort(
-  (a, b) => b.date.localeCompare(a.date) || rank[a.kind] - rank[b.kind] || a.order - b.order,
+const entries = [...projects, ...experience, ...certs, ...education]
+  .sort((a, b) => b.date.localeCompare(a.date) || rank[a.kind] - rank[b.kind] || a.order - b.order)
+  .map((e, row) => ({ ...e, row }));
+
+// Lanes. Rows run newest first, so a job is drawn from the first row at or
+// before its end month (row 0 if it's still going) down to its own row,
+// where it stops at a dot.
+const months = (ym: string) => Number(ym.slice(0, 4)) * 12 + Number(ym.slice(5, 7)) - 1;
+const today = new Date();
+const thisMonth = today.getFullYear() * 12 + today.getMonth();
+const duration = (start: string, end: string | null): Text => {
+  const total = (end ? months(end) : thisMonth) - months(start) + 1;
+  const y = Math.floor(total / 12), m = total % 12;
+  const part = (n: number, unit: string) => (n ? `${n}${unit}` : '');
+  return {
+    en: [part(y, 'y'), part(m, 'm')].filter(Boolean).join(' '),
+    es: [part(y, 'a'), part(m, 'm')].filter(Boolean).join(' '),
+  };
+};
+const spans = entries.flatMap(e =>
+  e.kind === 'job' || e.kind === 'volunteering'
+    ? [{
+        kind: e.kind,
+        from: entries.findIndex(o => months(o.date) <= (e.exp.end ? months(e.exp.end) : thisMonth)),
+        to: e.row,
+        pill: duration(e.exp.start, e.exp.end),
+      }]
+    : [],
 );
+const laneKinds = ['job', 'volunteering'] as const;
+const lanesAt = (row: number): Lane[] =>
+  laneKinds.flatMap(kind => {
+    const mine = spans.filter(s => s.kind === kind && s.from <= row && row <= s.to);
+    if (mine.length === 0) return [];
+    const start = mine.find(s => s.to === row);
+    const state = mine.some(s => s.to !== row) ? 'full' : 'start';
+    return [{ kind, state, pill: start?.pill }];
+  });
+// A year heading carries a lane when it's still going from the row above.
+const lanesAbove = (row: number): Lane[] =>
+  laneKinds.flatMap(kind =>
+    spans.some(s => s.kind === kind && s.from < row && row <= s.to) ? [{ kind, state: 'full' as const }] : [],
+  );
 
 const years = [...new Set(entries.map(e => e.date.slice(0, 4)))].map(year => ({
   year,
@@ -69,9 +112,18 @@ const count = (kind: Kind) => entries.filter(e => e.kind === kind).length;
     </div>
     <p class="flip-hint" {...es(ui.journey.flipHint)} set:html={en(ui.journey.flipHint)} />
 
+    <div class="jr-lane-labels" aria-hidden="true">
+      <span class="jr-job" {...es(ui.journey.lanes.job)}>{en(ui.journey.lanes.job)}</span>
+      <span class="jr-volunteering" {...es(ui.journey.lanes.volunteering)}>{en(ui.journey.lanes.volunteering)}</span>
+      <span class="jr-main" {...es(ui.journey.lanes.all)}>{en(ui.journey.lanes.all)}</span>
+    </div>
+
     {years.map(({ year, entries }) => (
       <div class="jr-year-group">
-        <h3 class="jr-year">{year}</h3>
+        <div class="jr-year-head">
+          <JourneyLanes lanes={lanesAbove(entries[0].row)} />
+          <h3 class="jr-year">{year}</h3>
+        </div>
         <ol class="jr-list">
           {entries.map(e => {
             if (e.kind === 'project') {
@@ -79,6 +131,7 @@ const count = (kind: Kind) => entries.filter(e => e.kind === kind).length;
               return (
                 <li class="jr-item jr-project" data-kind="project">
                   <span class="jr-date" {...es(date)}>{date.en}</span>
+                  <JourneyLanes lanes={lanesAt(e.row)} />
                   <ProjectCard project={e.project} />
                 </li>
               );
@@ -89,6 +142,7 @@ const count = (kind: Kind) => entries.filter(e => e.kind === kind).length;
               return (
                 <li class="jr-item jr-cert" data-kind="cert">
                   <span class="jr-date" {...es(date)}>{date.en}</span>
+                  <JourneyLanes lanes={lanesAt(e.row)} />
                   <a class="jr-mini" href={cert.url} target="_blank" rel="noopener">
                     <span class="jr-logo"><img src={cert.icon} alt="" /></span>
                     <span class="jr-text">
@@ -106,6 +160,7 @@ const count = (kind: Kind) => entries.filter(e => e.kind === kind).length;
               return (
                 <li class="jr-item jr-education" data-kind="education">
                   <span class="jr-date" {...es(dates)}>{en(dates)}</span>
+                  <JourneyLanes lanes={lanesAt(e.row)} />
                   <div class="jr-mini">
                     <span class="jr-logo"><img src={degree.logo} alt={degree.logoAlt} /></span>
                     <span class="jr-text">
@@ -126,6 +181,7 @@ const count = (kind: Kind) => entries.filter(e => e.kind === kind).length;
             return (
               <li class={`jr-item jr-${e.kind}`} data-kind={e.kind}>
                 <span class="jr-date" {...es(dates)}>{en(dates)}</span>
+                <JourneyLanes lanes={lanesAt(e.row)} />
                 <div class="jr-mini">
                   <span class="jr-logo"><img src={exp.logo} alt={exp.logoAlt} /></span>
                   <span class="jr-text">
@@ -153,12 +209,15 @@ const count = (kind: Kind) => entries.filter(e => e.kind === kind).length;
   const chips = [...document.querySelectorAll<HTMLButtonElement>('.jr-chip')];
   const showAll = document.querySelector<HTMLButtonElement>('.jr-show-all')!;
   const groups = document.querySelectorAll<HTMLElement>('.jr-year-group');
+  const journey = document.getElementById('journey')!;
   const active = new Set(chips.map(c => c.dataset.filter));
 
   function render() {
     if (active.size === 0) chips.forEach(c => active.add(c.dataset.filter));
     chips.forEach(c => c.setAttribute('aria-pressed', String(active.has(c.dataset.filter))));
     showAll.hidden = active.size === chips.length;
+    // the blue and green lanes go away with their kind
+    journey.dataset.off = chips.map(c => c.dataset.filter).filter(k => !active.has(k)).join(' ');
     groups.forEach(group => {
       let visible = 0;
       group.querySelectorAll<HTMLElement>('.jr-item').forEach(item => {

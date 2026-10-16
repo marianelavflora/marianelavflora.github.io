@@ -1,0 +1,24 @@
+---
+// The work and volunteering lanes to the left of the main line. Each row of
+// the timeline draws its own slice of each lane: a full slice while that kind
+// of thing was going on, or a slice that stops at a dot where it started.
+import { es, type Text } from '../i18n';
+
+export interface Lane {
+  kind: 'job' | 'volunteering';
+  state: 'full' | 'start';
+  /** How long it lasted, shown on the slice where it started. */
+  pill?: Text;
+}
+
+const { lanes } = Astro.props as { lanes: Lane[] };
+---
+{lanes.length > 0 && (
+  <span class="jr-lanes" aria-hidden="true">
+    {lanes.map(l => (
+      <span class={`jr-lane jr-lane-${l.kind} is-${l.state}`}>
+        {l.pill && <b class="jr-pill" {...es(l.pill)}>{typeof l.pill === 'string' ? l.pill : l.pill.en}</b>}
+      </span>
+    ))}
+  </span>
+)}
