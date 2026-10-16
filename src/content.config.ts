@@ -33,7 +33,7 @@ const projects = defineCollection({
     status: z
       .object({ kind: z.enum(['win', 'soon', 'org', 'wip']), label: text })
       .optional(),
-    front: z.object({
+    event: z.object({
       title: z.string(),
       text,
       meta: text,
@@ -41,10 +41,12 @@ const projects = defineCollection({
       alt: z.string().optional(),
       emoji: z.string().optional(),
     }),
-    back: z.object({
+    product: z.object({
       label: z.enum(['product', 'role', 'outcome']).default('product'),
       title: text,
       text,
+      image: z.string().optional(),
+      alt: z.string().optional(),
       emoji: z.string(),
       links: z.array(link).default([]),
     }),

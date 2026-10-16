@@ -49,21 +49,61 @@ setInterval(() => launchCat(), 18000 + Math.random() * 12000);
 const yearEl = document.getElementById('year');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-// ============ FLIP CARDS ============
-document.querySelectorAll('.flip-card').forEach(card => {
-  const flip = () => {
-    const flipped = card.classList.toggle('flipped');
-    card.setAttribute('aria-pressed', String(flipped));
+// ============ PROJECT PHOTOS ============
+// Each project card holds two photos (event + product) that swap every few
+// seconds; hovering or focusing the card pauses it. Clicking a real photo
+// opens it big in the lightbox, where the arrows go between the two.
+const PHOTO_SWAP_MS = 5000;
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+document.querySelectorAll('[data-photos]').forEach(box => {
+  const slides = [...box.querySelectorAll('.card-photo')];
+  const dots = [...box.querySelectorAll('.card-photo-dots i')];
+  let current = 0;
+  let paused = false;
+  const show = i => {
+    current = (i + slides.length) % slides.length;
+    slides.forEach((s, j) => s.classList.toggle('active', j === current));
+    dots.forEach((d, j) => d.classList.toggle('active', j === current));
   };
-  card.addEventListener('click', e => {
-    if (e.target.closest('a')) return; // let links work without flipping
-    flip();
-  });
-  card.addEventListener('keydown', e => {
-    if (e.target !== card) return;
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      flip();
-    }
-  });
+  box.addEventListener('mouseenter', () => { paused = true; });
+  box.addEventListener('mouseleave', () => { paused = false; });
+  box.addEventListener('focusin', () => { paused = true; });
+  box.addEventListener('focusout', () => { paused = false; });
+  if (!reduceMotion && slides.length > 1) {
+    setInterval(() => { if (!paused && !document.hidden) show(current + 1); }, PHOTO_SWAP_MS);
+  }
 });
+
+const lightbox = document.getElementById('photo-lightbox');
+if (lightbox) {
+  const lbImg = lightbox.querySelector('img');
+  const lbCaption = lightbox.querySelector('figcaption');
+  let photos = [];
+  let index = 0;
+  const showPhoto = i => {
+    index = (i + photos.length) % photos.length;
+    const btn = photos[index];
+    const img = btn.querySelector('img');
+    lbImg.src = btn.dataset.full;
+    lbImg.alt = img.alt;
+    lbCaption.textContent = btn.closest('.card-photo').querySelector('.card-photo-label').textContent;
+    lightbox.classList.toggle('single', photos.length < 2);
+  };
+  document.querySelectorAll('.card-photo-open').forEach(btn => {
+    btn.addEventListener('click', () => {
+      photos = [...btn.closest('[data-photos]').querySelectorAll('.card-photo-open')];
+      showPhoto(photos.indexOf(btn));
+      lightbox.showModal();
+    });
+  });
+  lightbox.querySelectorAll('[data-lb-step]').forEach(b =>
+    b.addEventListener('click', () => showPhoto(index + Number(b.dataset.lbStep))));
+  lightbox.querySelector('[data-lb-close]').addEventListener('click', () => lightbox.close());
+  // a click on the dark backdrop (outside the photo) closes it too
+  lightbox.addEventListener('click', e => { if (e.target === lightbox) lightbox.close(); });
+  lightbox.addEventListener('keydown', e => {
+    if (e.key === 'ArrowLeft') showPhoto(index - 1);
+    if (e.key === 'ArrowRight') showPhoto(index + 1);
+  });
+}

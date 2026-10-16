@@ -1,4 +1,4 @@
-# Projects & achievements: the flip cards on the 03 Journey timeline.
+# Projects & achievements: the cards on the 03 Journey timeline.
 # One entry per card. The page sorts them newest first by `date`, so the
 # order here doesn't matter (cards with the same month keep this order).
 #
@@ -8,8 +8,12 @@
 #   type       hackathon | gamejam | robot (sets the tag colour)
 #   typeLabel  optional custom text for the type tag (e.g. "GameJam #2")
 #   status     optional second tag: kind is win | soon | org | wip
-#   front      the event: title, text, meta, and an image (+ alt) or an emoji
-#   back       what came out of it: label is product | role | outcome
+#   event      the event: title, text, meta, and its photo (image + alt) or an emoji
+#   product    what came out of it: label is product | role | outcome, plus
+#              title, text, links and its own photo (image + alt) or an emoji
+#
+# Each card shows both photos and swaps between them every few seconds;
+# clicking a photo opens it big. A missing photo shows "photo coming soon".
 #
 # Any text can be one string (same in both languages) or { en, es }.
 
@@ -20,14 +24,14 @@
   status:
     kind: soon
     label: { en: Coming Soon, es: Próximamente }
-  front:
+  event:
     emoji: 🚀
     title: NASA Space Apps Challenge
     text:
       en: Taking part in the NASA Space Apps hackathon. More soon!
       es: Voy a participar en la hackatón NASA Space Apps. ¡Pronto más info!
     meta: { en: Coming soon, es: Próximamente }
-  back:
+  product:
     emoji: 🚀
     title: NASA Space Apps Challenge
     text:
@@ -39,14 +43,14 @@
   date: 2026-10
   type: hackathon
   status: { kind: wip, label: WIP }
-  front:
+  event:
     emoji: 🛤️
     title: AgentsOnRails Hackathon
     text:
       en: Currently participating in the AgentsOnRails hackathon. Stay tuned!
       es: Estoy participando en la hackatón AgentsOnRails. ¡Atentos!
     meta: { en: Work in progress, es: En progreso }
-  back:
+  product:
     emoji: 🛤️
     title: AgentsOnRails Hackathon
     text:
@@ -57,14 +61,14 @@
   date: 2026-09
   type: robot
   status: { kind: wip, label: WIP }
-  front:
+  event:
     emoji: 🤖
     title: robotElCono
     text:
       en: A robot I'm building for the office at work.
       es: Un robot que estoy haciendo para la oficina del laburo.
     meta: { en: ESP32 · Work in progress, es: ESP32 · En progreso }
-  back:
+  product:
     emoji: 🤖
     title: robotElCono
     text:
@@ -77,7 +81,7 @@
   status:
     kind: win
     label: { en: Community Award, es: Premio de la Comunidad }
-  front:
+  event:
     image: /assets/img/projects/dou-hackware.jpg
     alt: Team with the Dou robot at Paisanos Hackware
     title: Paisanos Hackware
@@ -85,7 +89,7 @@
       en: Participated in Paisanos Hackware, where Dou won the Community Award.
       es: Participé en Paisanos Hackware, donde Dou ganó el Premio de la Comunidad.
     meta: { en: Community Award, es: Premio de la Comunidad }
-  back:
+  product:
     emoji: 🐣
     title: Dou
     text:
@@ -98,15 +102,16 @@
   date: 2026-08
   type: gamejam
   typeLabel: "GameJam #2"
-  front:
-    image: /assets/img/projects/chubby-ninjas.png
-    alt: Chubby Ninjas game cover
+  event:
+    emoji: 🕹️
     title: Samda Game Jam
     text:
       en: My second gamejam, building alongside my teammates Joaquín Giménez and Agustín Godoy.
       es: Mi segunda gamejam, junto a mis compañeros Joaquín Giménez y Agustín Godoy.
     meta: Samda Game Jam
-  back:
+  product:
+    image: /assets/img/projects/chubby-ninjas.png
+    alt: Chubby Ninjas game cover
     emoji: 🥷
     title: Chubby Ninjas
     text:
@@ -121,15 +126,16 @@
   date: 2026-01
   type: gamejam
   typeLabel: "GameJam #1"
-  front:
-    image: /assets/img/projects/damian-quest.png
-    alt: Damian Quest game cover
+  event:
+    emoji: 🕹️
     title: Córdoba GameJam
     text:
       en: Joined the Córdoba GameJam with my EPAM coworkers.
       es: Participé de la Córdoba GameJam con mis compañeros de EPAM.
     meta: Córdoba GameJam
-  back:
+  product:
+    image: /assets/img/projects/damian-quest.png
+    alt: Damian Quest game cover
     emoji: 🎮
     title: Damian Quest
     text:
@@ -145,7 +151,7 @@
   status:
     kind: win
     label: { en: 3rd Place, es: 3er puesto }
-  front:
+  event:
     image: /assets/img/projects/che-voz.jpg
     alt: Che Voz hackathon presentation
     title: Che Voz
@@ -153,7 +159,7 @@
       en: Participated as a frontend dev and our team took 3rd place.
       es: Participé como frontend dev y nuestro equipo salió tercero.
     meta: { en: 3rd Place, es: 3er puesto }
-  back:
+  product:
     emoji: 🎙️
     title: Che Voz
     text:
@@ -169,7 +175,7 @@
   status:
     kind: org
     label: { en: Organizer & Mentor, es: Organizadora y mentora }
-  front:
+  event:
     image: /assets/img/projects/aleph-hackathon.jpg
     alt: Aleph Hackathon Córdoba Chapter group photo
     title: Aleph Hackathon — Córdoba Chapter
@@ -177,7 +183,7 @@
       en: Organizer & mentor at the Córdoba chapter of Aleph Hackathon.
       es: Organizadora y mentora en el capítulo Córdoba de Aleph Hackathon.
     meta: Córdoba, Argentina
-  back:
+  product:
     label: role
     emoji: 🧑‍🏫
     title: Aleph Hackathon — Córdoba Chapter
@@ -193,7 +199,7 @@
   status:
     kind: soon
     label: { en: Participant, es: Participante }
-  front:
+  event:
     image: /assets/img/projects/vibe-a-startup.jpg
     alt: Vibe a Startup hackathon group photo
     title: Vibe a Startup
@@ -201,7 +207,7 @@
       en: Participated in the Vibe a Startup hackathon in Buenos Aires.
       es: Participé en la hackatón Vibe a Startup en Buenos Aires.
     meta: Buenos Aires
-  back:
+  product:
     label: outcome
     emoji: 🦋
     title: Vibe a Startup
@@ -217,14 +223,14 @@
   status:
     kind: win
     label: { en: 1st Place, es: 1er puesto }
-  front:
+  event:
     emoji: 🏆
     title: Santex x Bugster Hackathon
     text:
       en: My first hackathon! Instead of coding, I mostly shared mate with my colleagues and pitched our product to the crowd.
       es: ¡Mi primera hackatón! En vez de codear, más que nada compartí mates con mis compañeros y le presenté nuestro producto al público.
     meta: { en: 1st Place, es: 1er puesto }
-  back:
+  product:
     emoji: 💬
     title: { en: AI logistics chatbot, es: Chatbot de logística con IA }
     text:

@@ -35,9 +35,9 @@ export const ui = {
       en: 'Hackathons, gamejams, jobs, volunteering, certifications and studies, all in one line',
       es: 'Hackatones, gamejams, trabajos, voluntariados, certificaciones y estudios, todo en una línea',
     },
-    flipHint: {
-      en: '↻ Click any project to flip it: the event is on the front, what we built is on the back.',
-      es: '↻ Hacé click en cualquier proyecto para darlo vuelta: adelante está el evento, atrás lo que construimos.',
+    photoHint: {
+      en: '📷 Each project shows the event and what we built. Click a photo to see it big.',
+      es: '📷 Cada proyecto muestra el evento y lo que construimos. Hacé click en una foto para verla en grande.',
     },
     filter: {
       show: { en: 'Show:', es: 'Mostrar:' },
@@ -72,8 +72,10 @@ export const ui = {
     role: { en: 'My role', es: 'Mi rol' },
     outcome: { en: 'What came out of it', es: 'Lo que me dejó' },
   },
+  eventPhoto: { en: 'The event', es: 'El evento' },
   photoSoon: { en: 'photo coming soon', es: 'foto próximamente' },
   productPhotoSoon: { en: 'product photo coming soon', es: 'foto del producto próximamente' },
+
   stack: {
     kicker: { en: '04 — what I work with', es: '04 — con qué laburo' },
     title: { en: 'Stack &amp; Toolbox', es: 'Stack y herramientas' },
