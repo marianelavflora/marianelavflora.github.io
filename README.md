@@ -15,7 +15,7 @@ src/
     experience.yaml      03 Journey timeline: jobs + volunteering
     stack.yaml           04 Stack & Toolbox
     life.yaml            05 A Little Bit of Me
-    certifications.yaml  06 Certifications (also on the 03 timeline)
+    certifications.yaml  03 Journey timeline: certifications
   i18n/
     ui.ts          ← nav, section titles and labels (English + Spanish)
     index.ts         date formatting and EN/ES helpers

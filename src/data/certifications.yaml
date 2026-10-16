@@ -1,5 +1,4 @@
-# 06 — Certifications, shown newest first by `date` (YYYY-MM).
-# They also appear on the 03 Journey timeline.
+# Certifications, shown on the 03 Journey timeline at their `date` (YYYY-MM).
 # `url` defaults to the LinkedIn certifications page.
 
 - id: aws-sbg-founding-builder
