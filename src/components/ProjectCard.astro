@@ -45,12 +45,11 @@ const photos = [
       )
       : <span class={`tag tag-${type}`} {...es(typeTag)}>{en(typeTag)}</span>}
     <h3>{event.title}</h3>
-    <p {...es(event.text)}>{en(event.text)}</p>
-    <div class="card-product">
-      <span class="card-product-label" {...es(productLabel)}>{en(productLabel)}</span>
-      {productTitle && <strong {...es(productTitle)}>{en(productTitle)}</strong>}
-      <p {...es(product.text)}>{en(product.text)}</p>
-    </div>
+    <p>
+      <span {...es(event.text)}>{en(event.text)}</span>{' '}
+      {productTitle && <><strong {...es(productTitle)}>{en(productTitle)}</strong>:{' '}</>}
+      <span {...es(product.text)}>{en(product.text)}</span>
+    </p>
     {product.links.length > 0 && (
       <div class="card-links">
         {product.links.map(link => <a href={link.url} target="_blank" rel="noopener">{link.label}</a>)}
