@@ -1,0 +1,26 @@
+---
+import { en, es } from '../i18n';
+import { ui } from '../i18n/ui';
+import SectionHeading from './SectionHeading.astro';
+
+// The playlist: change these YouTube video ids to swap songs.
+const videos = ['uVjRe8QXFHY', 'EDwb9jOVRtU', 'unfzfe8f9NI', '3tmd-ClpJxA', 'n7guctwiVuY', 'aSugSGCC12I'];
+const [first, ...rest] = videos;
+---
+<section id="music" class="section dark-section music-section">
+  <div class="wrap">
+    <SectionHeading kicker={ui.music.kicker} title={ui.music.title} />
+
+    <div class="yt-player">
+      <iframe
+        src={`https://www.youtube-nocookie.com/embed/${first}?playlist=${rest.join(',')}&rel=0`}
+        title="MaVi's playlist on YouTube"
+        loading="lazy"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen></iframe>
+    </div>
+    <p class="music-note"><span {...es(ui.music.note)}>{en(ui.music.note)}</span>
+      <a href={`https://www.youtube.com/watch_videos?video_ids=${videos.join(',')}`} target="_blank" rel="noopener" {...es(ui.music.open)}>{en(ui.music.open)}</a></p>
+  </div>
+</section>

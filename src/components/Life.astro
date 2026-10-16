@@ -1,0 +1,28 @@
+---
+import { getCollection } from 'astro:content';
+import { en, es, fileOrder } from '../i18n';
+import { ui } from '../i18n/ui';
+import SectionHeading from './SectionHeading.astro';
+import CardMedia from './CardMedia.astro';
+
+const cards = fileOrder(await getCollection('life'));
+---
+<section id="life" class="section dark-section">
+  <div class="wrap">
+    <SectionHeading kicker={ui.life.kicker} title={ui.life.title} hint={ui.life.hint} />
+
+    <div class="cards-grid">
+      {cards.map(({ data: card }) => (
+        <article class="card">
+          <CardMedia image={card.image} alt={card.alt} emoji={card.emoji} placeholder={ui.photoSoon} />
+          <div class="card-body">
+            <span class={`tag tag-${card.tag.color}`} {...es(card.tag.label)}>{en(card.tag.label)}</span>
+            <h3 {...es(card.title)}>{en(card.title)}</h3>
+            <p {...es(card.text)}>{en(card.text)}</p>
+            <p class="card-meta" {...es(card.meta)}>{en(card.meta)}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,52 @@
+# 06 — A Little Bit of Me. Cards are shown in this order.
+#   tag.color  uni | org | jam | win
+#   image + alt, or emoji for a "photo coming soon" placeholder
+
+- id: roots
+  tag: { color: uni, label: { en: Roots, es: Raíces } }
+  image: /assets/img/life/villa-angela.jpg
+  alt: Villa Ángela, Chaco welcome sign
+  title: Villa Ángela, Chaco
+  text:
+    en: I was born in Villa Ángela, Chaco — a little city in the middle of nowhere (kinda literally). My family still lives there and I always go back to visit.
+    es: Nací en Villa Ángela, Chaco, una ciudad chiquita en el medio de la nada (casi literal). Mi familia sigue viviendo ahí y siempre vuelvo a visitarlos.
+  meta: Chaco, Argentina
+
+- id: move
+  tag: { color: org, label: { en: New Chapter, es: Nuevo Capítulo } }
+  image: /assets/img/life/cordoba.webp
+  alt: Córdoba Cathedral with an AMO CBA sign
+  title: { en: The Move to Córdoba, es: La Mudanza a Córdoba }
+  text:
+    en: In 2021 I moved to Córdoba to study Computer Engineering. Going from a small town to a big city where I knew no one, at 18, was kinda hard.
+    es: En 2021 me mudé a Córdoba para estudiar Ingeniería en Computación. Pasar de un pueblo chico a una ciudad grande donde no conocía a nadie, a los 18, fue medio difícil.
+  meta: "2021"
+
+- id: baby
+  tag: { color: jam, label: { en: Throwback, es: Recuerdo } }
+  image: /assets/img/life/baby-me.jpg
+  alt: Baby MaVi with her brother at the computer, 2003
+  title: { en: Baby Engineer Era, es: Era de Bebé Ingeniera }
+  text:
+    en: I wasn't born in front of a computer, but I was pretty close. Here's a photo with my brother from when I was a baby.
+    es: No nací frente a una compu, pero estuve cerca. Acá una foto con mi hermano de cuando era bebé.
+  meta: "2003"
+
+- id: friends
+  tag: { color: win, label: { en: Friends, es: Amigos } }
+  image: /assets/img/life/my-people.jpg
+  alt: MaVi with her friends on a night out
+  title: { en: Sidequests With My People, es: Sidequests Con Mi Gente }
+  text:
+    en: I love my friends and going on little sidequests with them — the best plans are usually the ones nobody planned.
+    es: "Amo a mis amigos y salir de sidequests con ellos: los mejores planes suelen ser los que nadie planeó."
+  meta: { en: Ongoing, es: En curso }
+
+- id: hobbies
+  tag: { color: uni, label: { en: Hobbies, es: Hobbies } }
+  emoji: ☕
+  title: { en: "Sports, Gardening & Coffee", es: "Deporte, Jardinería y Café" }
+  text:
+    en: I love sports and gardening, and I'm a coffee lover — or coffee addict, most likely.
+    es: Me encantan el deporte y la jardinería, y soy amante del café (o adicta, más bien).
+  meta: { en: Every single day, es: Todos los días }

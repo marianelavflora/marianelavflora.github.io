@@ -1,0 +1,23 @@
+---
+import { getCollection } from 'astro:content';
+import { en, es, fileOrder } from '../i18n';
+import { ui } from '../i18n/ui';
+import SectionHeading from './SectionHeading.astro';
+
+const groups = fileOrder(await getCollection('stack'));
+---
+<section id="stack" class="section dark-section">
+  <div class="wrap">
+    <SectionHeading kicker={ui.stack.kicker} title={ui.stack.title} />
+    <div class="stack-grid">
+      {groups.map(({ data: group }) => (
+        <div class="stack-group">
+          <h3><span class="stack-icon">{group.icon}</span> <span {...es(group.title)}>{en(group.title)}</span></h3>
+          <ul class="stack-chips">
+            {group.items.map(item => <li {...es(item)}>{en(item)}</li>)}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,36 +1,68 @@
 # marianelavflora.github.io
 
-MaVi Flora's portfolio site — plain HTML/CSS/JS, no build step, ready for
-GitHub Pages.
+MaVi Flora's portfolio site, live at [mavi.dev.ar](https://mavi.dev.ar).
+
+Built with [Astro](https://astro.build): the content lives in small data files,
+Astro turns them into one plain static HTML page at build time, and a GitHub
+Action publishes it to GitHub Pages.
 
 ## Structure
 
-- `index.html` — all page content/sections
-- `css/style.css` — all styling
-- `js/main.js` — rotating title, running cat, mobile nav
-- `projects/` — drop project/hackathon/gamejam photos here (see `projects/README.md`)
-- `assets/cv/MaViFlora_CV.pdf` — downloadable CV linked from the header
+```
+src/
+  data/            ← the content: edit these to update the site
+    projects.yaml        03 Projects & Achievements (flip cards)
+    experience.yaml      04 Experience (jobs + volunteering)
+    stack.yaml           05 Stack & Toolbox
+    life.yaml            06 A Little Bit of Me
+    certifications.yaml  07 Certifications
+  i18n/
+    ui.ts          ← nav, section titles and labels (English + Spanish)
+    index.ts         date formatting and EN/ES helpers
+  components/      one .astro file per section (Hero, Projects, ...)
+  layouts/         the <head> and page shell
+  pages/index.astro  puts the sections together
+  scripts/         browser JS: rotating title, cat, flip cards, EN/ES toggle, CV preview
+  styles/style.css all styling (colour tokens at the top, under :root)
+  content.config.ts  the shape each data file must follow (checked on every build)
+public/            copied as-is: images, CV PDF, CNAME
+```
 
-## To customize
+## Updating content
 
-- **Projects & Achievements**: edit the placeholder cards in the `#projects`
-  section of `index.html` — swap titles, tags, dates, descriptions, and
-  media (see `projects/README.md`).
-- **Certifications**: edit `#certifications` in `index.html` — 3 empty slots
-  are ready for more certs.
-- **Music**: the YouTube playlist in `#music` is an `iframe`; change the video IDs in its `src` (and in the "Open it on YouTube" link) to swap songs.
-- **Colors**: main tokens live at the top of `css/style.css` under `:root`.
+Every text can be a single string (same in both languages) or `{ en, es }`.
+
+- **Add a project:** add an entry to `src/data/projects.yaml`. Cards are sorted
+  newest first by `date` (`YYYY-MM`), so it lands in the right spot on its own.
+  Put its photo in `public/assets/img/projects/` and reference it as
+  `/assets/img/projects/your-photo.jpg`. No photo yet? Use `emoji:` instead and
+  the card shows a "photo coming soon" placeholder. `hidden: true` keeps an
+  entry without showing it.
+- **Add a job, volunteering or cert:** same idea in `experience.yaml` or
+  `certifications.yaml`. Date labels ("June 2025 – Present") and their Spanish
+  versions are generated from `start`/`end`.
+- **Change a section title or label:** `src/i18n/ui.ts`.
+- **Music:** the YouTube video ids are at the top of `src/components/Music.astro`.
+- **Colors:** tokens at the top of `src/styles/style.css` under `:root`.
+
+If a data file has a mistake (missing field, wrong date format), the build
+stops and tells you which entry and field is wrong.
 
 ## Running locally
 
-Just open `index.html` in a browser, or serve the folder with any static
-server, e.g.:
+Needs [Node.js](https://nodejs.org) 22.22 or newer (the current LTS is fine).
 
 ```bash
-npx serve .
+npm install      # once
+npm run dev      # live preview at http://localhost:4321, reloads as you edit
+npm run build    # production build into dist/
+npm run preview  # serve the dist/ build locally
 ```
 
 ## Deploying
 
-Push to the `main` branch of this repo (`marianelavflora.github.io`) — GitHub
-Pages serves it automatically since it's a user-page repo.
+Push to `main`. The **Deploy to GitHub Pages** workflow
+(`.github/workflows/deploy.yml`) builds the site and publishes `dist/`.
+
+One-time setup: in the repo's **Settings → Pages**, set **Source** to
+**GitHub Actions**. The custom domain (`mavi.dev.ar`) stays configured there.

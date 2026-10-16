@@ -1,0 +1,58 @@
+# 04 — Experience. Jobs and volunteering, shown newest first by `start`.
+#   kind      job | volunteering
+#   start/end YYYY-MM; leave `end` out while it's still going ("Present")
+#   location  one string, or { en, es } when it needs translating
+
+- id: epam
+  kind: job
+  title: Junior Software Testing Engineer
+  org: EPAM Systems
+  logo: /assets/img/logos/epam.jpg
+  logoAlt: EPAM Systems
+  start: 2025-06
+  location: { en: Remote, es: Remoto }
+
+- id: utest
+  kind: job
+  title: QA Tester
+  org:
+    en: Independent — UTest, GameTester, TestIO
+    es: Independiente — UTest, GameTester, TestIO
+  logo: /assets/img/logos/utest.png
+  logoAlt: UTest
+  start: 2025-01
+  end: 2025-06
+  location: Córdoba, AR
+
+- id: aws-sbg
+  kind: volunteering
+  title: Core Team
+  org: AWS Student Builder Group at UNC (SBG)
+  logo: /assets/img/certs/aws-sbg.png
+  logoAlt: AWS Student Builder Group at UNC
+  start: 2026-04
+  location: Córdoba, AR
+
+- id: unc-robotics-dev
+  kind: volunteering
+  title:
+    en: Robotics Software Developer Volunteer
+    es: Voluntaria en Desarrollo de Software de Robótica
+  org: Innovación y Desarrollo UNC
+  logo: /assets/img/logos/unc.jpg
+  logoAlt: Universidad Nacional de Córdoba
+  start: 2025-02
+  end: 2025-06
+  location: Córdoba, AR
+
+- id: unc-robotics-workshop
+  kind: volunteering
+  title:
+    en: Robotics & Programming Workshop Volunteer
+    es: Voluntaria en el Taller de Robótica y Programación
+  org: Taller de Robótica y Programación UNC
+  logo: /assets/img/logos/unc.jpg
+  logoAlt: Universidad Nacional de Córdoba
+  start: 2024-08
+  end: 2025-02
+  location: Córdoba, AR

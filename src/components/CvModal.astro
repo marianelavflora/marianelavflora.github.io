@@ -1,0 +1,19 @@
+<!-- PDF preview of the CV, opened by any [data-cv-trigger] link (see cv-preview.js). -->
+<div id="cv-modal" class="cv-modal" hidden>
+  <div class="cv-modal-backdrop" data-cv-close></div>
+  <div class="cv-modal-panel">
+    <div class="cv-toolbar">
+      <button data-cv-prev aria-label="Previous page">‹</button>
+      <span class="cv-page-indicator" id="cv-page-indicator">1 / 1</span>
+      <button data-cv-next aria-label="Next page">›</button>
+      <div class="cv-toolbar-spacer"></div>
+      <button data-cv-zoom-out aria-label="Zoom out">−</button>
+      <button data-cv-zoom-in aria-label="Zoom in">+</button>
+      <a class="cv-download-btn" href="/assets/cv/MaViFlora_CV.pdf" download aria-label="Download PDF">⬇</a>
+      <button class="cv-modal-close" data-cv-close aria-label="Close CV preview">✕</button>
+    </div>
+    <div class="cv-canvas-wrap">
+      <canvas id="cv-pdf-canvas"></canvas>
+    </div>
+  </div>
+</div>

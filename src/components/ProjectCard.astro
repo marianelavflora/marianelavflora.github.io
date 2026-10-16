@@ -1,0 +1,51 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { en, es, monthName } from '../i18n';
+import { ui } from '../i18n/ui';
+import CardMedia from './CardMedia.astro';
+
+interface Props {
+  project: CollectionEntry<'projects'>['data'];
+}
+const { date, type, typeLabel, status, front, back } = Astro.props.project;
+const typeTag = typeLabel ?? ui.type[type];
+const backLabel = ui.back[back.label];
+const month = monthName(date);
+const year = date.slice(0, 4);
+---
+<li class="tl-item">
+  <span class="tl-date"><span {...es(month)}>{month.en}</span> {year}</span>
+  <article class="flip-card" tabindex="0" aria-pressed="false">
+    <div class="flip-inner">
+      <div class="card card-front">
+        <CardMedia image={front.image} alt={front.alt} emoji={front.emoji} placeholder={ui.photoSoon} />
+        <div class="card-body">
+          {status
+            ? (
+              <div class="tag-row">
+                <span class={`tag tag-${type}`} {...es(typeTag)}>{en(typeTag)}</span>
+                <span class={`tag tag-status tag-${status.kind}`} {...es(status.label)}>{en(status.label)}</span>
+              </div>
+            )
+            : <span class={`tag tag-${type}`} {...es(typeTag)}>{en(typeTag)}</span>}
+          <h3>{front.title}</h3>
+          <p {...es(front.text)}>{en(front.text)}</p>
+          <p class="card-meta" {...es(front.meta)}>{en(front.meta)}</p>
+        </div>
+      </div>
+      <div class="card card-back">
+        <CardMedia emoji={back.emoji} placeholder={ui.productPhotoSoon} />
+        <div class="card-body">
+          <span class="tag tag-product" {...es(backLabel)}>{en(backLabel)}</span>
+          <h3 {...es(back.title)}>{en(back.title)}</h3>
+          <p {...es(back.text)}>{en(back.text)}</p>
+          {back.links.length > 0 && (
+            <div class="card-links">
+              {back.links.map(link => <a href={link.url} target="_blank" rel="noopener">{link.label}</a>)}
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  </article>
+</li>

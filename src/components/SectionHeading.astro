@@ -1,0 +1,13 @@
+---
+import { en, es, type Text } from '../i18n';
+
+interface Props {
+  kicker: Text;
+  title: Text;
+  hint?: Text;
+}
+const { kicker, title, hint } = Astro.props;
+---
+<p class="section-kicker" {...es(kicker)} set:html={en(kicker)} />
+<h2 class="section-title" {...es(title)} set:html={en(title)} />
+{hint && <p class="section-hint" {...es(hint)} set:html={en(hint)} />}

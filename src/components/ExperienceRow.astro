@@ -1,0 +1,21 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { en, es, dateRange } from '../i18n';
+
+interface Props {
+  job: CollectionEntry<'experience'>['data'];
+}
+const { title, org, logo, logoAlt, start, end, location } = Astro.props.job;
+const dates = dateRange(start, end);
+---
+<li class="exp-row">
+  <div class="exp-logo"><img src={logo} alt={logoAlt} /></div>
+  <div class="exp-main">
+    <h3><span {...es(title)}>{en(title)}</span> <span class="exp-globe">🌐</span></h3>
+    <p {...es(org)}>{en(org)}</p>
+  </div>
+  <div class="exp-when">
+    <span {...es(dates)}>{dates.en}</span>
+    <span class="exp-remote" {...es(location)}>{en(location)}</span>
+  </div>
+</li>
