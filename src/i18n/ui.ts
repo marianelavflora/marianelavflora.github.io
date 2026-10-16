@@ -8,7 +8,6 @@ export const ui = {
     journey: { en: 'Journey', es: 'Recorrido' },
     stack: 'Stack',
     life: { en: 'Life', es: 'Vida' },
-    certs: { en: 'Certifications', es: 'Certificaciones' },
     cv: { en: 'View CV', es: 'Ver CV' },
   },
   hero: {
@@ -75,10 +74,6 @@ export const ui = {
     kicker: { en: '05 — some of my life', es: '05 — algo de mi vida' },
     title: { en: 'A Little Bit of Me', es: 'Un Poquito de Mí' },
     hint: { en: 'The non-work version of the story 💛', es: 'La versión de la historia fuera del laburo 💛' },
-  },
-  certs: {
-    kicker: { en: '06 — paper trail', es: '06 — los papeles' },
-    title: { en: 'Certifications', es: 'Certificaciones' },
   },
   footer: {
     quote: { en: 'Life\'s a climb,<br/>but the view is great.', es: 'La vida es una escalada,<br/>pero la vista es hermosa.' },

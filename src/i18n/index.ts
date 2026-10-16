@@ -48,7 +48,3 @@ type Ordered = { data: { order: number } };
 /** Entries in the same order as their YAML file. */
 export const fileOrder = <T extends Ordered>(items: T[]) =>
   [...items].sort((a, b) => a.data.order - b.data.order);
-
-/** Newest first by a YYYY-MM field; entries with the same month keep their file order. */
-export const newestFirst = <T extends Ordered>(items: T[], date: (item: T) => string) =>
-  fileOrder(items).sort((a, b) => date(b).localeCompare(date(a)));
