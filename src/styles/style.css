@@ -250,36 +250,65 @@ a{color:inherit;text-decoration:none;}
 .tag.tag-status{background:transparent;border:1px solid currentColor;padding:4px 9px;}
 .tag-product{background:rgba(244,239,228,0.1);color:var(--cream);}
 
-/* flip cards: event on the front, product on the back */
-.flip-hint{color:var(--accent-2);font-size:0.9rem;font-weight:600;margin:-6px 0 22px;}
-.flip-card{
-  perspective:1200px;cursor:pointer;border-radius:var(--radius);
-  outline:none;transition:transform .25s ease;
+/* project cards: two photos (event + product) that swap, info all on one side */
+.photo-hint{color:var(--accent-2);font-size:0.9rem;font-weight:600;margin:-6px 0 22px;}
+.card-photos{position:relative;overflow:hidden;}
+.card-photo{
+  position:absolute;inset:0;margin:0;
+  opacity:0;transition:opacity .8s ease;
 }
-.flip-card:hover{transform:translateY(-4px);}
-.flip-card:focus-visible{outline:2px solid var(--accent-2);outline-offset:4px;}
-.flip-inner{
-  display:grid;height:100%;
-  transform-style:preserve-3d;
-  transition:transform .6s cubic-bezier(.2,.7,.2,1);
+.card-photo.active{opacity:1;z-index:1;}
+.card-photo .placeholder-media{height:100%;}
+.card-photo-open{
+  display:block;width:100%;height:100%;padding:0;border:0;background:none;
+  cursor:zoom-in;
 }
-.flip-card.flipped .flip-inner{transform:rotateY(180deg);}
-.flip-card .card{
-  grid-area:1/1;
-  backface-visibility:hidden;-webkit-backface-visibility:hidden;
-  transition:border-color .25s ease, visibility 0s .3s;
+.card-photo-open img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease;}
+.card-photo-open:hover img{transform:scale(1.04);}
+.card-photo-open:focus-visible{outline:2px solid var(--accent-2);outline-offset:-4px;}
+.card-photo-label{
+  position:absolute;left:10px;top:10px;pointer-events:none;
+  font-size:0.66rem;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;
+  padding:4px 9px;border-radius:999px;background:rgba(10,9,8,0.72);color:var(--cream);
 }
-/* the lift lives on .flip-card; don't let .card:hover override the face's own transform */
-.flip-card .card-front:hover{transform:none;}
-.flip-card:hover .card{border-color:var(--accent-2);}
-.flip-card .card-back,
-.flip-card .card-back:hover{transform:rotateY(180deg);}
-.card-back{
-  visibility:hidden;
-  background:linear-gradient(160deg,#211d1a,var(--dark-card));
+.card-photo-dots{
+  position:absolute;left:0;right:0;bottom:10px;z-index:2;
+  display:flex;justify-content:center;gap:6px;pointer-events:none;
 }
-.flip-card.flipped .card-back{visibility:visible;}
-.flip-card.flipped .card-front{visibility:hidden;}
+.card-photo-dots i{width:7px;height:7px;border-radius:50%;background:rgba(244,239,228,0.4);transition:background .3s;}
+.card-photo-dots i.active{background:var(--cream);}
+.card-product{
+  margin:14px 0 4px;padding:12px 14px;border-radius:10px;
+  background:rgba(244,239,228,0.05);border:1px solid var(--dark-border);
+}
+.card-product-label{
+  display:block;margin-bottom:4px;color:var(--muted);
+  font-size:0.68rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;
+}
+.card-product strong{display:block;color:var(--cream);font-size:0.98rem;margin-bottom:4px;}
+.card-body .card-product p{margin:0;}
+
+/* lightbox: one photo, big */
+.photo-lightbox{
+  max-width:none;max-height:none;width:100vw;height:100vh;margin:0;padding:0;border:0;
+  background:rgba(8,7,6,0.94);color:var(--cream);
+}
+.photo-lightbox[open]{display:flex;align-items:center;justify-content:center;}
+.photo-lightbox::backdrop{background:rgba(8,7,6,0.6);}
+.photo-lightbox figure{margin:0;display:flex;flex-direction:column;align-items:center;gap:12px;}
+.photo-lightbox img{max-width:min(92vw,1400px);max-height:84vh;object-fit:contain;border-radius:10px;}
+.photo-lightbox figcaption{font-size:0.8rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted);}
+.lb-close,.lb-nav{
+  position:absolute;border:0;cursor:pointer;color:var(--cream);
+  background:rgba(244,239,228,0.1);border-radius:50%;
+  width:46px;height:46px;font-size:1.4rem;line-height:1;
+}
+.lb-close:hover,.lb-nav:hover{background:rgba(244,239,228,0.2);}
+.lb-close{top:18px;right:18px;}
+.lb-nav{top:50%;transform:translateY(-50%);font-size:2rem;}
+.lb-prev{left:18px;}
+.lb-next{right:18px;}
+.photo-lightbox.single .lb-nav{display:none;}
 
 /* ============ JOURNEY (03): one timeline, grouped by year ============ */
 /* one colour per kind of entry: the dot, the date and the card's edge */
@@ -337,10 +366,10 @@ a{color:inherit;text-decoration:none;}
   font-weight:700;font-size:0.76rem;letter-spacing:1.5px;text-transform:uppercase;
 }
 
-/* projects: wide flip cards, photo on the left */
-.jr-project .card{display:grid;grid-template-columns:240px 1fr;border-left:4px solid var(--kind);}
-.jr-project .card-media{height:auto;min-height:150px;}
-.jr-project .flip-card:hover .card{border-color:var(--accent-2);border-left-color:var(--kind);}
+/* projects: wide cards, photos on the left */
+.jr-project .card{display:grid;grid-template-columns:260px 1fr;border-left:4px solid var(--kind);}
+.jr-project .card-media{height:auto;min-height:190px;}
+.jr-project .card:hover{border-color:var(--accent-2);border-left-color:var(--kind);}
 
 /* jobs, volunteering, certifications: compact rows */
 .jr-mini{
@@ -399,7 +428,7 @@ a.jr-mini:hover{transform:translateY(-2px);border-color:var(--kind);}
   .jr-pill{display:none;}
   .jr-date{text-align:left;}
   .jr-project .card{grid-template-columns:1fr;}
-  .jr-project .card-media{min-height:150px;}
+  .jr-project .card-media{min-height:200px;}
 }
 
 /* ============ STACK & TOOLBOX ============ */
@@ -497,7 +526,7 @@ a.jr-mini:hover{transform:translateY(-2px);border-color:var(--kind);}
 
 @media (prefers-reduced-motion: reduce){
   #dog-runner,#running-cat,.rotator,.leg,.dogleg{animation:none!important;}
-  .flip-inner{transition:none;}
+  .card-photo{transition:none;}
 }
 
 /* ============ CV PREVIEW MODAL ============ */

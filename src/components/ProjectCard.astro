@@ -2,45 +2,58 @@
 import type { CollectionEntry } from 'astro:content';
 import { en, es } from '../i18n';
 import { ui } from '../i18n/ui';
-import CardMedia from './CardMedia.astro';
 
 interface Props {
   project: CollectionEntry<'projects'>['data'];
 }
-const { type, typeLabel, status, front, back } = Astro.props.project;
+const { type, typeLabel, status, event, product } = Astro.props.project;
 const typeTag = typeLabel ?? ui.type[type];
-const backLabel = ui.back[back.label];
+const productLabel = ui.back[product.label];
+// Skip the product's title when it just repeats the event's name.
+const productTitle = en(product.title) === event.title ? null : product.title;
+// The two photos the card swaps between: the event, then what came out of it.
+const photos = [
+  { image: event.image, alt: event.alt ?? event.title, emoji: event.emoji ?? product.emoji, label: ui.eventPhoto, soon: ui.photoSoon },
+  { image: product.image, alt: product.alt ?? en(product.title), emoji: product.emoji, label: productLabel, soon: ui.productPhotoSoon },
+];
 ---
-<article class="flip-card" tabindex="0" aria-pressed="false">
-  <div class="flip-inner">
-    <div class="card card-front">
-      <CardMedia image={front.image} alt={front.alt} emoji={front.emoji} placeholder={ui.photoSoon} />
-      <div class="card-body">
-        {status
+<article class="card project-card">
+  <div class="card-media card-photos" data-photos>
+    {photos.map((p, i) => (
+      <figure class:list={['card-photo', { active: i === 0 }]}>
+        {p.image
           ? (
-            <div class="tag-row">
-              <span class={`tag tag-${type}`} {...es(typeTag)}>{en(typeTag)}</span>
-              <span class={`tag tag-status tag-${status.kind}`} {...es(status.label)}>{en(status.label)}</span>
-            </div>
+            <button type="button" class="card-photo-open" data-full={p.image} aria-label={`Open photo: ${p.alt}`}>
+              <img src={p.image} alt={p.alt} loading="lazy" />
+            </button>
           )
-          : <span class={`tag tag-${type}`} {...es(typeTag)}>{en(typeTag)}</span>}
-        <h3>{front.title}</h3>
-        <p {...es(front.text)}>{en(front.text)}</p>
-        <p class="card-meta" {...es(front.meta)}>{en(front.meta)}</p>
-      </div>
+          : <div class="placeholder-media">{p.emoji}<span {...es(p.soon)}>{en(p.soon)}</span></div>}
+        <figcaption class="card-photo-label" {...es(p.label)}>{en(p.label)}</figcaption>
+      </figure>
+    ))}
+    <div class="card-photo-dots" aria-hidden="true"><i class="active"></i><i></i></div>
+  </div>
+  <div class="card-body">
+    {status
+      ? (
+        <div class="tag-row">
+          <span class={`tag tag-${type}`} {...es(typeTag)}>{en(typeTag)}</span>
+          <span class={`tag tag-status tag-${status.kind}`} {...es(status.label)}>{en(status.label)}</span>
+        </div>
+      )
+      : <span class={`tag tag-${type}`} {...es(typeTag)}>{en(typeTag)}</span>}
+    <h3>{event.title}</h3>
+    <p {...es(event.text)}>{en(event.text)}</p>
+    <div class="card-product">
+      <span class="card-product-label" {...es(productLabel)}>{en(productLabel)}</span>
+      {productTitle && <strong {...es(productTitle)}>{en(productTitle)}</strong>}
+      <p {...es(product.text)}>{en(product.text)}</p>
     </div>
-    <div class="card card-back">
-      <CardMedia emoji={back.emoji} placeholder={ui.productPhotoSoon} />
-      <div class="card-body">
-        <span class="tag tag-product" {...es(backLabel)}>{en(backLabel)}</span>
-        <h3 {...es(back.title)}>{en(back.title)}</h3>
-        <p {...es(back.text)}>{en(back.text)}</p>
-        {back.links.length > 0 && (
-          <div class="card-links">
-            {back.links.map(link => <a href={link.url} target="_blank" rel="noopener">{link.label}</a>)}
-          </div>
-        )}
+    {product.links.length > 0 && (
+      <div class="card-links">
+        {product.links.map(link => <a href={link.url} target="_blank" rel="noopener">{link.label}</a>)}
       </div>
-    </div>
+    )}
+    <p class="card-meta" {...es(event.meta)}>{en(event.meta)}</p>
   </div>
 </article>

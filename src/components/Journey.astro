@@ -110,7 +110,7 @@ const count = (kind: Kind) => entries.filter(e => e.kind === kind).length;
       ))}
       <button type="button" class="jr-show-all" hidden {...es(ui.journey.filter.all)}>{en(ui.journey.filter.all)}</button>
     </div>
-    <p class="flip-hint" {...es(ui.journey.flipHint)} set:html={en(ui.journey.flipHint)} />
+    <p class="photo-hint" {...es(ui.journey.photoHint)}>{en(ui.journey.photoHint)}</p>
 
     <div class="jr-lane-labels" aria-hidden="true">
       <span class="jr-job" {...es(ui.journey.lanes.job)}>{en(ui.journey.lanes.job)}</span>
@@ -200,6 +200,14 @@ const count = (kind: Kind) => entries.filter(e => e.kind === kind).length;
       </div>
     ))}
   </div>
+
+  <!-- big view for project photos, opened from src/scripts/main.js -->
+  <dialog class="photo-lightbox" id="photo-lightbox" aria-label="Photo">
+    <button type="button" class="lb-close" data-lb-close aria-label="Close">✕</button>
+    <button type="button" class="lb-nav lb-prev" data-lb-step="-1" aria-label="Previous photo">‹</button>
+    <figure><img alt="" /><figcaption></figcaption></figure>
+    <button type="button" class="lb-nav lb-next" data-lb-step="1" aria-label="Next photo">›</button>
+  </dialog>
 </section>
 
 <script>
