@@ -498,6 +498,32 @@ a.jr-mini:hover{transform:translateY(-2px);border-color:var(--kind);}
 }
 .footer-socials{display:flex;gap:18px;font-weight:600;}
 .footer-socials a:hover{color:var(--accent-2);}
+.footer-privacy{
+  background:none;border:none;padding:0;cursor:pointer;
+  font:inherit;color:inherit;
+}
+.footer-privacy:hover{color:var(--accent-2);}
+
+/* ============ ANALYTICS CONSENT ============ */
+.consent-banner{
+  position:fixed;left:16px;right:16px;bottom:16px;z-index:10000;
+  max-width:520px;margin-left:auto;
+  background:var(--dark-card);color:var(--text-on-dark);
+  border:1px solid var(--dark-border);border-radius:var(--radius);
+  padding:18px 20px;box-shadow:0 12px 32px rgba(0,0,0,.35);
+  font-size:0.9rem;line-height:1.5;
+}
+.consent-banner[hidden]{display:none;}
+.consent-banner p{margin:0 0 14px;}
+.consent-actions{display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap;}
+.consent-btn{
+  border-radius:999px;padding:9px 18px;cursor:pointer;
+  font:700 0.85rem var(--body);
+}
+.consent-no{background:none;color:var(--text-on-dark);border:1px solid var(--dark-border);}
+.consent-no:hover{border-color:var(--muted);}
+.consent-yes{background:var(--accent-2);color:var(--ink);border:1px solid var(--accent-2);}
+.consent-yes:hover{background:var(--accent);border-color:var(--accent);color:var(--cream);}
 
 /* ============ RUNNING CAT ============ */
 #running-cat{
