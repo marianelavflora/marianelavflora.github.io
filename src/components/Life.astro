@@ -14,7 +14,7 @@ const cards = fileOrder(await getCollection('life'));
     <div class="cards-grid">
       {cards.map(({ data: card }) => (
         <article class="card">
-          <CardMedia image={card.image} alt={card.alt} emoji={card.emoji} placeholder={ui.photoSoon} />
+          <CardMedia image={card.image} alt={card.alt} />
           <div class="card-body">
             <span class={`tag tag-${card.tag.color}`} {...es(card.tag.label)}>{en(card.tag.label)}</span>
             <h3 {...es(card.title)}>{en(card.title)}</h3>

@@ -1,6 +1,6 @@
 # 05 — A Little Bit of Me. Cards are shown in this order.
 #   tag.color  uni | org | jam | win
-#   image + alt, or emoji for a "photo coming soon" placeholder
+#   image + alt (leave both out and the card shows only its text)
 
 - id: roots
   tag: { color: uni, label: { en: Roots, es: Raíces } }
