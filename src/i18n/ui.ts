@@ -68,8 +68,6 @@ export const ui = {
     outcome: { en: 'What came out of it', es: 'Lo que me dejó' },
   },
   eventPhoto: { en: 'The event', es: 'El evento' },
-  photoSoon: { en: 'photo coming soon', es: 'foto próximamente' },
-  productPhotoSoon: { en: 'product photo coming soon', es: 'foto del producto próximamente' },
 
   stack: {
     kicker: { en: '03 — what I work with', es: '03 — con qué laburo' },

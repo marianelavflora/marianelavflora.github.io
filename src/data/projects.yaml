@@ -14,8 +14,8 @@
 #              title, text, links and its own photo (image + alt) or an emoji
 #
 # Each card shows both photos and swaps between them every few seconds;
-# clicking a photo opens it big. A missing photo is just left out (no photo
-# at all shows the event emoji with "photo coming soon").
+# clicking a photo opens it big. A missing photo is just left out, and a card
+# with no photos shows only its text.
 #
 # Any text can be one string (same in both languages) or { en, es }.
 
