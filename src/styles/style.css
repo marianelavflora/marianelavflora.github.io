@@ -444,7 +444,12 @@ a.jr-mini:hover{transform:translateY(-2px);border-color:var(--kind);}
 .stack-chips li{
   font-size:0.85rem;padding:6px 12px;border-radius:999px;
   border:1px solid var(--dark-border);background:rgba(244,239,228,0.05);
+  display:inline-flex;align-items:center;gap:6px;
 }
+.stack-chips small{font-size:0.75rem;color:var(--muted);}
+.stack-current-dot{width:7px;height:7px;border-radius:50%;background:#4ade80;display:inline-block;flex:none;}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;}
+.stack-legend{margin:14px 0 0;font-size:0.75rem;color:var(--muted);display:flex;align-items:center;gap:6px;}
 
 /* ============ FOOTER ============ */
 .site-footer{background:var(--dark);padding:80px 0 34px;}

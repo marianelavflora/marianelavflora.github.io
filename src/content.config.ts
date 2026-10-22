@@ -118,7 +118,12 @@ const stack = defineCollection({
     order,
     icon: z.string(),
     title: text,
-    items: z.array(text),
+    // A chip is plain text, or { label, note, current } for a small note
+    // after the name or a "currently using" dot.
+    items: z.array(z.union([
+      text,
+      z.object({ label: text, note: text.optional(), current: z.boolean().optional() }),
+    ])),
   }),
 });
 

@@ -1,9 +1,24 @@
-# 04 — Stack & Toolbox. Groups and chips are shown in this order.
+# 03 — Stack & Toolbox. Groups and chips are shown in this order.
+# A chip is plain text (or { en, es }), or { label, note, current: true }:
+# note is small grey text after the name, current adds a green
+# "currently using" dot.
 
 - id: languages
   icon: 💻
   title: { en: Development, es: Desarrollo }
-  items: [Selenium, Playwright, Postman, Python, C++, JavaScript, HTML & CSS, Java, SQL, MySQL, Godot]
+  items:
+    - Selenium
+    - Playwright
+    - JavaScript
+    - Postman
+    - Python
+    - C++
+    - HTML & CSS
+    - Java
+    - SQL
+    - MySQL
+    - { label: Linux, note: "Manjaro, Mint, Ubuntu" }
+    - Godot
 
 - id: qa
   icon: 🐞
@@ -25,8 +40,24 @@
 
 - id: hardware
   icon: 🤖
-  title: { en: Hardware & Games, es: Hardware y juegos }
+  title: Hardware
   items:
     - ESP32
     - Arduino
     - { en: Sensors & actuators, es: Sensores y actuadores }
+    - Raspberry Pi
+    - { en: Network configuration, es: Configuración de redes }
+    - { en: Circuit development, es: Desarrollo de circuitos }
+
+- id: ai
+  icon: ✨
+  title: { en: AI tools, es: Herramientas de IA }
+  items:
+    - { label: Claude, current: true }
+    - { label: Orca, note: { en: agent orchestration, es: orquestación de agentes }, current: true }
+    - Codex
+    - Cursor
+    - Gemini
+    - ChatGPT
+    - v0
+    - Lovable
