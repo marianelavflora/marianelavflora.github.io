@@ -74,7 +74,6 @@ export const ui = {
   stack: {
     kicker: { en: '03 — what I work with', es: '03 — con qué laburo' },
     title: { en: 'Stack &amp; Toolbox', es: 'Stack y herramientas' },
-    current: { en: 'currently using', es: 'la uso ahora' },
     usedIn: { en: 'Used in:', es: 'Lo usé en:' },
   },
   life: {
