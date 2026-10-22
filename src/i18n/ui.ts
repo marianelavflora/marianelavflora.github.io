@@ -16,8 +16,8 @@ export const ui = {
       es: 'HOLA, SOY <span class="outline">MaVi</span><br/>Y SOY',
     },
     sub: {
-      en: 'Software · QA Engineer · Robotics tinkerer · Building &amp; breaking things on purpose, from Córdoba, Argentina.',
-      es: 'Software · QA Engineer · Fan de la robótica · Construyendo y rompiendo cosas a propósito, desde Córdoba, Argentina.',
+      en: 'Software Dev · QA Engineer · Robotics tinkerer · Building &amp; breaking things on purpose. In Córdoba, Argentina.',
+      es: 'Software Dev · QA Engineer · Fan de la robótica · Construyendo y rompiendo cosas a propósito. En Córdoba, Argentina.',
     },
     caption: { en: 'Here with Gaucho from Paisanos', es: 'Acá con Gaucho de Paisanos' },
   },

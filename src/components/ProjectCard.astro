@@ -6,7 +6,7 @@ import { ui } from '../i18n/ui';
 interface Props {
   project: CollectionEntry<'projects'>['data'];
 }
-const { type, typeLabel, status, event, product } = Astro.props.project;
+const { type, typeLabel, status, tech, event, product } = Astro.props.project;
 const typeTag = typeLabel ?? ui.type[type];
 const productLabel = ui.back[product.label];
 // Skip the product's title when it just repeats the event's name.
@@ -50,6 +50,11 @@ const photos = [
       {productTitle && <><strong {...es(productTitle)}>{en(productTitle)}</strong>:{' '}</>}
       <span {...es(product.text)}>{en(product.text)}</span>
     </p>
+    {tech.length > 0 && (
+      <ul class="card-tech" aria-label="Tech used">
+        {tech.map(t => <li {...es(t)}>{en(t)}</li>)}
+      </ul>
+    )}
     {product.links.length > 0 && (
       <div class="card-links">
         {product.links.map(link => <a href={link.url} target="_blank" rel="noopener">{link.label}</a>)}

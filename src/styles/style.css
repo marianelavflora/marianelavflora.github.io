@@ -216,6 +216,11 @@ a{color:inherit;text-decoration:none;}
 .card-body h3{margin:10px 0 8px;font-size:1.2rem;}
 .card-body p{color:#c8c4b8;font-size:0.92rem;line-height:1.5;margin:0 0 10px;}
 .card-meta{color:var(--muted)!important;font-size:0.8rem!important;}
+.card-tech{list-style:none;margin:4px 0 6px;padding:0;display:flex;flex-wrap:wrap;gap:6px;}
+.card-tech li{
+  font-size:0.72rem;font-weight:600;padding:3px 9px;border-radius:999px;
+  border:1px solid var(--dark-border);background:rgba(244,239,228,0.05);color:var(--cream);
+}
 .card-links{display:flex;flex-wrap:wrap;gap:12px;margin-top:10px;}
 .card-links a{
   font-size:0.8rem;font-weight:700;color:var(--accent-2);

@@ -33,6 +33,7 @@ const projects = defineCollection({
     status: z
       .object({ kind: z.enum(['win', 'soon', 'org', 'wip']), label: text })
       .optional(),
+    tech: z.array(text).default([]),
     event: z.object({
       title: z.string(),
       text,

@@ -8,6 +8,7 @@
 #   type       hackathon | gamejam | robot (sets the tag colour)
 #   typeLabel  optional custom text for the type tag (e.g. "GameJam #2")
 #   status     optional second tag: kind is win | soon | org | wip
+#   tech       optional list of languages/frameworks used, shown as pills
 #   event      the event: title, text, meta, and its photo (image + alt) or an emoji
 #   product    what came out of it: label is product | role | outcome, plus
 #              title, text, links and its own photo (image + alt) or an emoji
@@ -61,6 +62,7 @@
   date: 2026-09
   type: robot
   status: { kind: wip, label: WIP }
+  tech: [ESP32]
   event:
     emoji: 🤖
     title: robotElCono
@@ -81,6 +83,7 @@
   status:
     kind: win
     label: { en: Community Award, es: Premio de la Comunidad }
+  tech: [ESP32]
   event:
     image: /assets/img/projects/dou-hackware.jpg
     alt: Team with the Dou robot at Paisanos Hackware
@@ -102,6 +105,7 @@
   date: 2026-08
   type: gamejam
   typeLabel: "GameJam #2"
+  tech: [Godot, GDScript]
   event:
     emoji: 🕹️
     title: Samda Game Jam
@@ -126,6 +130,7 @@
   date: 2026-01
   type: gamejam
   typeLabel: "GameJam #1"
+  tech: [Godot, GDScript]
   event:
     emoji: 🕹️
     title: Córdoba GameJam
