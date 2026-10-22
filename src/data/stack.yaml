@@ -2,6 +2,8 @@
 # A chip is plain text (or { en, es }), or { label, note, current: true }:
 # note is small grey text after the name, current adds a green
 # "currently using" dot.
+# links: where the group was used; "#journey-<id>" jumps to that entry on the
+# timeline (the id from projects.yaml / experience.yaml), a URL opens a new tab.
 
 - id: languages
   icon: 💻
@@ -19,6 +21,10 @@
     - MySQL
     - { label: Linux, note: "Manjaro, Mint, Ubuntu" }
     - Godot
+  links:
+    - { label: Dou, href: "#journey-dou" }
+    - { label: Samda Game Jam, href: "#journey-chubby-ninjas" }
+    - { label: { en: this web!, es: ¡esta web! }, href: "https://github.com/marianelavflora/marianelavflora.github.io" }
 
 - id: qa
   icon: 🐞
@@ -32,6 +38,8 @@
     - { en: Multiplatform, es: Multiplataforma }
     - { en: Test cases, es: Casos de prueba }
     - { en: Bug reports, es: Reporte de bugs }
+  links:
+    - { label: EPAM, href: "#journey-epam" }
 
 - id: tools
   icon: 🛠️
@@ -48,6 +56,8 @@
     - Raspberry Pi
     - { en: Network configuration, es: Configuración de redes }
     - { en: Circuit development, es: Desarrollo de circuitos }
+  links:
+    - { label: Dou, href: "#journey-dou" }
 
 - id: ai
   icon: ✨
