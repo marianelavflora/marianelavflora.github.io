@@ -2,8 +2,8 @@
 
 - id: languages
   icon: 💻
-  title: { en: Languages, es: Lenguajes }
-  items: [Python, C++, SQL, JavaScript, HTML & CSS]
+  title: { en: Languages and frameworks, es: Lenguajes y frameworks }
+  items: [Python, C++, SQL, JavaScript, HTML & CSS, Godot]
 
 - id: qa
   icon: 🐞
@@ -31,4 +31,3 @@
     - ESP32
     - Arduino
     - { en: Sensors & actuators, es: Sensores y actuadores }
-    - Godot
