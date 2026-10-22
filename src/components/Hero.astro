@@ -44,7 +44,10 @@ import { ui } from '../i18n/ui';
 
     <figure class="hero-photo">
       <img src="/assets/img/mavi-robot.jpg" alt="MaVi posing with a vintage TOMY Omnibot robot" />
-      <figcaption {...es(ui.hero.caption)}>{en(ui.hero.caption)}</figcaption>
+      <figcaption>
+        <span {...es(ui.hero.caption)}>{en(ui.hero.caption)}</span>
+        <a class="hero-photo-link" href="https://x.com/gauchopaisano" target="_blank" rel="noopener" {...es(ui.hero.gauchoX)}>{en(ui.hero.gauchoX)}</a>
+      </figcaption>
     </figure>
   </div>
 </section>

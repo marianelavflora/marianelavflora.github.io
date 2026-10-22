@@ -20,6 +20,7 @@ export const ui = {
       es: 'Software Dev · QA Engineer · Fan de la robótica · Construyendo y rompiendo cosas a propósito. En Córdoba, Argentina.',
     },
     caption: { en: 'Here with Gaucho from Paisanos', es: 'Acá con Gaucho de Paisanos' },
+    gauchoX: { en: 'Follow Gaucho on X!', es: '¡Seguí a Gaucho en X!' },
   },
   journey: {
     kicker: { en: '02 — the journey so far', es: '02 — el recorrido hasta ahora' },
