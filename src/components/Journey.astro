@@ -17,9 +17,10 @@ type Kind = 'project' | 'job' | 'volunteering' | 'cert' | 'education' | 'life';
 
 const projects = (await getCollection('projects'))
   .filter(p => !p.data.hidden)
-  .map(p => ({ kind: 'project' as const, date: p.data.date, order: p.data.order, project: p.data }));
+  .map(p => ({ kind: 'project' as const, id: p.id, date: p.data.date, order: p.data.order, project: p.data }));
 const experience = (await getCollection('experience')).map(e => ({
   kind: e.data.kind,
+  id: e.id,
   date: e.data.start,
   order: e.data.order,
   exp: e.data,
@@ -139,7 +140,7 @@ const count = (kind: Kind) => entries.filter(e => e.kind === kind).length;
             if (e.kind === 'project') {
               const date = monthYear(e.date);
               return (
-                <li class="jr-item jr-project" data-kind="project">
+                <li class="jr-item jr-project" data-kind="project" id={`journey-${e.id}`}>
                   <span class="jr-date" {...es(date)}>{date.en}</span>
                   <JourneyLanes lanes={lanesAt(e.row)} />
                   <ProjectCard project={e.project} />
@@ -210,7 +211,7 @@ const count = (kind: Kind) => entries.filter(e => e.kind === kind).length;
             const dates = dateRange(exp.start, exp.end);
             const kindLabel = ui.journey.kind[e.kind];
             return (
-              <li class={`jr-item jr-${e.kind}`} data-kind={e.kind}>
+              <li class={`jr-item jr-${e.kind}`} data-kind={e.kind} id={`journey-${e.id}`}>
                 <span class="jr-date" {...es(dates)}>{en(dates)}</span>
                 <JourneyLanes lanes={lanesAt(e.row)} />
                 <div class="jr-mini">
@@ -279,5 +280,12 @@ const count = (kind: Kind) => entries.filter(e => e.kind === kind).length;
   showAll.addEventListener('click', () => {
     chips.forEach(c => active.add(c.dataset.filter));
     render();
+  });
+  // Links from elsewhere on the page (e.g. the Stack tiles) jump to an entry;
+  // if a filter is hiding it, show everything first so the jump lands.
+  document.querySelectorAll<HTMLAnchorElement>('a[href^="#journey-"]').forEach(link => {
+    link.addEventListener('click', () => {
+      if (document.querySelector<HTMLElement>(link.hash)?.hidden) showAll.click();
+    });
   });
 </script>

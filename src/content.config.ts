@@ -119,7 +119,15 @@ const stack = defineCollection({
     order,
     icon: z.string(),
     title: text,
-    items: z.array(text),
+    // A chip is plain text, or { label, note, current } for a small note
+    // after the name or a "currently using" dot.
+    items: z.array(z.union([
+      text,
+      z.object({ label: text, note: text.optional(), current: z.boolean().optional() }),
+    ])),
+    // Where these were used: "#journey-<id>" jumps to a timeline entry,
+    // anything else opens in a new tab.
+    links: z.array(z.object({ label: text, href: z.string() })).default([]),
   }),
 });
 

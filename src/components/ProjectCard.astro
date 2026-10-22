@@ -11,11 +11,12 @@ const typeTag = typeLabel ?? ui.type[type];
 const productLabel = ui.back[product.label];
 // Skip the product's title when it just repeats the event's name.
 const productTitle = en(product.title) === event.title ? null : product.title;
-// The two photos the card swaps between: the event, then what came out of it.
-const photos = [
-  { image: event.image, alt: event.alt ?? event.title, emoji: event.emoji ?? product.emoji, label: ui.eventPhoto, soon: ui.photoSoon },
-  { image: product.image, alt: product.alt ?? en(product.title), emoji: product.emoji, label: productLabel, soon: ui.productPhotoSoon },
-];
+// The photos the card swaps between: the event, then what came out of it.
+// Missing photos are left out; with none at all, the event's placeholder stays.
+const eventPhoto = { image: event.image, alt: event.alt ?? event.title, emoji: event.emoji ?? product.emoji, label: ui.eventPhoto, soon: ui.photoSoon };
+const productPhoto = { image: product.image, alt: product.alt ?? en(product.title), emoji: product.emoji, label: productLabel, soon: ui.productPhotoSoon };
+const withImage = [eventPhoto, productPhoto].filter(p => p.image);
+const photos = withImage.length > 0 ? withImage : [eventPhoto];
 ---
 <article class="card project-card">
   <div class="card-media card-photos" data-photos>
@@ -31,9 +32,13 @@ const photos = [
         <figcaption class="card-photo-label" {...es(p.label)}>{en(p.label)}</figcaption>
       </figure>
     ))}
-    <button type="button" class="card-photo-nav card-photo-prev" data-photo-step="-1" aria-label="Previous photo">‹</button>
-    <button type="button" class="card-photo-nav card-photo-next" data-photo-step="1" aria-label="Next photo">›</button>
-    <div class="card-photo-dots" aria-hidden="true"><i class="active"></i><i></i></div>
+    {photos.length > 1 && (
+      <>
+        <button type="button" class="card-photo-nav card-photo-prev" data-photo-step="-1" aria-label="Previous photo">‹</button>
+        <button type="button" class="card-photo-nav card-photo-next" data-photo-step="1" aria-label="Next photo">›</button>
+        <div class="card-photo-dots" aria-hidden="true">{photos.map((_, i) => <i class:list={{ active: i === 0 }}></i>)}</div>
+      </>
+    )}
   </div>
   <div class="card-body">
     {status

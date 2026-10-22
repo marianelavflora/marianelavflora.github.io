@@ -1,34 +1,73 @@
-# 04 — Stack & Toolbox. Groups and chips are shown in this order.
+# 03 — Stack & Toolbox. Groups and chips are shown in this order.
+# A chip is plain text (or { en, es }), or { label, note, current: true }:
+# note is small grey text after the name, current adds a green
+# "currently using" dot.
+# links: where the group was used; "#journey-<id>" jumps to that entry on the
+# timeline (the id from projects.yaml / experience.yaml), a URL opens a new tab.
 
 - id: languages
   icon: 💻
-  title: { en: Languages, es: Lenguajes }
-  items: [Python, C++, SQL, JavaScript, HTML & CSS]
+  title: { en: Development, es: Desarrollo }
+  items:
+    - Selenium
+    - Playwright
+    - JavaScript
+    - Postman
+    - Python
+    - C++
+    - HTML & CSS
+    - Java
+    - SQL
+    - MySQL
+    - { label: Linux, note: "Manjaro, Mint, Ubuntu" }
+    - Godot
+  links:
+    - { label: Dou, href: "#journey-dou" }
+    - { label: Samda Game Jam, href: "#journey-chubby-ninjas" }
+    - { label: { en: this web!, es: ¡esta web! }, href: "https://github.com/marianelavflora/marianelavflora.github.io" }
 
 - id: qa
   icon: 🐞
   title: { en: Testing & QA, es: Testing y QA }
   items:
-    - Selenium
-    - Playwright
     - { en: Functional testing, es: Testing funcional }
-    - { en: Regression, es: Regresión }
-    - { en: Exploratory, es: Exploratorio }
+    - { en: Non-functional testing, es: Testing no funcional }
+    - { en: Black box testing, es: Testing de caja negra }
+    - { en: White box testing, es: Testing de caja blanca }
     - { en: Game testing, es: Testing de juegos }
     - { en: Multiplatform, es: Multiplataforma }
     - { en: Test cases, es: Casos de prueba }
     - { en: Bug reports, es: Reporte de bugs }
+  links:
+    - { label: EPAM, href: "#journey-epam" }
 
 - id: tools
   icon: 🛠️
   title: { en: Tools, es: Herramientas }
-  items: [Git & GitHub, Jira, Confluence, Agile / Scrum]
+  items: [Git, GitHub, Jira, Figma, Canva, Slack, Confluence, Agile / Scrum]
 
 - id: hardware
   icon: 🤖
-  title: { en: Hardware & Games, es: Hardware y juegos }
+  title: Hardware
   items:
     - ESP32
     - Arduino
     - { en: Sensors & actuators, es: Sensores y actuadores }
-    - Godot
+    - Raspberry Pi
+    - { en: Network configuration, es: Configuración de redes }
+    - { en: Circuit development, es: Desarrollo de circuitos }
+  links:
+    - { label: Dou, href: "#journey-dou" }
+
+- id: ai
+  icon: ✨
+  title: { en: AI tools, es: Herramientas de IA }
+  items:
+    - { label: Claude, current: true }
+    - { label: Orca, note: { en: agent orchestration, es: orquestación de agentes }, current: true }
+    - Codex
+    - Cursor
+    - Gemini
+    - ChatGPT
+    - v0
+    - Lovable

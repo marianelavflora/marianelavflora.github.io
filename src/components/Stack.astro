@@ -5,6 +5,8 @@ import { ui } from '../i18n/ui';
 import SectionHeading from './SectionHeading.astro';
 
 const groups = fileOrder(await getCollection('stack'));
+// Plain-text chips and { label, note, current } chips, in one shape.
+const chip = item => (typeof item === 'object' && 'label' in item ? item : { label: item });
 ---
 <section id="stack" class="section dark-section">
   <div class="wrap">
@@ -14,8 +16,26 @@ const groups = fileOrder(await getCollection('stack'));
         <div class="stack-group">
           <h3><span class="stack-icon">{group.icon}</span> <span {...es(group.title)}>{en(group.title)}</span></h3>
           <ul class="stack-chips">
-            {group.items.map(item => <li {...es(item)}>{en(item)}</li>)}
+            {group.items.map(chip).map(({ label, note, current }) => (
+              <li class:list={{ current }}>
+                {current && <i class="stack-current-dot" aria-hidden="true"></i>}
+                <span {...es(label)}>{en(label)}</span>
+                {note && <small {...es(note)}>{en(note)}</small>}
+                {current && <span class="sr-only" {...es(ui.stack.current)}>{en(ui.stack.current)}</span>}
+              </li>
+            ))}
           </ul>
+          {group.links.length > 0 && (
+            <p class="stack-links">
+              <span {...es(ui.stack.usedIn)}>{en(ui.stack.usedIn)}</span>
+              {group.links.map(link => link.href.startsWith('#')
+                ? <a href={link.href} {...es(link.label)}>{en(link.label)}</a>
+                : <a href={link.href} target="_blank" rel="noopener"><span {...es(link.label)}>{en(link.label)}</span> ↗</a>)}
+            </p>
+          )}
+          {group.items.some(item => chip(item).current) && (
+            <p class="stack-legend"><i class="stack-current-dot" aria-hidden="true"></i> <span {...es(ui.stack.current)}>{en(ui.stack.current)}</span></p>
+          )}
         </div>
       ))}
     </div>
