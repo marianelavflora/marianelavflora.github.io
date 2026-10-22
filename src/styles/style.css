@@ -15,6 +15,7 @@
   --kind-volunteering:#3ddc84;
   --kind-cert:#f5c518;
   --kind-education:#b388ff;
+  --kind-life:#ff7ac6;
   --radius:14px;
   --display:'Archivo Black', 'Arial Black', sans-serif;
   --body:'Space Grotesk', 'Segoe UI', sans-serif;
@@ -309,6 +310,7 @@ a{color:inherit;text-decoration:none;}
 .jr-volunteering,.jr-chip.jr-volunteering{--kind:var(--kind-volunteering);}
 .jr-cert,.jr-chip.jr-cert{--kind:var(--kind-cert);}
 .jr-education,.jr-chip.jr-education{--kind:var(--kind-education);}
+.jr-life,.jr-chip.jr-life{--kind:var(--kind-life);}
 
 .jr-filters{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:-12px 0 22px;}
 .jr-filters-label{color:var(--muted);font-weight:700;font-size:0.8rem;letter-spacing:1px;text-transform:uppercase;margin-right:4px;}
@@ -346,7 +348,7 @@ a{color:inherit;text-decoration:none;}
   content:'';position:absolute;top:0;bottom:0;left:var(--jr-main);width:2px;
   background:var(--dark-border);
 }
-.jr-item{display:grid;grid-template-columns:104px 1fr;gap:76px;padding-bottom:14px;position:relative;}
+.jr-item{display:grid;grid-template-columns:104px 1fr;gap:96px;padding-bottom:14px;position:relative;}
 .jr-item[hidden],.jr-year-group[hidden]{display:none;}
 .jr-item::before{
   content:'';position:absolute;left:calc(var(--jr-main) - 7px);top:4px;
@@ -379,6 +381,10 @@ a.jr-mini:hover{transform:translateY(-2px);border-color:var(--kind);}
 .jr-kind{color:var(--kind);font-size:0.66rem;font-weight:800;letter-spacing:1px;text-transform:uppercase;}
 .jr-text strong{font-size:0.98rem;}
 .jr-sub{color:var(--muted);font-size:0.84rem;}
+/* life milestones: a real photo instead of a logo */
+.jr-life .jr-photo{width:96px;height:72px;background:var(--dark-border);}
+.jr-life .jr-photo img{object-fit:cover;}
+.jr-link{color:var(--kind);font-size:0.8rem;font-weight:700;margin-top:2px;}
 .jr-now{
   display:inline-block;margin-left:8px;vertical-align:2px;
   background:var(--kind);color:var(--ink);border-radius:999px;
@@ -386,7 +392,7 @@ a.jr-mini:hover{transform:translateY(-2px);border-color:var(--kind);}
 }
 
 /* the work and volunteering lanes, left of the main line */
-#journey{--jr-job:116px;--jr-volunteering:134px;--jr-main:160px;}
+#journey{--jr-job:116px;--jr-volunteering:134px;--jr-main:180px;}
 .jr-lanes{position:absolute;inset:0;pointer-events:none;}
 .jr-lane{position:absolute;top:0;bottom:0;width:3px;border-radius:2px;background:var(--kind);}
 .jr-lane-job{--kind:var(--kind-job);left:var(--jr-job);}
@@ -398,11 +404,14 @@ a.jr-mini:hover{transform:translateY(-2px);border-color:var(--kind);}
   width:11px;height:11px;border-radius:50%;background:var(--kind);border:2px solid var(--dark);
 }
 .jr-pill{
-  position:absolute;left:50%;top:22px;transform:translateX(-50%);z-index:1;
+  position:absolute;top:3px;z-index:1;
   writing-mode:vertical-rl;white-space:nowrap;
-  background:var(--kind);color:var(--ink);border-radius:999px;padding:6px 1px;
-  font-size:0.6rem;font-weight:800;letter-spacing:0.5px;
+  background:var(--kind);color:var(--ink);border-radius:999px;padding:7px 2px;
+  font-size:0.64rem;font-weight:800;letter-spacing:0.5px;
 }
+/* the pill sits off to the side, just left of the main line's dot */
+.jr-lane-job .jr-pill{left:calc(var(--jr-main) - var(--jr-job) - 26px);}
+.jr-lane-volunteering .jr-pill{left:calc(var(--jr-main) - var(--jr-volunteering) - 26px);}
 .jr-lane-labels{position:relative;height:96px;margin-top:6px;}
 .jr-lane-labels span{
   position:absolute;bottom:0;transform:translateX(-50%) rotate(180deg);writing-mode:vertical-rl;

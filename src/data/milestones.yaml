@@ -1,0 +1,41 @@
+# Life milestones, shown on the 03 Journey timeline at their `date`.
+#   date   YYYY-MM, or just YYYY when the month doesn't matter
+#   image  a photo (cover-cropped), or `icon` for a logo (shown whole)
+#   link   optional { label, url }; makes the whole row clickable
+
+- id: x-content
+  title: { en: Started posting tech content on X, es: Empecé a subir contenido tech en X }
+  text:
+    en: Sharing what I learn, build and break along the way.
+    es: Comparto lo que aprendo, construyo y rompo en el camino.
+  icon: /assets/img/logos/x.svg
+  alt: X logo
+  date: 2025-05
+  link: { label: "@mavifloraa", url: "https://x.com/mavifloraa" }
+
+- id: move
+  title: { en: The Move to Córdoba, es: La Mudanza a Córdoba }
+  text:
+    en: Moved to Córdoba to study Computer Engineering. A small-town girl in a big city where I knew no one, at 18.
+    es: Me mudé a Córdoba para estudiar Ingeniería en Computación. De un pueblo chico a una ciudad grande donde no conocía a nadie, a los 18.
+  image: /assets/img/life/cordoba.webp
+  alt: Córdoba Cathedral with an AMO CBA sign
+  date: 2021
+
+- id: baby
+  title: { en: Baby Engineer Era, es: Era de Bebé Ingeniera }
+  text:
+    en: I wasn't born in front of a computer, but I was pretty close. Here with my brother.
+    es: No nací frente a una compu, pero estuve cerca. Acá con mi hermano.
+  image: /assets/img/life/baby-me.jpg
+  alt: Baby MaVi with her brother at the computer, 2003
+  date: 2003
+
+- id: born
+  title: { en: "Born in Villa Ángela, Chaco", es: "Nací en Villa Ángela, Chaco" }
+  text:
+    en: A little city in the middle of nowhere (kinda literally). Where it all started.
+    es: Una ciudad chiquita en el medio de la nada (casi literal). Donde empezó todo.
+  image: /assets/img/life/villa-angela.jpg
+  alt: Villa Ángela, Chaco welcome sign
+  date: 2002
