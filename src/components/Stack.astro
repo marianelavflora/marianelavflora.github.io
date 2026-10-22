@@ -23,14 +23,6 @@ const chip = item => (typeof item === 'object' && 'label' in item ? item : { lab
               </li>
             ))}
           </ul>
-          {group.links.length > 0 && (
-            <p class="stack-links">
-              <span {...es(ui.stack.usedIn)}>{en(ui.stack.usedIn)}</span>
-              {group.links.map(link => link.href.startsWith('#')
-                ? <a href={link.href} {...es(link.label)}>{en(link.label)}</a>
-                : <a href={link.href} target="_blank" rel="noopener"><span {...es(link.label)}>{en(link.label)}</span> ↗</a>)}
-            </p>
-          )}
         </div>
       ))}
     </div>

@@ -124,9 +124,6 @@ const stack = defineCollection({
       text,
       z.object({ label: text, note: text.optional() }),
     ])),
-    // Where these were used: "#journey-<id>" jumps to a timeline entry,
-    // anything else opens in a new tab.
-    links: z.array(z.object({ label: text, href: z.string() })).default([]),
   }),
 });
 
