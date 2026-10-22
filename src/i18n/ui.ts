@@ -78,6 +78,15 @@ export const ui = {
     title: { en: 'A Little Bit of Me', es: 'Un Poquito de Mí' },
     hint: { en: 'The non-work version of the story 💛', es: 'La versión de la historia fuera del laburo 💛' },
   },
+  consent: {
+    text: {
+      en: '🍪 Can I use cookies to see how people use this site (clicks, scrolling, which sections get read)? It\'s anonymous and only used to improve the portfolio.',
+      es: '🍪 ¿Puedo usar cookies para ver cómo se usa el sitio (clicks, scroll, qué secciones se leen)? Es anónimo y solo lo uso para mejorar el portfolio.',
+    },
+    yes: { en: 'Accept', es: 'Aceptar' },
+    no: { en: 'No thanks', es: 'No, gracias' },
+    open: { en: 'Privacy choices', es: 'Privacidad' },
+  },
   footer: {
     quote: { en: 'Life\'s a climb,<br/>but the view is great.', es: 'La vida es una escalada,<br/>pero la vista es hermosa.' },
     built: { en: 'Built with way too much coffee.', es: 'Hecho con demasiado café.' },

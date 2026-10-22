@@ -1,0 +1,86 @@
+---
+import { en, es } from '../i18n';
+import { ui } from '../i18n/ui';
+import { CLARITY_PROJECT_ID } from '../analytics';
+---
+{CLARITY_PROJECT_ID && (
+  <div class="consent-banner" id="consent-banner" role="dialog" aria-live="polite" aria-labelledby="consent-text" hidden>
+    <p id="consent-text" {...es(ui.consent.text)} set:html={en(ui.consent.text)} />
+    <div class="consent-actions">
+      <button type="button" class="consent-btn consent-no" data-consent="no" {...es(ui.consent.no)}>{en(ui.consent.no)}</button>
+      <button type="button" class="consent-btn consent-yes" data-consent="yes" {...es(ui.consent.yes)}>{en(ui.consent.yes)}</button>
+    </div>
+  </div>
+)}
+
+<script>
+  import { CLARITY_PROJECT_ID } from '../analytics';
+
+  // Clarity sets cookies, so it only loads after the visitor says yes. The
+  // answer is remembered; the footer's "Privacy choices" link asks again.
+  const CONSENT_KEY = 'mavi-analytics';
+  const banner = document.getElementById('consent-banner');
+
+  const saved = () => { try { return localStorage.getItem(CONSENT_KEY); } catch { return null; } };
+  const save = v => { try { localStorage.setItem(CONSENT_KEY, v); } catch {} };
+
+  function loadClarity() {
+    if (window.clarity) return;
+    (function (c, l, a, r, i, t, y) {
+      c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
+      t = l.createElement(r); t.async = 1; t.src = 'https://www.clarity.ms/tag/' + i;
+      y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+    })(window, document, 'clarity', 'script', CLARITY_PROJECT_ID);
+    window.clarity('consentv2', { ad_Storage: 'denied', analytics_Storage: 'granted' });
+    trackSections();
+  }
+
+  // Custom events show up in Clarity's dashboard and can filter heatmaps and
+  // recordings. They're dropped silently when Clarity isn't loaded.
+  const track = name => window.clarity?.('event', name);
+
+  // One event per section the first time a visitor scrolls to it.
+  function trackSections() {
+    const seen = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        track(`section_${e.target.id}`);
+        seen.unobserve(e.target);
+      });
+    }, { rootMargin: '0px 0px -50% 0px' }); // counts once it reaches mid-screen, even if taller than the screen
+    document.querySelectorAll('section[id]').forEach(s => seen.observe(s));
+  }
+
+  if (CLARITY_PROJECT_ID) {
+    if (saved() === 'yes') loadClarity();
+    else if (!saved()) banner.hidden = false;
+
+    banner.querySelectorAll('[data-consent]').forEach(btn =>
+      btn.addEventListener('click', () => {
+        save(btn.dataset.consent);
+        banner.hidden = true;
+        if (btn.dataset.consent === 'yes') loadClarity();
+        // Clarity can't be unloaded mid-visit, so a "no" after a "yes"
+        // takes effect from the next page load.
+        else if (window.clarity) window.clarity('consentv2', { ad_Storage: 'denied', analytics_Storage: 'denied' });
+      }));
+
+    document.querySelectorAll('[data-consent-open]').forEach(btn =>
+      btn.addEventListener('click', () => { banner.hidden = false; }));
+
+    document.addEventListener('click', e => {
+      const el = e.target.closest('a, button');
+      if (!el) return;
+      if (el.matches('[data-cv-trigger]')) track('cv_open');
+      else if (el.matches('a[download]')) track('cv_download');
+      else if (el.matches('.lang-toggle [data-lang]')) track(`lang_${el.dataset.lang}`);
+      else if (el.matches('.jr-chip')) track(`journey_filter_${el.dataset.filter}`);
+      else if (el.matches('a[href^="http"]')) {
+        const host = new URL(el.href).hostname.replace(/^www\./, '');
+        if (host !== location.hostname) track(`outbound_${host}`);
+      }
+    });
+  } else {
+    document.querySelectorAll('[data-consent-open]').forEach(btn => { btn.hidden = true; });
+  }
+</script>
