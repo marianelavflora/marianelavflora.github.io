@@ -97,6 +97,21 @@ const education = defineCollection({
   }),
 });
 
+// Life milestones: a month, or just a year when the month doesn't matter.
+const milestones = defineCollection({
+  loader: yamlList('src/data/milestones.yaml'),
+  schema: z.object({
+    order,
+    title: text,
+    text,
+    date: z.coerce.string().regex(/^\d{4}(-\d{2})?$/, 'use YYYY-MM or YYYY, e.g. 2025-06 or 2021'),
+    image: z.string().optional(),
+    icon: z.string().optional(),
+    alt: z.string(),
+    link: link.optional(),
+  }),
+});
+
 const stack = defineCollection({
   loader: yamlList('src/data/stack.yaml'),
   schema: z.object({
@@ -121,4 +136,4 @@ const life = defineCollection({
   }),
 });
 
-export const collections = { projects, experience, certifications, education, stack, life };
+export const collections = { projects, experience, certifications, education, milestones, stack, life };
