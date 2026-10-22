@@ -2,8 +2,8 @@
 
 - id: languages
   icon: 💻
-  title: { en: Languages and Frameworks, es: Lenguajes y Frameworks }
-  items: [Python, C++, SQL, JavaScript, HTML & CSS, Godot]
+  title: { en: Development, es: Desarrollo }
+  items: [Selenium, Playwright, Postman, Python, C++, JavaScript, HTML & CSS, Java, SQL, MySQL, Godot]
 
 - id: qa
   icon: 🐞
