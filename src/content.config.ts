@@ -119,11 +119,10 @@ const stack = defineCollection({
     order,
     icon: z.string(),
     title: text,
-    // A chip is plain text, or { label, note, current } for a small note
-    // after the name or a "currently using" dot.
+    // A chip is plain text, or { label, note } for a small note after the name.
     items: z.array(z.union([
       text,
-      z.object({ label: text, note: text.optional(), current: z.boolean().optional() }),
+      z.object({ label: text, note: text.optional() }),
     ])),
     // Where these were used: "#journey-<id>" jumps to a timeline entry,
     // anything else opens in a new tab.

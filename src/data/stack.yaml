@@ -1,7 +1,6 @@
 # 03 — Stack & Toolbox. Groups and chips are shown in this order.
-# A chip is plain text (or { en, es }), or { label, note, current: true }:
-# note is small grey text after the name, current adds a green
-# "currently using" dot.
+# A chip is plain text (or { en, es }), or { label, note }: note is small
+# grey text after the name.
 # links: where the group was used; "#journey-<id>" jumps to that entry on the
 # timeline (the id from projects.yaml / experience.yaml), a URL opens a new tab.
 
@@ -63,8 +62,8 @@
   icon: ✨
   title: { en: AI tools, es: Herramientas de IA }
   items:
-    - { label: Claude, current: true }
-    - { label: Orca, note: { en: agent orchestration, es: orquestación de agentes }, current: true }
+    - Claude
+    - { label: Orca, note: { en: agent orchestration, es: orquestación de agentes } }
     - Codex
     - Cursor
     - Gemini

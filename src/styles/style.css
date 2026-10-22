@@ -458,12 +458,9 @@ a.jr-mini:hover{transform:translateY(-2px);border-color:var(--kind);}
   display:inline-flex;align-items:center;gap:6px;
 }
 .stack-chips small{font-size:0.75rem;color:var(--muted);}
-.stack-current-dot{width:7px;height:7px;border-radius:50%;background:#4ade80;display:inline-block;flex:none;}
-.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;}
 .stack-links{margin:16px 0 0;padding-top:14px;border-top:1px solid var(--dark-border);font-size:0.8rem;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;}
 .stack-links a{color:var(--accent-2);text-decoration:none;}
 .stack-links a:hover,.stack-links a:focus-visible{text-decoration:underline;}
-.stack-legend{margin:14px 0 0;font-size:0.75rem;color:var(--muted);display:flex;align-items:center;gap:6px;}
 
 /* ============ FOOTER ============ */
 .site-footer{background:var(--dark);padding:80px 0 34px;}
