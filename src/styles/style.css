@@ -36,11 +36,11 @@ body{
 img{max-width:100%;display:block;}
 a{color:inherit;text-decoration:none;}
 /* Text links (project cards, footer, timeline): underlined blue, purple once visited */
-.card-links a,.footer-socials a,.jr-link{
+.card-links a,.footer-socials a,.jr-link,.hero-photo-link{
   color:var(--link);text-decoration:underline;text-underline-offset:3px;
 }
-.card-links a:visited,.footer-socials a:visited,a.jr-mini:visited .jr-link{color:var(--link-visited);}
-.card-links a:hover,.footer-socials a:hover,a.jr-mini:hover .jr-link{text-decoration-thickness:2px;}
+.card-links a:visited,.footer-socials a:visited,.hero-photo-link:visited,a.jr-mini:visited .jr-link{color:var(--link-visited);}
+.card-links a:hover,.footer-socials a:hover,.hero-photo-link:hover,a.jr-mini:hover .jr-link{text-decoration-thickness:2px;}
 .wrap{max-width:1120px;margin:0 auto;padding:0 24px;}
 
 /* ============ HEADER ============ */
@@ -126,6 +126,7 @@ a{color:inherit;text-decoration:none;}
   margin-top:14px;font-size:0.85rem;font-weight:600;
   color:#4a4841;text-align:center;
 }
+.hero-photo-link{display:block;margin-top:4px;}
 @media (max-width:900px){
   .hero-inner{flex-direction:column-reverse;gap:36px;}
   .hero-photo{width:220px;}
