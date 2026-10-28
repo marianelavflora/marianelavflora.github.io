@@ -22,6 +22,9 @@ export const ui = {
     caption: { en: 'Here with Gaucho from Paisanos', es: 'Acá con Gaucho de Paisanos' },
     gauchoX: { en: 'Follow Gaucho on X!', es: '¡Seguí a Gaucho en X!' },
   },
+  music: {
+    label: { en: '🎵 While you browse', es: '🎵 Mientras navegás' },
+  },
   journey: {
     kicker: { en: '02 — the journey so far', es: '02 — el recorrido hasta ahora' },
     title: { en: 'Projects, Work &amp; Milestones', es: 'Proyectos, Laburo e Hitos' },

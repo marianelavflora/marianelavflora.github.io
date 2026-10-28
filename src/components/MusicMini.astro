@@ -1,0 +1,20 @@
+---
+// Small Spotify player that sits between the hero and 02 Journey.
+// To swap the music, paste another Spotify playlist id here
+// (the part after open.spotify.com/playlist/). Empty = the player is hidden.
+import { en, es } from '../i18n';
+import { ui } from '../i18n/ui';
+
+const spotifyPlaylist = '';
+---
+{spotifyPlaylist && (
+  <div class="music-mini">
+    <p class="music-mini-label" {...es(ui.music.label)}>{en(ui.music.label)}</p>
+    <iframe
+      src={`https://open.spotify.com/embed/playlist/${spotifyPlaylist}?utm_source=generator&theme=0`}
+      title="MaVi's playlist on Spotify"
+      height="80"
+      loading="lazy"
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+  </div>
+)}
