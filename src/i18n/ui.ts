@@ -5,6 +5,7 @@ import type { Text } from '.';
 export const ui = {
   nav: {
     journey: { en: 'Journey', es: 'Recorrido' },
+    featured: { en: 'Featured', es: 'Destacados' },
     stack: 'Stack',
     life: { en: 'Life', es: 'Vida' },
     cv: { en: 'View CV', es: 'Ver CV' },
@@ -62,6 +63,7 @@ export const ui = {
     hackathon: { en: 'Hackathon', es: 'Hackatón' },
     gamejam: 'GameJam',
     robot: 'Robot',
+    opensource: 'Open Source',
   },
   back: {
     product: { en: 'The product', es: 'El producto' },
@@ -70,12 +72,20 @@ export const ui = {
   },
   eventPhoto: { en: 'The event', es: 'El evento' },
 
+  featured: {
+    kicker: { en: '03 — the ones I\'m proudest of', es: '03 — de los que estoy más orgullosa' },
+    title: { en: 'Featured Projects', es: 'Proyectos Destacados' },
+    hint: {
+      en: 'Open source, hackathons, robots and games. They also show up on the timeline above.',
+      es: 'Open source, hackatones, robots y juegos. También aparecen en el recorrido de arriba.',
+    },
+  },
   stack: {
-    kicker: { en: '03 — what I work with', es: '03 — con qué laburo' },
+    kicker: { en: '04 — what I work with', es: '04 — con qué laburo' },
     title: { en: 'Stack &amp; Toolbox', es: 'Stack y herramientas' },
   },
   life: {
-    kicker: { en: '04 — some of my life', es: '04 — algo de mi vida' },
+    kicker: { en: '05 — some of my life', es: '05 — algo de mi vida' },
     title: { en: 'A Little Bit of Me', es: 'Un Poquito de Mí' },
     hint: { en: 'The non-work version of the story 💛', es: 'La versión de la historia fuera del laburo 💛' },
   },
