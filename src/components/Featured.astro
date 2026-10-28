@@ -1,0 +1,20 @@
+---
+// 03 — featured projects: the cards marked `featured` in projects.yaml, in
+// that order. They're the same cards as on the 02 Journey timeline.
+import { getCollection } from 'astro:content';
+import { ui } from '../i18n/ui';
+import SectionHeading from './SectionHeading.astro';
+import ProjectCard from './ProjectCard.astro';
+
+const featured = (await getCollection('projects'))
+  .filter(p => p.data.featured && !p.data.hidden)
+  .sort((a, b) => a.data.featured! - b.data.featured!);
+---
+<section id="featured" class="section dark-section featured-section" data-layout="grid">
+  <div class="wrap">
+    <SectionHeading kicker={ui.featured.kicker} title={ui.featured.title} hint={ui.featured.hint} />
+    <div class="featured-grid">
+      {featured.map(({ data }) => <ProjectCard project={data} />)}
+    </div>
+  </div>
+</section>

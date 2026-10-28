@@ -1,11 +1,14 @@
-# Projects & achievements: the cards on the 03 Journey timeline.
+# Projects & achievements: the cards on the 02 Journey timeline (and the ones
+# marked `featured` also in 03 Featured projects).
 # One entry per card. The page sorts them newest first by `date`, so the
 # order here doesn't matter (cards with the same month keep this order).
 #
 # Fields:
 #   date       YYYY-MM, shown as "Sep 2026" on the timeline
 #   hidden     true = keep the entry but don't show it yet
-#   type       hackathon | gamejam | robot (sets the tag colour)
+#   featured   optional position (1, 2, 3...) in 03 Featured projects; the card
+#              still shows on the timeline too
+#   type       hackathon | gamejam | robot | opensource (sets the tag colour)
 #   typeLabel  optional custom text for the type tag (e.g. "GameJam #2")
 #   status     optional second tag: kind is win | soon | org | wip
 #   tech       optional list of languages/frameworks used, shown as pills
@@ -40,24 +43,52 @@
       en: What we build will show up here soon 🚧
       es: Lo que construyamos va a aparecer acá pronto 🚧
 
+- id: unc-mcp
+  featured: 1
+  date: 2026-10
+  type: opensource
+  tech: [TypeScript, Node.js, MCP]
+  event:
+    emoji: 🎓
+    title: UNC-MCP
+    text:
+      en: "An open-source fork of utn-mcp by Joaquín Peñalva (the idea and most of the code are his): I added the UNC login and its faculties."
+      es: "Un fork open source de utn-mcp de Joaquín Peñalva (la idea y casi todo el código son suyos): le sumé el login de la UNC y sus facultades."
+    meta: { en: Open source · on npm as unc-mcp, es: Open source · en npm como unc-mcp }
+  product:
+    emoji: 🎓
+    title: UNC-MCP
+    text:
+      en: An unofficial MCP server that connects the UNC virtual classroom to your AI agent. It reads courses, forums and notes, and with your OK it posts in forums or hands in assignments.
+      es: Un servidor MCP no oficial que conecta el aula virtual de la UNC con tu agente de IA. Lee cursos, foros y apuntes y, con tu confirmación, publica en los foros o entrega tareas.
+    links:
+      - { label: GitHub ↗, url: "https://github.com/marianelavflora/unc-mcp" }
+      - { label: npm ↗, url: "https://www.npmjs.com/package/unc-mcp" }
+      - { label: utn-mcp ↗, url: "https://github.com/nialvape/utn-mcp" }
+
 - id: agents-on-rails
-  hidden: true
+  featured: 2
   date: 2026-10
   type: hackathon
-  status: { kind: wip, label: WIP }
+  status: { kind: wip, label: { en: In progress, es: En progreso } }
+  tech: [TypeScript, Next.js, Celo, Claude API]
   event:
     emoji: 🛤️
-    title: AgentsOnRails Hackathon
+    title: Agents on Open Rails
     text:
-      en: Currently participating in the AgentsOnRails hackathon. Stay tuned!
-      es: Estoy participando en la hackatón AgentsOnRails. ¡Atentos!
+      en: Building for the Agents on Open Rails hackathon (Loops House × Celo × Ripio) with Flor and Leila.
+      es: Construyendo para la hackatón Agents on Open Rails (Loops House × Celo × Ripio) con Flor y Leila.
     meta: { en: Work in progress, es: En progreso }
   product:
-    emoji: 🛤️
-    title: AgentsOnRails Hackathon
+    image: /assets/img/projects/pacta-logo.png
+    alt: Pactá logo
+    emoji: 🤝
+    title: Pactá
     text:
-      en: What we build will show up here soon 🚧
-      es: Lo que construyamos va a aparecer acá pronto 🚧
+      en: An AI agent that gets Latin American freelancers paid by milestones, across borders, without going through the US dollar. I work on the agent, wallet, blockchain, payments and FX.
+      es: Un agente de IA que les paga a freelancers de Latinoamérica por hitos, entre países, sin pasar por el dólar. Yo laburo en el agente, la wallet, blockchain, pagos y FX.
+    links:
+      - { label: GitHub ↗, url: "https://github.com/marianelavflora/pacta" }
 
 - id: robot-el-cono
   date: 2026-09
@@ -79,6 +110,7 @@
       es: "Un robot que estoy armando con una ESP32, basado en Dou. Su laburo: vivir en la oficina y tirarle chistes a mis compañeros."
 
 - id: dou
+  featured: 3
   date: 2026-09
   type: hackathon
   status:
@@ -103,6 +135,7 @@
       - { label: LinkedIn ↗, url: "https://www.linkedin.com/feed/update/urn:li:activity:7502774141113053184/" }
 
 - id: chubby-ninjas
+  featured: 4
   date: 2026-08
   type: gamejam
   typeLabel: "GameJam #2"
