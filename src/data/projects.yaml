@@ -10,7 +10,7 @@
 #              still shows on the timeline too
 #   type       hackathon | gamejam | robot | opensource (sets the tag colour)
 #   typeLabel  optional custom text for the type tag (e.g. "GameJam #2")
-#   status     optional second tag: kind is win | soon | org | wip
+#   status     optional second tag: kind is win | soon | org | wip | live
 #   tech       optional list of languages/frameworks used, shown as pills
 #   event      the event: title, text, meta, and its photo (image + alt) or an emoji
 #   product    what came out of it: label is product | role | outcome, plus
@@ -68,26 +68,27 @@
 
 - id: agents-on-rails
   featured: 2
-  date: 2026-10
+  date: 2026-11
   type: hackathon
-  status: { kind: wip, label: { en: In progress, es: En progreso } }
-  tech: [TypeScript, Next.js, Celo, Claude API]
+  status: { kind: live, label: { en: Live on Celo mainnet, es: Andando en Celo mainnet } }
+  tech: [Celo, Ripio wFIAT, Textile, ERC-8004, Gemini, Telegram, Next.js, Supabase]
   event:
     emoji: 🛤️
     title: Agents on Open Rails
     text:
-      en: Building for the Agents on Open Rails hackathon (Loops House × Celo × Ripio) with Eng. Leila Spini, Eng. Flor Gonzales and Claudia Rivero.
-      es: Construyendo para la hackatón Agents on Open Rails (Loops House × Celo × Ripio) con la Ing. Leila Spini, la Ing. Flor Gonzales y Claudia Rivero.
-    meta: { en: Work in progress, es: En progreso }
+      en: "Hackathon by Loops House × Celo × Ripio, in the LatAm (Ripio) and Textile FX tracks. I built the AI agent and the blockchain side, Eng. Flor Gonzales did the frontend, and Eng. Leila Spini and Claudia Rivero took care of users and the pitch."
+      es: "Hackatón de Loops House × Celo × Ripio, en los tracks LatAm (Ripio) y Textile FX. Yo hice el agente de IA y la parte de blockchain, la Ing. Flor Gonzales el frontend, y la Ing. Leila Spini y Claudia Rivero se encargaron de los usuarios y el pitch."
+    meta: { en: "Tracks: LatAm (Ripio) · Textile FX", es: "Tracks: LatAm (Ripio) · Textile FX" }
   product:
     image: /assets/img/projects/pacta-logo.png
     alt: Pactá logo
     emoji: 🤝
     title: Pactá
     text:
-      en: An AI agent that gets Latin American freelancers paid by milestones, across borders, without going through the US dollar. I work on the agent, wallet, blockchain, payments and FX.
-      es: Un agente de IA que les paga a freelancers de Latinoamérica por hitos, entre países, sin pasar por el dólar. Yo laburo en el agente, la wallet, blockchain, pagos y FX.
+      en: "An AI agent that gets Latin American freelancers paid by milestones, across borders, without ever going through the US dollar. The freelancer describes the job in her own words and the agent turns it into milestones; the client deposits everything upfront in their Ripio stablecoin (wARS, wBRL, wMXN); on each approved delivery the agent quotes on Textile, converts onchain and pays her in her currency, with a receipt. If the client goes quiet, it reminds them on day 3 and releases the payment on day 6. It runs on Celo mainnet: a full cross-currency payment (3,000 wARS → 10.05 wBRL through Textile) and its own ERC-8004 identity (agentId 10058)."
+      es: "Un agente de IA para que freelancers latinoamericanos cobren por hitos y entre países, sin pasar nunca por el dólar. La freelancer le cuenta el trabajo con sus palabras y el agente lo arma en hitos; el cliente deposita todo por adelantado en su stablecoin de Ripio (wARS, wBRL, wMXN); con cada entrega aprobada el agente cotiza en Textile, convierte onchain y le paga en su moneda, con recibo. Si el cliente no responde, a los 3 días le recuerda y a los 6 libera el pago solo. Anda en Celo mainnet: un pago entre monedas completo (3.000 wARS → 10,05 wBRL por Textile) y su propia identidad ERC-8004 (agentId 10058)."
     links:
+      - { label: App ↗, url: "https://pacta-dun.vercel.app" }
       - { label: GitHub ↗, url: "https://github.com/marianelavflora/pacta" }
 
 - id: robot-el-cono
