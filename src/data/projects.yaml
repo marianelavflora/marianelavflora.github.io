@@ -52,19 +52,20 @@
     emoji: 🎓
     title: UNC-MCP
     text:
-      en: "An open-source fork of utn-mcp by Joaquín Peñalva (the idea and most of the code are his): I added the UNC login and its faculties."
-      es: "Un fork open source de utn-mcp de Joaquín Peñalva (la idea y casi todo el código son suyos): le sumé el login de la UNC y sus facultades."
+      en: "An open-source contribution to UTN MCP by Joaquín Peñalva (the idea and most of the code are his): I added support for every faculty of the UNC (Universidad Nacional de Córdoba)."
+      es: "Una contribución open source a UTN MCP de Joaquín Peñalva (la idea y casi todo el código son suyos): le sumé soporte para todas las facultades de la UNC."
     meta: { en: Open source · on npm as unc-mcp, es: Open source · en npm como unc-mcp }
   product:
     emoji: 🎓
     title: UNC-MCP
     text:
-      en: An unofficial MCP server that connects the UNC virtual classroom to your AI agent. It reads courses, forums and notes, and with your OK it posts in forums or hands in assignments.
-      es: Un servidor MCP no oficial que conecta el aula virtual de la UNC con tu agente de IA. Lee cursos, foros y apuntes y, con tu confirmación, publica en los foros o entrega tareas.
+      en: An unofficial MCP server that connects the university's virtual classroom to your AI agent. It reads courses, forums and notes, and with your OK it posts in forums or hands in assignments.
+      es: Un servidor MCP no oficial que conecta el aula virtual de la facu con tu agente de IA. Lee cursos, foros y apuntes y, con tu confirmación, publica en los foros o entrega tareas.
     links:
+      - { label: utnmcp.com.ar ↗, url: "https://utnmcp.com.ar/" }
       - { label: GitHub ↗, url: "https://github.com/marianelavflora/unc-mcp" }
       - { label: npm ↗, url: "https://www.npmjs.com/package/unc-mcp" }
-      - { label: utn-mcp ↗, url: "https://github.com/nialvape/utn-mcp" }
+      - { label: Post ↗, url: "https://x.com/mavifloraa/status/2114270347466002498" }
 
 - id: agents-on-rails
   featured: 2
