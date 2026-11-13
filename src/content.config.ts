@@ -28,10 +28,11 @@ const projects = defineCollection({
     order,
     date: month,
     hidden: z.boolean().default(false),
-    type: z.enum(['hackathon', 'gamejam', 'robot']),
+    featured: z.number().int().positive().optional(),
+    type: z.enum(['hackathon', 'gamejam', 'robot', 'opensource']),
     typeLabel: z.string().optional(),
     status: z
-      .object({ kind: z.enum(['win', 'soon', 'org', 'wip']), label: text })
+      .object({ kind: z.enum(['win', 'soon', 'org', 'wip', 'live']), label: text })
       .optional(),
     tech: z.array(text).default([]),
     event: z.object({

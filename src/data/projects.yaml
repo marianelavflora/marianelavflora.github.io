@@ -1,13 +1,16 @@
-# Projects & achievements: the cards on the 03 Journey timeline.
+# Projects & achievements: the cards on the 02 Journey timeline (and the ones
+# marked `featured` also in 03 Featured projects).
 # One entry per card. The page sorts them newest first by `date`, so the
 # order here doesn't matter (cards with the same month keep this order).
 #
 # Fields:
 #   date       YYYY-MM, shown as "Sep 2026" on the timeline
 #   hidden     true = keep the entry but don't show it yet
-#   type       hackathon | gamejam | robot (sets the tag colour)
+#   featured   optional position (1, 2, 3...) in 03 Featured projects; the card
+#              still shows on the timeline too
+#   type       hackathon | gamejam | robot | opensource (sets the tag colour)
 #   typeLabel  optional custom text for the type tag (e.g. "GameJam #2")
-#   status     optional second tag: kind is win | soon | org | wip
+#   status     optional second tag: kind is win | soon | org | wip | live
 #   tech       optional list of languages/frameworks used, shown as pills
 #   event      the event: title, text, meta, and its photo (image + alt) or an emoji
 #   product    what came out of it: label is product | role | outcome, plus
@@ -40,24 +43,54 @@
       en: What we build will show up here soon 🚧
       es: Lo que construyamos va a aparecer acá pronto 🚧
 
-- id: agents-on-rails
-  hidden: true
+- id: unc-mcp
+  featured: 1
   date: 2026-10
+  type: opensource
+  tech: [TypeScript, Node.js, MCP]
+  event:
+    emoji: 🎓
+    title: UNC-MCP
+    text:
+      en: "An open-source contribution to UTN MCP by Joaquín Peñalva (the idea and most of the code are his): I added support for every faculty of the UNC (Universidad Nacional de Córdoba)."
+      es: "Una contribución open source a UTN MCP de Joaquín Peñalva (la idea y casi todo el código son suyos): le sumé soporte para todas las facultades de la UNC."
+    meta: { en: Open source · on npm as unc-mcp, es: Open source · en npm como unc-mcp }
+  product:
+    emoji: 🎓
+    title: UNC-MCP
+    text:
+      en: An unofficial MCP server that connects the university's virtual classroom to your AI agent. It reads courses, forums and notes, and with your OK it posts in forums or hands in assignments.
+      es: Un servidor MCP no oficial que conecta el aula virtual de la facu con tu agente de IA. Lee cursos, foros y apuntes y, con tu confirmación, publica en los foros o entrega tareas.
+    links:
+      - { label: utnmcp.com.ar ↗, url: "https://utnmcp.com.ar/" }
+      - { label: GitHub ↗, url: "https://github.com/marianelavflora/unc-mcp" }
+      - { label: npm ↗, url: "https://www.npmjs.com/package/unc-mcp" }
+      - { label: Post ↗, url: "https://x.com/mavifloraa/status/2114270347466002498" }
+
+- id: agents-on-rails
+  featured: 2
+  date: 2026-11
   type: hackathon
-  status: { kind: wip, label: WIP }
+  status: { kind: live, label: { en: Live on Celo mainnet, es: Andando en Celo mainnet } }
+  tech: [Celo, Ripio wFIAT, Textile, ERC-8004, Gemini, Telegram, Next.js, Supabase]
   event:
     emoji: 🛤️
-    title: AgentsOnRails Hackathon
+    title: Agents on Open Rails
     text:
-      en: Currently participating in the AgentsOnRails hackathon. Stay tuned!
-      es: Estoy participando en la hackatón AgentsOnRails. ¡Atentos!
-    meta: { en: Work in progress, es: En progreso }
+      en: "Hackathon by Loops House × Celo × Ripio, in the LatAm (Ripio) and Textile FX tracks. I built the AI agent and the blockchain side, Eng. Flor Gonzales did the frontend, and Eng. Leila Spini and Claudia Rivero took care of users and the pitch."
+      es: "Hackatón de Loops House × Celo × Ripio, en los tracks LatAm (Ripio) y Textile FX. Yo hice el agente de IA y la parte de blockchain, la Ing. Flor Gonzales el frontend, y la Ing. Leila Spini y Claudia Rivero se encargaron de los usuarios y el pitch."
+    meta: { en: "Tracks: LatAm (Ripio) · Textile FX", es: "Tracks: LatAm (Ripio) · Textile FX" }
   product:
-    emoji: 🛤️
-    title: AgentsOnRails Hackathon
+    image: /assets/img/projects/pacta-logo.png
+    alt: Pactá logo
+    emoji: 🤝
+    title: Pactá
     text:
-      en: What we build will show up here soon 🚧
-      es: Lo que construyamos va a aparecer acá pronto 🚧
+      en: "An AI agent that gets Latin American freelancers paid by milestones, across borders, without ever going through the US dollar. The freelancer describes the job in her own words and the agent turns it into milestones; the client deposits everything upfront in their Ripio stablecoin (wARS, wBRL, wMXN); on each approved delivery the agent quotes on Textile, converts onchain and pays her in her currency, with a receipt. If the client goes quiet, it reminds them on day 3 and releases the payment on day 6. It runs on Celo mainnet: a full cross-currency payment (3,000 wARS → 10.05 wBRL through Textile) and its own ERC-8004 identity (agentId 10058)."
+      es: "Un agente de IA para que freelancers latinoamericanos cobren por hitos y entre países, sin pasar nunca por el dólar. La freelancer le cuenta el trabajo con sus palabras y el agente lo arma en hitos; el cliente deposita todo por adelantado en su stablecoin de Ripio (wARS, wBRL, wMXN); con cada entrega aprobada el agente cotiza en Textile, convierte onchain y le paga en su moneda, con recibo. Si el cliente no responde, a los 3 días le recuerda y a los 6 libera el pago solo. Anda en Celo mainnet: un pago entre monedas completo (3.000 wARS → 10,05 wBRL por Textile) y su propia identidad ERC-8004 (agentId 10058)."
+    links:
+      - { label: App ↗, url: "https://pacta-dun.vercel.app" }
+      - { label: GitHub ↗, url: "https://github.com/marianelavflora/pacta" }
 
 - id: robot-el-cono
   date: 2026-09
@@ -79,6 +112,7 @@
       es: "Un robot que estoy armando con una ESP32, basado en Dou. Su laburo: vivir en la oficina y tirarle chistes a mis compañeros."
 
 - id: dou
+  featured: 3
   date: 2026-09
   type: hackathon
   status:
@@ -103,6 +137,7 @@
       - { label: LinkedIn ↗, url: "https://www.linkedin.com/feed/update/urn:li:activity:7502774141113053184/" }
 
 - id: chubby-ninjas
+  featured: 4
   date: 2026-08
   type: gamejam
   typeLabel: "GameJam #2"
